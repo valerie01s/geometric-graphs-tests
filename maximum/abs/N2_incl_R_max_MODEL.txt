@@ -1,0 +1,91 @@
+Reduced problem written to N2_incl_R_man.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+uw = 4
+vw = 1
+uv = 3
+d_5 = 0
+d_9 = 0
+d_10 = 0
+d_1 = 1
+d_2 = 0
+d_3 = 1
+d_7 = (- 1)
+d_4 = (- 2)
+d_12 = (- 2)
+d_6 = (- 2)
+d_11 = 2
+d_8 = 1
+v = 2
+u = 1
+w = 0
+X(_0) = (- 1)
+E(_1, _2) = 0
+amnt(_1) = 1
+Y(_0) = 0
+amnt(_(- 2)) = 2
+Y(_1) = (- 2)
+X(_2) = 0
+X(_1) = 1
+V(_0) = 1
+Y(_2) = 0
+amnt(_0) = 0
+amnt(_2) = 2
+
+H-PILoT spent                0.032975s on the problem.
+The prover needed            0.005607s for the problem.
+Total running time:          0.038582s.
+[vsimon@pcagsofronie ~]$ hpilot -model N2_incl_R_max.loc
+Reduced problem written to N2_incl_R_max.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+uw = 5
+vw = 6
+uv = 6
+d_12 = 0
+d_1 = (- 6)
+d_2 = 0
+d_3 = (- 6)
+d_4 = 6
+d_11 = 2
+d_14 = 6
+d_9 = (- 2)
+d_5 = (- 5)
+d_17 = (- 5)
+d_6 = (- 6)
+d_13 = (- 6)
+d_18 = 5
+d_7 = 1
+d_10 = 2
+d_15 = (- 4)
+d_16 = 4
+d_8 = 1
+v = (- 2)
+u = 0
+w = (- 1)
+amnt(_1) = 1
+amnt(_(- 6)) = 6
+amnt(_(- 5)) = 5
+Y(_0) = (- 5)
+V(_(- 1)) = 1
+max(_6, _1) = 6
+Y(_(- 2)) = (- 6)
+amnt(_2) = 2
+max(_4, _5) = 5
+amnt(_(- 4)) = 4
+X(_(- 1)) = (- 2)
+max(_2, _6) = 6
+Y(_(- 1)) = 0
+X(_0) = (- 6)
+E(_0, _(- 2)) = 0
+X(_(- 2)) = 0
+
+H-PILoT spent                0.034598s on the problem.
+The prover needed            0.005922s for the problem.
+Total running time:          0.04052 s.

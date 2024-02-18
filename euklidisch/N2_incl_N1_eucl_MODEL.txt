@@ -1,0 +1,49 @@
+Reduced problem written to N2_incl_N1_eucl.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+d_18 = 1
+d_14 = 0
+d_5 = 0
+d_1 = 3
+v = 2
+d_16 = 9
+d_12 = 9
+d_21 = 1
+u = 1
+d_2 = 1
+vw = 1
+d_19 = 0
+d_4 = 4
+d_8 = 0
+d_7 = 0
+uw = 3
+d_11 = 3
+d_17 = 1
+d_6 = 0
+d_10 = 0
+d_15 = 0
+d_13 = 0
+w = 0
+d_20 = 0
+d_3 = 2
+d_9 = 4
+uv = 2
+sqrt(_1, _1) = 1
+sqrt(_3, _9) = 1
+sqrt(_2, _4) = 1
+Y(_0) = 0
+E(_2, _1) = 0
+V(_0) = 1
+X(_1) = 3
+Y(_2) = 0
+Y(_1) = 0
+X(_0) = 0
+X(_2) = 1
+E(_1, _2) = 0
+
+H-PILoT spent                0.029556s on the problem.
+The prover needed            0.31885 s for the problem.
+Total running time:          0.348406s.

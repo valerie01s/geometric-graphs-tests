@@ -1,0 +1,24 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(amnt, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+Clauses :=
+
+% Axiome für den Betrag einer Zahl
+(FORALL x).	--> amnt(x) >= _0;
+(FORALL x).	x >= _0 --> amnt(x) = x;
+(FORALL x).	x < _0 --> amnt(x) = _0 - x;
+
+Query :=
+
+u = _3;
+
+% sat
+%amnt(u) = _3;
+
+% unsat
+%amnt(u) = _0;
+
+% sat (model: v = (- 1), amnt(_(- 1)) = 1)
+amnt(v) > _0;
+v < _0;

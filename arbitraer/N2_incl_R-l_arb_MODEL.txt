@@ -1,0 +1,24 @@
+Reduced problem written to N2_incl_R-l_arb.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+u = 0
+v = 2
+w = 1
+d(_1, _2) = 1
+d(_1, _0) = 2
+d(_2, _0) = 2
+d(_1, _1) = 0
+d(_2, _2) = 0
+d(_0, _0) = 0
+E(_0, _2) = 0
+V(_1) = 1
+d(_0, _2) = 2
+d(_2, _1) = 1
+d(_0, _1) = 2
+
+H-PILoT spent                0.267125s on the problem.
+The prover needed            0.005523s for the problem.
+Total running time:          0.272648s.

@@ -1,0 +1,24 @@
+N2_incl_N1-r_max.loc	(sqrt)	unsat	Z3	~ 0,051478 s
+					REDLOG	~ 0,087688 s
+N2_incl_N1-r_max2.loc	(amnt)	unsat	Z3	~ 0,047662 s
+					REDLOG	~ 0,083799 s
+
+G-r_incl_R-r_max.loc	(sqrt)	?	Z3	600 s (timeout)
+				true	REDLOG	~ 0,653283 s
+G-r_incl_R-r_max2.loc	(amnt)	sat	Z3	~ 0,146184 s
+				?	REDLOG	292,246 s (no result)
+
+R_incl_G-r_max.loc	(sqrt)	?	Z3	600 s (timeout)
+				false	REDLOG	~ 7,472011 s		
+R_incl_G-r_max2.loc	(amnt)	unsat	Z3	~ 0,154309 s
+				false	REDLOG	~ 249,9327 s
+
+Schlussfolgerung:
+Z3 kann besser mit der Erweiterungsfunktion für den Betrag arbeiten, während
+REDLOG sich hier schwertut und die Implementierung der Wurzelfunktion leichter
+verarbeiten kann.
+Meine gestern angeführte These, dass die unterschiedlichen Zeiten von Unter-
+schieden in der Erfüllbarkeit herrühren, hat sich als falsch erwiesen. Dies 
+rührte daher dass ich für N2_incl_N1_max.loc zunächst nur mit Z3 gearbeitet
+hatte, für G-r_incl_R-r_max.loc allerdings mit REDLOG, daher kam ich zu irre-
+führenden Schlussfolgerungen. 

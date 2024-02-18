@@ -1,0 +1,65 @@
+Reduced problem written to R-r_incl_G-r_max.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+um = 2
+mw = 2
+uw = 2
+vw = 4
+uv = 4
+d_22 = (- 1)
+d_5 = (- 2)
+d_25 = 1
+d_24 = 1
+d_12 = 0
+d_1 = 0
+d_2 = (- 4)
+d_3 = 4
+d_4 = 4
+d_19 = (- 2)
+d_9 = 0
+d_20 = (- 2)
+d_11 = 4
+d_14 = 0
+d_17 = (- 2)
+d_6 = 0
+d_13 = 0
+d_21 = 2
+d_18 = 2
+d_7 = (- 2)
+d_10 = (- 4)
+d_15 = 0
+d_23 = (- 1)
+d_26 = 1
+d_16 = 0
+d_8 = 2
+v = 0
+m = (- 1)
+u = 2
+w = 1
+V(_1) = 1
+E(_2, _0) = 1
+Y(_2) = (- 2)
+X(_2) = 0
+X(_1) = 0
+max(_2, _1) = 2
+X(_0) = (- 4)
+amnt(_1) = 1
+amnt(_(- 2)) = 2
+amnt(_0) = 0
+max(_0, _2) = 2
+Y(_0) = 0
+max(_4, _0) = 4
+amnt(_(- 1)) = 1
+Y(_1) = 0
+max(_4, _2) = 4
+amnt(_4) = 4
+amnt(_(- 4)) = 4
+X(_(- 1)) = (- 2)
+Y(_(- 1)) = (- 1)
+
+H-PILoT spent                0.127493s on the problem.
+The prover needed            0.008484s for the problem.
+Total running time:          0.135977s.

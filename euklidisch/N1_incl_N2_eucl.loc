@@ -1,0 +1,109 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (sqrt, 2, 1), (X, 1, 1), (Y, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt N1 in N2? Metrik: euklidisch, Instanzierung Pi_N2
+% E(u,v) <-> Pi_N1(u,v) und NOT(E(u,v) <-> Pi_N2(u,v)) ist unerfüllbar
+% Problematik: N1 hat gerichtete Kanten
+% liefert unsat
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten 
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(y)=_1;
+
+% Axiome für Wurzel (x*x = y)
+(FORALL x,y).	sqrt(x,y)=_1 --> x*x=y;
+(FORALL x,y).	x*x=y, x>=_0 -->  sqrt(x,y)=_1;
+(FORALL x,y).	sqrt(x,y)=_1 --> x>=_0;
+(FORALL x,y).	x<_0 --> sqrt(x,y)=_0;
+(FORALL x,y).	--> sqrt(x,y)=_0, sqrt(x,y)=_1;
+
+% Punkte sind gleich wenn ihre Koordinaten gleich sind
+(FORALL x,y). 	x=y --> X(x)=X(y);
+(FORALL x,y). 	x=y --> Y(x)=Y(y);
+(FORALL x,y).	X(x)=X(y), Y(x)=Y(y) --> x=y;
+
+Query :=
+
+% Instanzierung E(u,v) -> Pi_N1(u,v) und E(v,u), E(w,u), E(u,w), E(w,v), E(v,w)
+OR(E(u,v)=_0, V(w)=_0, uw >= uv);
+OR(E(v,u)=_0, V(w)=_0, vw >= uv);
+OR(E(u,w)=_0, V(v)=_0, uv >= uw);
+OR(E(w,u)=_0, V(v)=_0, vw >= uw);
+OR(E(v,w)=_0, V(u)=_0, uv >= vw);
+OR(E(w,v)=_0, V(u)=_0, uw >= vw);
+
+% Instanzierung Pi_N1(u,v) -> E(u,v) und E(v,u), E(w,u), E(u,w), E(w,v), E(v,w)
+OR(V(w)=_1, E(u,v)=_1);
+OR(uw < uv, E(u,v)=_1);
+OR(V(w)=_1, E(v,u)=_1);
+OR(vw < uv, E(v,u)=_1);
+
+OR(V(v)=_1, E(u,w)=_1);
+OR(uv < uw, E(u,w)=_1);
+OR(V(v)=_1, E(w,u)=_1);
+OR(vw < uw, E(w,u)=_1);
+
+OR(V(u)=_1, E(w,v)=_1);
+OR(uw < vw, E(w,v)=_1);
+OR(V(u)=_1, E(v,w)=_1);
+OR(uv < vw, E(v,w)=_1);
+
+% NOT(E(u,v) <-> Pi_N2(u,v))
+% heißt (E(u,v)=1 oder Pi_N2(u,v)) und (E(u,v)=0 oder NOT(Pi_N2(u,v))) 
+% wichtig: auch für E(v,u) da Kante symmetrisch
+OR(E(u,v)=_1, V(w)=_0, uw >= uv);
+OR(E(u,v)=_1, V(w)=_0, vw >= uv);
+OR(E(u,v)=_0, V(w)=_1);
+OR(E(u,v)=_0, uw < uv, vw < uv);
+OR(E(v,u)=_1, V(w)=_0, uw >= uv);
+OR(E(v,u)=_1, V(w)=_0, vw >= uv);
+OR(E(v,u)=_0, V(w)=_1);
+OR(E(v,u)=_0, uw < uv, vw < uv);
+
+% für E(u,w)
+OR(E(u,w)=_1, V(v)=_0, uv >= uw);
+OR(E(u,w)=_1, V(v)=_0, vw >= uw);
+OR(E(u,w)=_0, V(v)=_1);
+OR(E(u,w)=_0, uv < uw, vw < uw);
+OR(E(w,u)=_1, V(v)=_0, uv >= uw);
+OR(E(w,u)=_1, V(v)=_0, vw >= uw);
+OR(E(w,u)=_0, V(v)=_1);
+OR(E(w,u)=_0, uv < uw, vw < uw);
+
+% für E(v,w)
+OR(E(v,w)=_1, V(u)=_0, uv >= vw);
+OR(E(v,w)=_1, V(u)=_0, vw >= vw);
+OR(E(v,w)=_0, V(u)=_1);
+OR(E(v,w)=_0, uv < vw, uw < vw);
+OR(E(w,v)=_1, V(u)=_0, uv >= vw);
+OR(E(w,v)=_1, V(u)=_0, uw >= vw);
+OR(E(w,v)=_0, V(u)=_1);
+OR(E(w,v)=_0, uv < vw, uw < vw);
+
+
+% Repräsentation Symmetrie der Kante für Pi_N2
+OR(E(u,v)=_0, E(v,u)=_1);
+OR(E(v,u)=_0, E(u,v)=_1);
+
+OR(E(u,w)=_0, E(w,u)=_1);
+OR(E(w,u)=_0, E(u,w)=_1);
+
+OR(E(w,v)=_0, E(v,w)=_1);
+OR(E(v,w)=_0, E(w,v)=_1);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+
+% Distanzen eucl
+sqrt(uv, ((X(u)-X(v))*(X(u)-X(v))) + ((Y(u)-Y(v))*(Y(u)-Y(v))))=_1;
+sqrt(uw, ((X(u)-X(w))*(X(u)-X(w))) + ((Y(u)-Y(w))*(Y(u)-Y(w))))=_1;
+sqrt(vw, ((X(v)-X(w))*(X(v)-X(w))) + ((Y(v)-Y(w))*(Y(v)-Y(w))))=_1;

@@ -1,0 +1,72 @@
+Reduced problem written to G-r_incl_R-r_max2.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+mu = 10
+mw = 11
+uw = 17
+vw = 7
+uv = 20
+d_22 = 10
+d_5 = 20
+d_27 = (- 10)
+d_24 = 3
+d_12 = 7
+d_1 = 12
+d_2 = 0
+d_3 = 12
+d_4 = 12
+d_19 = 6
+d_9 = (- 5)
+d_20 = 11
+d_11 = 5
+d_14 = 7
+d_17 = 13
+d_6 = 0
+d_13 = (- 7)
+d_21 = 11
+d_18 = 13
+d_7 = 20
+d_10 = 5
+d_15 = 17
+d_28 = 10
+d_23 = 3
+d_26 = 6
+d_16 = 17
+d_8 = 20
+d_25 = (- 6)
+v = (- 3)
+m = (- 1)
+u = (- 2)
+w = 0
+V(_0) = 1
+E(_(- 2), _(- 3)) = 1
+Y(_(- 2)) = 20
+X(_(- 2)) = 12
+amnt(_11) = 11
+amnt(_20) = 20
+X(_(- 1)) = 6
+amnt(_(- 6)) = 6
+amnt(_5) = 5
+max(_11, _3) = 11
+amnt(_12) = 12
+amnt(_(- 10)) = 10
+Y(_(- 1)) = 10
+max(_5, _7) = 7
+Y(_0) = 7
+X(_0) = (- 5)
+max(_17, _13) = 17
+amnt(_13) = 13
+amnt(_3) = 3
+Y(_(- 3)) = 0
+X(_(- 3)) = 0
+amnt(_(- 7)) = 7
+max(_12, _20) = 20
+amnt(_17) = 17
+max(_6, _10) = 10
+
+H-PILoT spent                0.131265s on the problem.
+The prover needed            0.014022s for the problem.
+Total running time:          0.145287s.

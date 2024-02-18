@@ -1,0 +1,2549 @@
+load_package redlog;
+rlset OFSF;
+off rlverbose;
+on rlnzden;
+vars := {d_1, d_10, d_11, d_12, d_13, d_14, d_15, d_16, d_17, d_18, d_19, d_2, d_20, d_21, d_22, d_23, d_24, d_25, d_26, d_27, d_28, d_29, d_3, d_30, d_31, d_32, d_33, d_34, d_35, d_36, d_37, d_38, d_39, d_4, d_40, d_41, d_42, d_43, d_44, d_45, d_46, d_47, d_48, d_49, d_5, d_50, d_51, d_52, d_53, d_54, d_55, d_56, d_57, d_58, d_59, d_6, d_60, d_61, d_62, d_63, d_64, d_65, d_66, d_67, d_68, d_69, d_7, d_70, d_71, d_72, d_73, d_74, d_75, d_76, d_77, d_78, d_79, d_8, d_80, d_81, d_82, d_83, d_84, d_85, d_86, d_87, d_88, d_89, d_9, d_90, d_91, d_92, d_93, d_94, e_100, e_101, e_102, e_103, e_104, e_105, e_106, e_107, e_108, e_109, e_110, e_111, e_112, e_113, e_114, e_115, e_116, e_117, e_118, e_119, e_120, e_121, e_122, e_123, e_124, e_125, e_126, e_127, e_128, e_129, e_130, e_95, e_96, e_97, e_98, e_99, m1, m1t, m1u, m1w, m2, m2u, m2v, m2w, p, t, tp, u, up, ut, uv, uw, v, vp, vt, vw, w, wp, wt};
+
+formula := ( 
+(e_97 = 1 or e_97 = 0) and 
+(e_98 = 1 or e_98 = 0) and 
+(e_99 = 1 or e_99 = 0) and 
+(e_100 = 1 or e_100 = 0) and 
+(e_95 = 1 or e_95 = 0) and 
+(e_96 = 1 or e_96 = 0) and 
+((u = v and v = u and e_95 = 1) impl (e_95 = 1)) and 
+((w = v and t = u and e_95 = 1) impl (e_96 = 1)) and 
+((u = t and v = w and e_96 = 1) impl (e_95 = 1)) and 
+((w = t and t = w and e_96 = 1) impl (e_96 = 1)) and 
+((t = u and e_95 = 1) impl (e_97 = 1)) and 
+((u = u and e_95 = 1) impl (e_98 = 1)) and 
+((v = u and e_95 = 1) impl (e_99 = 1)) and 
+((w = u and e_95 = 1) impl (e_100 = 1)) and 
+((t = w and e_96 = 1) impl (e_97 = 1)) and 
+((u = w and e_96 = 1) impl (e_98 = 1)) and 
+((v = w and e_96 = 1) impl (e_99 = 1)) and 
+((w = w and e_96 = 1) impl (e_100 = 1)) and 
+((e_115 = 1) impl (m1t * m1t = d_79)) and 
+((e_116 = 1) impl (m1u * m1u = d_84)) and 
+((e_117 = 1) impl (m1w * m1w = d_67)) and 
+((e_118 = 1) impl (m2u * m2u = d_89)) and 
+((e_119 = 1) impl (m2v * m2v = d_94)) and 
+((e_120 = 1) impl (m2w * m2w = d_74)) and 
+((e_121 = 1) impl (tp * tp = d_60)) and 
+((e_122 = 1) impl (up * up = d_45)) and 
+((e_123 = 1) impl (ut * ut = d_23)) and 
+((e_124 = 1) impl (uv * uv = d_9)) and 
+((e_125 = 1) impl (uw * uw = d_16)) and 
+((e_126 = 1) impl (vp * vp = d_50)) and 
+((e_127 = 1) impl (vt * vt = d_33)) and 
+((e_128 = 1) impl (vw * vw = d_28)) and 
+((e_129 = 1) impl (wp * wp = d_55)) and 
+((e_130 = 1) impl (wt * wt = d_38)) and 
+((m1t * m1t = d_79 and m1t >= 0) impl (e_115 = 1)) and 
+((m1u * m1u = d_84 and m1u >= 0) impl (e_116 = 1)) and 
+((m1w * m1w = d_67 and m1w >= 0) impl (e_117 = 1)) and 
+((m2u * m2u = d_89 and m2u >= 0) impl (e_118 = 1)) and 
+((m2v * m2v = d_94 and m2v >= 0) impl (e_119 = 1)) and 
+((m2w * m2w = d_74 and m2w >= 0) impl (e_120 = 1)) and 
+((tp * tp = d_60 and tp >= 0) impl (e_121 = 1)) and 
+((up * up = d_45 and up >= 0) impl (e_122 = 1)) and 
+((ut * ut = d_23 and ut >= 0) impl (e_123 = 1)) and 
+((uv * uv = d_9 and uv >= 0) impl (e_124 = 1)) and 
+((uw * uw = d_16 and uw >= 0) impl (e_125 = 1)) and 
+((vp * vp = d_50 and vp >= 0) impl (e_126 = 1)) and 
+((vt * vt = d_33 and vt >= 0) impl (e_127 = 1)) and 
+((vw * vw = d_28 and vw >= 0) impl (e_128 = 1)) and 
+((wp * wp = d_55 and wp >= 0) impl (e_129 = 1)) and 
+((wt * wt = d_38 and wt >= 0) impl (e_130 = 1)) and 
+((e_115 = 1) impl (m1t >= 0)) and 
+((e_116 = 1) impl (m1u >= 0)) and 
+((e_117 = 1) impl (m1w >= 0)) and 
+((e_118 = 1) impl (m2u >= 0)) and 
+((e_119 = 1) impl (m2v >= 0)) and 
+((e_120 = 1) impl (m2w >= 0)) and 
+((e_121 = 1) impl (tp >= 0)) and 
+((e_122 = 1) impl (up >= 0)) and 
+((e_123 = 1) impl (ut >= 0)) and 
+((e_124 = 1) impl (uv >= 0)) and 
+((e_125 = 1) impl (uw >= 0)) and 
+((e_126 = 1) impl (vp >= 0)) and 
+((e_127 = 1) impl (vt >= 0)) and 
+((e_128 = 1) impl (vw >= 0)) and 
+((e_129 = 1) impl (wp >= 0)) and 
+((e_130 = 1) impl (wt >= 0)) and 
+((m1t < 0) impl (e_115 = 0)) and 
+((m1u < 0) impl (e_116 = 0)) and 
+((m1w < 0) impl (e_117 = 0)) and 
+((m2u < 0) impl (e_118 = 0)) and 
+((m2v < 0) impl (e_119 = 0)) and 
+((m2w < 0) impl (e_120 = 0)) and 
+((tp < 0) impl (e_121 = 0)) and 
+((up < 0) impl (e_122 = 0)) and 
+((ut < 0) impl (e_123 = 0)) and 
+((uv < 0) impl (e_124 = 0)) and 
+((uw < 0) impl (e_125 = 0)) and 
+((vp < 0) impl (e_126 = 0)) and 
+((vt < 0) impl (e_127 = 0)) and 
+((vw < 0) impl (e_128 = 0)) and 
+((wp < 0) impl (e_129 = 0)) and 
+((wt < 0) impl (e_130 = 0)) and 
+(e_115 = 0 or e_115 = 1) and 
+(e_116 = 0 or e_116 = 1) and 
+(e_117 = 0 or e_117 = 1) and 
+(e_118 = 0 or e_118 = 1) and 
+(e_119 = 0 or e_119 = 1) and 
+(e_120 = 0 or e_120 = 1) and 
+(e_121 = 0 or e_121 = 1) and 
+(e_122 = 0 or e_122 = 1) and 
+(e_123 = 0 or e_123 = 1) and 
+(e_124 = 0 or e_124 = 1) and 
+(e_125 = 0 or e_125 = 1) and 
+(e_126 = 0 or e_126 = 1) and 
+(e_127 = 0 or e_127 = 1) and 
+(e_128 = 0 or e_128 = 1) and 
+(e_129 = 0 or e_129 = 1) and 
+(e_130 = 0 or e_130 = 1) and 
+((m1 = m2) impl (e_101 = e_102)) and 
+((m1 = p) impl (e_101 = e_103)) and 
+((m1 = t) impl (e_101 = e_104)) and 
+((m1 = u) impl (e_101 = e_105)) and 
+((m1 = v) impl (e_101 = e_106)) and 
+((m1 = w) impl (e_101 = e_107)) and 
+((m2 = m1) impl (e_102 = e_101)) and 
+((m2 = p) impl (e_102 = e_103)) and 
+((m2 = t) impl (e_102 = e_104)) and 
+((m2 = u) impl (e_102 = e_105)) and 
+((m2 = v) impl (e_102 = e_106)) and 
+((m2 = w) impl (e_102 = e_107)) and 
+((p = m1) impl (e_103 = e_101)) and 
+((p = m2) impl (e_103 = e_102)) and 
+((p = t) impl (e_103 = e_104)) and 
+((p = u) impl (e_103 = e_105)) and 
+((p = v) impl (e_103 = e_106)) and 
+((p = w) impl (e_103 = e_107)) and 
+((t = m1) impl (e_104 = e_101)) and 
+((t = m2) impl (e_104 = e_102)) and 
+((t = p) impl (e_104 = e_103)) and 
+((t = u) impl (e_104 = e_105)) and 
+((t = v) impl (e_104 = e_106)) and 
+((t = w) impl (e_104 = e_107)) and 
+((u = m1) impl (e_105 = e_101)) and 
+((u = m2) impl (e_105 = e_102)) and 
+((u = p) impl (e_105 = e_103)) and 
+((u = t) impl (e_105 = e_104)) and 
+((u = v) impl (e_105 = e_106)) and 
+((u = w) impl (e_105 = e_107)) and 
+((v = m1) impl (e_106 = e_101)) and 
+((v = m2) impl (e_106 = e_102)) and 
+((v = p) impl (e_106 = e_103)) and 
+((v = t) impl (e_106 = e_104)) and 
+((v = u) impl (e_106 = e_105)) and 
+((v = w) impl (e_106 = e_107)) and 
+((w = m1) impl (e_107 = e_101)) and 
+((w = m2) impl (e_107 = e_102)) and 
+((w = p) impl (e_107 = e_103)) and 
+((w = t) impl (e_107 = e_104)) and 
+((w = u) impl (e_107 = e_105)) and 
+((w = v) impl (e_107 = e_106)) and 
+((m1 = m2) impl (e_108 = e_109)) and 
+((m1 = p) impl (e_108 = e_110)) and 
+((m1 = t) impl (e_108 = e_111)) and 
+((m1 = u) impl (e_108 = e_112)) and 
+((m1 = v) impl (e_108 = e_113)) and 
+((m1 = w) impl (e_108 = e_114)) and 
+((m2 = m1) impl (e_109 = e_108)) and 
+((m2 = p) impl (e_109 = e_110)) and 
+((m2 = t) impl (e_109 = e_111)) and 
+((m2 = u) impl (e_109 = e_112)) and 
+((m2 = v) impl (e_109 = e_113)) and 
+((m2 = w) impl (e_109 = e_114)) and 
+((p = m1) impl (e_110 = e_108)) and 
+((p = m2) impl (e_110 = e_109)) and 
+((p = t) impl (e_110 = e_111)) and 
+((p = u) impl (e_110 = e_112)) and 
+((p = v) impl (e_110 = e_113)) and 
+((p = w) impl (e_110 = e_114)) and 
+((t = m1) impl (e_111 = e_108)) and 
+((t = m2) impl (e_111 = e_109)) and 
+((t = p) impl (e_111 = e_110)) and 
+((t = u) impl (e_111 = e_112)) and 
+((t = v) impl (e_111 = e_113)) and 
+((t = w) impl (e_111 = e_114)) and 
+((u = m1) impl (e_112 = e_108)) and 
+((u = m2) impl (e_112 = e_109)) and 
+((u = p) impl (e_112 = e_110)) and 
+((u = t) impl (e_112 = e_111)) and 
+((u = v) impl (e_112 = e_113)) and 
+((u = w) impl (e_112 = e_114)) and 
+((v = m1) impl (e_113 = e_108)) and 
+((v = m2) impl (e_113 = e_109)) and 
+((v = p) impl (e_113 = e_110)) and 
+((v = t) impl (e_113 = e_111)) and 
+((v = u) impl (e_113 = e_112)) and 
+((v = w) impl (e_113 = e_114)) and 
+((w = m1) impl (e_114 = e_108)) and 
+((w = m2) impl (e_114 = e_109)) and 
+((w = p) impl (e_114 = e_110)) and 
+((w = t) impl (e_114 = e_111)) and 
+((w = u) impl (e_114 = e_112)) and 
+((w = v) impl (e_114 = e_113)) and 
+((m1 = m2 and m1 = m1 and e_101 = e_102 and e_108 = e_108) impl (m1 = m2)) and 
+((m2 = m2 and m1 = m1 and e_101 = e_102 and e_108 = e_109) impl (m1 = m2)) and 
+((p = m2 and m1 = m1 and e_101 = e_102 and e_108 = e_110) impl (m1 = m2)) and 
+((t = m2 and m1 = m1 and e_101 = e_102 and e_108 = e_111) impl (m1 = m2)) and 
+((u = m2 and m1 = m1 and e_101 = e_102 and e_108 = e_112) impl (m1 = m2)) and 
+((v = m2 and m1 = m1 and e_101 = e_102 and e_108 = e_113) impl (m1 = m2)) and 
+((w = m2 and m1 = m1 and e_101 = e_102 and e_108 = e_114) impl (m1 = m2)) and 
+((m1 = m2 and m2 = m1 and e_101 = e_102 and e_109 = e_108) impl (m1 = m2)) and 
+((m2 = m2 and m2 = m1 and e_101 = e_102 and e_109 = e_109) impl (m1 = m2)) and 
+((p = m2 and m2 = m1 and e_101 = e_102 and e_109 = e_110) impl (m1 = m2)) and 
+((t = m2 and m2 = m1 and e_101 = e_102 and e_109 = e_111) impl (m1 = m2)) and 
+((u = m2 and m2 = m1 and e_101 = e_102 and e_109 = e_112) impl (m1 = m2)) and 
+((v = m2 and m2 = m1 and e_101 = e_102 and e_109 = e_113) impl (m1 = m2)) and 
+((w = m2 and m2 = m1 and e_101 = e_102 and e_109 = e_114) impl (m1 = m2)) and 
+((m1 = m2 and p = m1 and e_101 = e_102 and e_110 = e_108) impl (m1 = m2)) and 
+((m2 = m2 and p = m1 and e_101 = e_102 and e_110 = e_109) impl (m1 = m2)) and 
+((p = m2 and p = m1 and e_101 = e_102 and e_110 = e_110) impl (m1 = m2)) and 
+((t = m2 and p = m1 and e_101 = e_102 and e_110 = e_111) impl (m1 = m2)) and 
+((u = m2 and p = m1 and e_101 = e_102 and e_110 = e_112) impl (m1 = m2)) and 
+((v = m2 and p = m1 and e_101 = e_102 and e_110 = e_113) impl (m1 = m2)) and 
+((w = m2 and p = m1 and e_101 = e_102 and e_110 = e_114) impl (m1 = m2)) and 
+((m1 = m2 and t = m1 and e_101 = e_102 and e_111 = e_108) impl (m1 = m2)) and 
+((m2 = m2 and t = m1 and e_101 = e_102 and e_111 = e_109) impl (m1 = m2)) and 
+((p = m2 and t = m1 and e_101 = e_102 and e_111 = e_110) impl (m1 = m2)) and 
+((t = m2 and t = m1 and e_101 = e_102 and e_111 = e_111) impl (m1 = m2)) and 
+((u = m2 and t = m1 and e_101 = e_102 and e_111 = e_112) impl (m1 = m2)) and 
+((v = m2 and t = m1 and e_101 = e_102 and e_111 = e_113) impl (m1 = m2)) and 
+((w = m2 and t = m1 and e_101 = e_102 and e_111 = e_114) impl (m1 = m2)) and 
+((m1 = m2 and u = m1 and e_101 = e_102 and e_112 = e_108) impl (m1 = m2)) and 
+((m2 = m2 and u = m1 and e_101 = e_102 and e_112 = e_109) impl (m1 = m2)) and 
+((p = m2 and u = m1 and e_101 = e_102 and e_112 = e_110) impl (m1 = m2)) and 
+((t = m2 and u = m1 and e_101 = e_102 and e_112 = e_111) impl (m1 = m2)) and 
+((u = m2 and u = m1 and e_101 = e_102 and e_112 = e_112) impl (m1 = m2)) and 
+((v = m2 and u = m1 and e_101 = e_102 and e_112 = e_113) impl (m1 = m2)) and 
+((w = m2 and u = m1 and e_101 = e_102 and e_112 = e_114) impl (m1 = m2)) and 
+((m1 = m2 and v = m1 and e_101 = e_102 and e_113 = e_108) impl (m1 = m2)) and 
+((m2 = m2 and v = m1 and e_101 = e_102 and e_113 = e_109) impl (m1 = m2)) and 
+((p = m2 and v = m1 and e_101 = e_102 and e_113 = e_110) impl (m1 = m2)) and 
+((t = m2 and v = m1 and e_101 = e_102 and e_113 = e_111) impl (m1 = m2)) and 
+((u = m2 and v = m1 and e_101 = e_102 and e_113 = e_112) impl (m1 = m2)) and 
+((v = m2 and v = m1 and e_101 = e_102 and e_113 = e_113) impl (m1 = m2)) and 
+((w = m2 and v = m1 and e_101 = e_102 and e_113 = e_114) impl (m1 = m2)) and 
+((m1 = m2 and w = m1 and e_101 = e_102 and e_114 = e_108) impl (m1 = m2)) and 
+((m2 = m2 and w = m1 and e_101 = e_102 and e_114 = e_109) impl (m1 = m2)) and 
+((p = m2 and w = m1 and e_101 = e_102 and e_114 = e_110) impl (m1 = m2)) and 
+((t = m2 and w = m1 and e_101 = e_102 and e_114 = e_111) impl (m1 = m2)) and 
+((u = m2 and w = m1 and e_101 = e_102 and e_114 = e_112) impl (m1 = m2)) and 
+((v = m2 and w = m1 and e_101 = e_102 and e_114 = e_113) impl (m1 = m2)) and 
+((w = m2 and w = m1 and e_101 = e_102 and e_114 = e_114) impl (m1 = m2)) and 
+((m1 = p and m1 = m1 and e_101 = e_103 and e_108 = e_108) impl (m1 = p)) and 
+((m2 = p and m1 = m1 and e_101 = e_103 and e_108 = e_109) impl (m1 = p)) and 
+((p = p and m1 = m1 and e_101 = e_103 and e_108 = e_110) impl (m1 = p)) and 
+((t = p and m1 = m1 and e_101 = e_103 and e_108 = e_111) impl (m1 = p)) and 
+((u = p and m1 = m1 and e_101 = e_103 and e_108 = e_112) impl (m1 = p)) and 
+((v = p and m1 = m1 and e_101 = e_103 and e_108 = e_113) impl (m1 = p)) and 
+((w = p and m1 = m1 and e_101 = e_103 and e_108 = e_114) impl (m1 = p)) and 
+((m1 = p and m2 = m1 and e_101 = e_103 and e_109 = e_108) impl (m1 = p)) and 
+((m2 = p and m2 = m1 and e_101 = e_103 and e_109 = e_109) impl (m1 = p)) and 
+((p = p and m2 = m1 and e_101 = e_103 and e_109 = e_110) impl (m1 = p)) and 
+((t = p and m2 = m1 and e_101 = e_103 and e_109 = e_111) impl (m1 = p)) and 
+((u = p and m2 = m1 and e_101 = e_103 and e_109 = e_112) impl (m1 = p)) and 
+((v = p and m2 = m1 and e_101 = e_103 and e_109 = e_113) impl (m1 = p)) and 
+((w = p and m2 = m1 and e_101 = e_103 and e_109 = e_114) impl (m1 = p)) and 
+((m1 = p and p = m1 and e_101 = e_103 and e_110 = e_108) impl (m1 = p)) and 
+((m2 = p and p = m1 and e_101 = e_103 and e_110 = e_109) impl (m1 = p)) and 
+((p = p and p = m1 and e_101 = e_103 and e_110 = e_110) impl (m1 = p)) and 
+((t = p and p = m1 and e_101 = e_103 and e_110 = e_111) impl (m1 = p)) and 
+((u = p and p = m1 and e_101 = e_103 and e_110 = e_112) impl (m1 = p)) and 
+((v = p and p = m1 and e_101 = e_103 and e_110 = e_113) impl (m1 = p)) and 
+((w = p and p = m1 and e_101 = e_103 and e_110 = e_114) impl (m1 = p)) and 
+((m1 = p and t = m1 and e_101 = e_103 and e_111 = e_108) impl (m1 = p)) and 
+((m2 = p and t = m1 and e_101 = e_103 and e_111 = e_109) impl (m1 = p)) and 
+((p = p and t = m1 and e_101 = e_103 and e_111 = e_110) impl (m1 = p)) and 
+((t = p and t = m1 and e_101 = e_103 and e_111 = e_111) impl (m1 = p)) and 
+((u = p and t = m1 and e_101 = e_103 and e_111 = e_112) impl (m1 = p)) and 
+((v = p and t = m1 and e_101 = e_103 and e_111 = e_113) impl (m1 = p)) and 
+((w = p and t = m1 and e_101 = e_103 and e_111 = e_114) impl (m1 = p)) and 
+((m1 = p and u = m1 and e_101 = e_103 and e_112 = e_108) impl (m1 = p)) and 
+((m2 = p and u = m1 and e_101 = e_103 and e_112 = e_109) impl (m1 = p)) and 
+((p = p and u = m1 and e_101 = e_103 and e_112 = e_110) impl (m1 = p)) and 
+((t = p and u = m1 and e_101 = e_103 and e_112 = e_111) impl (m1 = p)) and 
+((u = p and u = m1 and e_101 = e_103 and e_112 = e_112) impl (m1 = p)) and 
+((v = p and u = m1 and e_101 = e_103 and e_112 = e_113) impl (m1 = p)) and 
+((w = p and u = m1 and e_101 = e_103 and e_112 = e_114) impl (m1 = p)) and 
+((m1 = p and v = m1 and e_101 = e_103 and e_113 = e_108) impl (m1 = p)) and 
+((m2 = p and v = m1 and e_101 = e_103 and e_113 = e_109) impl (m1 = p)) and 
+((p = p and v = m1 and e_101 = e_103 and e_113 = e_110) impl (m1 = p)) and 
+((t = p and v = m1 and e_101 = e_103 and e_113 = e_111) impl (m1 = p)) and 
+((u = p and v = m1 and e_101 = e_103 and e_113 = e_112) impl (m1 = p)) and 
+((v = p and v = m1 and e_101 = e_103 and e_113 = e_113) impl (m1 = p)) and 
+((w = p and v = m1 and e_101 = e_103 and e_113 = e_114) impl (m1 = p)) and 
+((m1 = p and w = m1 and e_101 = e_103 and e_114 = e_108) impl (m1 = p)) and 
+((m2 = p and w = m1 and e_101 = e_103 and e_114 = e_109) impl (m1 = p)) and 
+((p = p and w = m1 and e_101 = e_103 and e_114 = e_110) impl (m1 = p)) and 
+((t = p and w = m1 and e_101 = e_103 and e_114 = e_111) impl (m1 = p)) and 
+((u = p and w = m1 and e_101 = e_103 and e_114 = e_112) impl (m1 = p)) and 
+((v = p and w = m1 and e_101 = e_103 and e_114 = e_113) impl (m1 = p)) and 
+((w = p and w = m1 and e_101 = e_103 and e_114 = e_114) impl (m1 = p)) and 
+((m1 = t and m1 = m1 and e_101 = e_104 and e_108 = e_108) impl (m1 = t)) and 
+((m2 = t and m1 = m1 and e_101 = e_104 and e_108 = e_109) impl (m1 = t)) and 
+((p = t and m1 = m1 and e_101 = e_104 and e_108 = e_110) impl (m1 = t)) and 
+((t = t and m1 = m1 and e_101 = e_104 and e_108 = e_111) impl (m1 = t)) and 
+((u = t and m1 = m1 and e_101 = e_104 and e_108 = e_112) impl (m1 = t)) and 
+((v = t and m1 = m1 and e_101 = e_104 and e_108 = e_113) impl (m1 = t)) and 
+((w = t and m1 = m1 and e_101 = e_104 and e_108 = e_114) impl (m1 = t)) and 
+((m1 = t and m2 = m1 and e_101 = e_104 and e_109 = e_108) impl (m1 = t)) and 
+((m2 = t and m2 = m1 and e_101 = e_104 and e_109 = e_109) impl (m1 = t)) and 
+((p = t and m2 = m1 and e_101 = e_104 and e_109 = e_110) impl (m1 = t)) and 
+((t = t and m2 = m1 and e_101 = e_104 and e_109 = e_111) impl (m1 = t)) and 
+((u = t and m2 = m1 and e_101 = e_104 and e_109 = e_112) impl (m1 = t)) and 
+((v = t and m2 = m1 and e_101 = e_104 and e_109 = e_113) impl (m1 = t)) and 
+((w = t and m2 = m1 and e_101 = e_104 and e_109 = e_114) impl (m1 = t)) and 
+((m1 = t and p = m1 and e_101 = e_104 and e_110 = e_108) impl (m1 = t)) and 
+((m2 = t and p = m1 and e_101 = e_104 and e_110 = e_109) impl (m1 = t)) and 
+((p = t and p = m1 and e_101 = e_104 and e_110 = e_110) impl (m1 = t)) and 
+((t = t and p = m1 and e_101 = e_104 and e_110 = e_111) impl (m1 = t)) and 
+((u = t and p = m1 and e_101 = e_104 and e_110 = e_112) impl (m1 = t)) and 
+((v = t and p = m1 and e_101 = e_104 and e_110 = e_113) impl (m1 = t)) and 
+((w = t and p = m1 and e_101 = e_104 and e_110 = e_114) impl (m1 = t)) and 
+((m1 = t and t = m1 and e_101 = e_104 and e_111 = e_108) impl (m1 = t)) and 
+((m2 = t and t = m1 and e_101 = e_104 and e_111 = e_109) impl (m1 = t)) and 
+((p = t and t = m1 and e_101 = e_104 and e_111 = e_110) impl (m1 = t)) and 
+((t = t and t = m1 and e_101 = e_104 and e_111 = e_111) impl (m1 = t)) and 
+((u = t and t = m1 and e_101 = e_104 and e_111 = e_112) impl (m1 = t)) and 
+((v = t and t = m1 and e_101 = e_104 and e_111 = e_113) impl (m1 = t)) and 
+((w = t and t = m1 and e_101 = e_104 and e_111 = e_114) impl (m1 = t)) and 
+((m1 = t and u = m1 and e_101 = e_104 and e_112 = e_108) impl (m1 = t)) and 
+((m2 = t and u = m1 and e_101 = e_104 and e_112 = e_109) impl (m1 = t)) and 
+((p = t and u = m1 and e_101 = e_104 and e_112 = e_110) impl (m1 = t)) and 
+((t = t and u = m1 and e_101 = e_104 and e_112 = e_111) impl (m1 = t)) and 
+((u = t and u = m1 and e_101 = e_104 and e_112 = e_112) impl (m1 = t)) and 
+((v = t and u = m1 and e_101 = e_104 and e_112 = e_113) impl (m1 = t)) and 
+((w = t and u = m1 and e_101 = e_104 and e_112 = e_114) impl (m1 = t)) and 
+((m1 = t and v = m1 and e_101 = e_104 and e_113 = e_108) impl (m1 = t)) and 
+((m2 = t and v = m1 and e_101 = e_104 and e_113 = e_109) impl (m1 = t)) and 
+((p = t and v = m1 and e_101 = e_104 and e_113 = e_110) impl (m1 = t)) and 
+((t = t and v = m1 and e_101 = e_104 and e_113 = e_111) impl (m1 = t)) and 
+((u = t and v = m1 and e_101 = e_104 and e_113 = e_112) impl (m1 = t)) and 
+((v = t and v = m1 and e_101 = e_104 and e_113 = e_113) impl (m1 = t)) and 
+((w = t and v = m1 and e_101 = e_104 and e_113 = e_114) impl (m1 = t)) and 
+((m1 = t and w = m1 and e_101 = e_104 and e_114 = e_108) impl (m1 = t)) and 
+((m2 = t and w = m1 and e_101 = e_104 and e_114 = e_109) impl (m1 = t)) and 
+((p = t and w = m1 and e_101 = e_104 and e_114 = e_110) impl (m1 = t)) and 
+((t = t and w = m1 and e_101 = e_104 and e_114 = e_111) impl (m1 = t)) and 
+((u = t and w = m1 and e_101 = e_104 and e_114 = e_112) impl (m1 = t)) and 
+((v = t and w = m1 and e_101 = e_104 and e_114 = e_113) impl (m1 = t)) and 
+((w = t and w = m1 and e_101 = e_104 and e_114 = e_114) impl (m1 = t)) and 
+((m1 = u and m1 = m1 and e_101 = e_105 and e_108 = e_108) impl (m1 = u)) and 
+((m2 = u and m1 = m1 and e_101 = e_105 and e_108 = e_109) impl (m1 = u)) and 
+((p = u and m1 = m1 and e_101 = e_105 and e_108 = e_110) impl (m1 = u)) and 
+((t = u and m1 = m1 and e_101 = e_105 and e_108 = e_111) impl (m1 = u)) and 
+((u = u and m1 = m1 and e_101 = e_105 and e_108 = e_112) impl (m1 = u)) and 
+((v = u and m1 = m1 and e_101 = e_105 and e_108 = e_113) impl (m1 = u)) and 
+((w = u and m1 = m1 and e_101 = e_105 and e_108 = e_114) impl (m1 = u)) and 
+((m1 = u and m2 = m1 and e_101 = e_105 and e_109 = e_108) impl (m1 = u)) and 
+((m2 = u and m2 = m1 and e_101 = e_105 and e_109 = e_109) impl (m1 = u)) and 
+((p = u and m2 = m1 and e_101 = e_105 and e_109 = e_110) impl (m1 = u)) and 
+((t = u and m2 = m1 and e_101 = e_105 and e_109 = e_111) impl (m1 = u)) and 
+((u = u and m2 = m1 and e_101 = e_105 and e_109 = e_112) impl (m1 = u)) and 
+((v = u and m2 = m1 and e_101 = e_105 and e_109 = e_113) impl (m1 = u)) and 
+((w = u and m2 = m1 and e_101 = e_105 and e_109 = e_114) impl (m1 = u)) and 
+((m1 = u and p = m1 and e_101 = e_105 and e_110 = e_108) impl (m1 = u)) and 
+((m2 = u and p = m1 and e_101 = e_105 and e_110 = e_109) impl (m1 = u)) and 
+((p = u and p = m1 and e_101 = e_105 and e_110 = e_110) impl (m1 = u)) and 
+((t = u and p = m1 and e_101 = e_105 and e_110 = e_111) impl (m1 = u)) and 
+((u = u and p = m1 and e_101 = e_105 and e_110 = e_112) impl (m1 = u)) and 
+((v = u and p = m1 and e_101 = e_105 and e_110 = e_113) impl (m1 = u)) and 
+((w = u and p = m1 and e_101 = e_105 and e_110 = e_114) impl (m1 = u)) and 
+((m1 = u and t = m1 and e_101 = e_105 and e_111 = e_108) impl (m1 = u)) and 
+((m2 = u and t = m1 and e_101 = e_105 and e_111 = e_109) impl (m1 = u)) and 
+((p = u and t = m1 and e_101 = e_105 and e_111 = e_110) impl (m1 = u)) and 
+((t = u and t = m1 and e_101 = e_105 and e_111 = e_111) impl (m1 = u)) and 
+((u = u and t = m1 and e_101 = e_105 and e_111 = e_112) impl (m1 = u)) and 
+((v = u and t = m1 and e_101 = e_105 and e_111 = e_113) impl (m1 = u)) and 
+((w = u and t = m1 and e_101 = e_105 and e_111 = e_114) impl (m1 = u)) and 
+((m1 = u and u = m1 and e_101 = e_105 and e_112 = e_108) impl (m1 = u)) and 
+((m2 = u and u = m1 and e_101 = e_105 and e_112 = e_109) impl (m1 = u)) and 
+((p = u and u = m1 and e_101 = e_105 and e_112 = e_110) impl (m1 = u)) and 
+((t = u and u = m1 and e_101 = e_105 and e_112 = e_111) impl (m1 = u)) and 
+((u = u and u = m1 and e_101 = e_105 and e_112 = e_112) impl (m1 = u)) and 
+((v = u and u = m1 and e_101 = e_105 and e_112 = e_113) impl (m1 = u)) and 
+((w = u and u = m1 and e_101 = e_105 and e_112 = e_114) impl (m1 = u)) and 
+((m1 = u and v = m1 and e_101 = e_105 and e_113 = e_108) impl (m1 = u)) and 
+((m2 = u and v = m1 and e_101 = e_105 and e_113 = e_109) impl (m1 = u)) and 
+((p = u and v = m1 and e_101 = e_105 and e_113 = e_110) impl (m1 = u)) and 
+((t = u and v = m1 and e_101 = e_105 and e_113 = e_111) impl (m1 = u)) and 
+((u = u and v = m1 and e_101 = e_105 and e_113 = e_112) impl (m1 = u)) and 
+((v = u and v = m1 and e_101 = e_105 and e_113 = e_113) impl (m1 = u)) and 
+((w = u and v = m1 and e_101 = e_105 and e_113 = e_114) impl (m1 = u)) and 
+((m1 = u and w = m1 and e_101 = e_105 and e_114 = e_108) impl (m1 = u)) and 
+((m2 = u and w = m1 and e_101 = e_105 and e_114 = e_109) impl (m1 = u)) and 
+((p = u and w = m1 and e_101 = e_105 and e_114 = e_110) impl (m1 = u)) and 
+((t = u and w = m1 and e_101 = e_105 and e_114 = e_111) impl (m1 = u)) and 
+((u = u and w = m1 and e_101 = e_105 and e_114 = e_112) impl (m1 = u)) and 
+((v = u and w = m1 and e_101 = e_105 and e_114 = e_113) impl (m1 = u)) and 
+((w = u and w = m1 and e_101 = e_105 and e_114 = e_114) impl (m1 = u)) and 
+((m1 = v and m1 = m1 and e_101 = e_106 and e_108 = e_108) impl (m1 = v)) and 
+((m2 = v and m1 = m1 and e_101 = e_106 and e_108 = e_109) impl (m1 = v)) and 
+((p = v and m1 = m1 and e_101 = e_106 and e_108 = e_110) impl (m1 = v)) and 
+((t = v and m1 = m1 and e_101 = e_106 and e_108 = e_111) impl (m1 = v)) and 
+((u = v and m1 = m1 and e_101 = e_106 and e_108 = e_112) impl (m1 = v)) and 
+((v = v and m1 = m1 and e_101 = e_106 and e_108 = e_113) impl (m1 = v)) and 
+((w = v and m1 = m1 and e_101 = e_106 and e_108 = e_114) impl (m1 = v)) and 
+((m1 = v and m2 = m1 and e_101 = e_106 and e_109 = e_108) impl (m1 = v)) and 
+((m2 = v and m2 = m1 and e_101 = e_106 and e_109 = e_109) impl (m1 = v)) and 
+((p = v and m2 = m1 and e_101 = e_106 and e_109 = e_110) impl (m1 = v)) and 
+((t = v and m2 = m1 and e_101 = e_106 and e_109 = e_111) impl (m1 = v)) and 
+((u = v and m2 = m1 and e_101 = e_106 and e_109 = e_112) impl (m1 = v)) and 
+((v = v and m2 = m1 and e_101 = e_106 and e_109 = e_113) impl (m1 = v)) and 
+((w = v and m2 = m1 and e_101 = e_106 and e_109 = e_114) impl (m1 = v)) and 
+((m1 = v and p = m1 and e_101 = e_106 and e_110 = e_108) impl (m1 = v)) and 
+((m2 = v and p = m1 and e_101 = e_106 and e_110 = e_109) impl (m1 = v)) and 
+((p = v and p = m1 and e_101 = e_106 and e_110 = e_110) impl (m1 = v)) and 
+((t = v and p = m1 and e_101 = e_106 and e_110 = e_111) impl (m1 = v)) and 
+((u = v and p = m1 and e_101 = e_106 and e_110 = e_112) impl (m1 = v)) and 
+((v = v and p = m1 and e_101 = e_106 and e_110 = e_113) impl (m1 = v)) and 
+((w = v and p = m1 and e_101 = e_106 and e_110 = e_114) impl (m1 = v)) and 
+((m1 = v and t = m1 and e_101 = e_106 and e_111 = e_108) impl (m1 = v)) and 
+((m2 = v and t = m1 and e_101 = e_106 and e_111 = e_109) impl (m1 = v)) and 
+((p = v and t = m1 and e_101 = e_106 and e_111 = e_110) impl (m1 = v)) and 
+((t = v and t = m1 and e_101 = e_106 and e_111 = e_111) impl (m1 = v)) and 
+((u = v and t = m1 and e_101 = e_106 and e_111 = e_112) impl (m1 = v)) and 
+((v = v and t = m1 and e_101 = e_106 and e_111 = e_113) impl (m1 = v)) and 
+((w = v and t = m1 and e_101 = e_106 and e_111 = e_114) impl (m1 = v)) and 
+((m1 = v and u = m1 and e_101 = e_106 and e_112 = e_108) impl (m1 = v)) and 
+((m2 = v and u = m1 and e_101 = e_106 and e_112 = e_109) impl (m1 = v)) and 
+((p = v and u = m1 and e_101 = e_106 and e_112 = e_110) impl (m1 = v)) and 
+((t = v and u = m1 and e_101 = e_106 and e_112 = e_111) impl (m1 = v)) and 
+((u = v and u = m1 and e_101 = e_106 and e_112 = e_112) impl (m1 = v)) and 
+((v = v and u = m1 and e_101 = e_106 and e_112 = e_113) impl (m1 = v)) and 
+((w = v and u = m1 and e_101 = e_106 and e_112 = e_114) impl (m1 = v)) and 
+((m1 = v and v = m1 and e_101 = e_106 and e_113 = e_108) impl (m1 = v)) and 
+((m2 = v and v = m1 and e_101 = e_106 and e_113 = e_109) impl (m1 = v)) and 
+((p = v and v = m1 and e_101 = e_106 and e_113 = e_110) impl (m1 = v)) and 
+((t = v and v = m1 and e_101 = e_106 and e_113 = e_111) impl (m1 = v)) and 
+((u = v and v = m1 and e_101 = e_106 and e_113 = e_112) impl (m1 = v)) and 
+((v = v and v = m1 and e_101 = e_106 and e_113 = e_113) impl (m1 = v)) and 
+((w = v and v = m1 and e_101 = e_106 and e_113 = e_114) impl (m1 = v)) and 
+((m1 = v and w = m1 and e_101 = e_106 and e_114 = e_108) impl (m1 = v)) and 
+((m2 = v and w = m1 and e_101 = e_106 and e_114 = e_109) impl (m1 = v)) and 
+((p = v and w = m1 and e_101 = e_106 and e_114 = e_110) impl (m1 = v)) and 
+((t = v and w = m1 and e_101 = e_106 and e_114 = e_111) impl (m1 = v)) and 
+((u = v and w = m1 and e_101 = e_106 and e_114 = e_112) impl (m1 = v)) and 
+((v = v and w = m1 and e_101 = e_106 and e_114 = e_113) impl (m1 = v)) and 
+((w = v and w = m1 and e_101 = e_106 and e_114 = e_114) impl (m1 = v)) and 
+((m1 = w and m1 = m1 and e_101 = e_107 and e_108 = e_108) impl (m1 = w)) and 
+((m2 = w and m1 = m1 and e_101 = e_107 and e_108 = e_109) impl (m1 = w)) and 
+((p = w and m1 = m1 and e_101 = e_107 and e_108 = e_110) impl (m1 = w)) and 
+((t = w and m1 = m1 and e_101 = e_107 and e_108 = e_111) impl (m1 = w)) and 
+((u = w and m1 = m1 and e_101 = e_107 and e_108 = e_112) impl (m1 = w)) and 
+((v = w and m1 = m1 and e_101 = e_107 and e_108 = e_113) impl (m1 = w)) and 
+((w = w and m1 = m1 and e_101 = e_107 and e_108 = e_114) impl (m1 = w)) and 
+((m1 = w and m2 = m1 and e_101 = e_107 and e_109 = e_108) impl (m1 = w)) and 
+((m2 = w and m2 = m1 and e_101 = e_107 and e_109 = e_109) impl (m1 = w)) and 
+((p = w and m2 = m1 and e_101 = e_107 and e_109 = e_110) impl (m1 = w)) and 
+((t = w and m2 = m1 and e_101 = e_107 and e_109 = e_111) impl (m1 = w)) and 
+((u = w and m2 = m1 and e_101 = e_107 and e_109 = e_112) impl (m1 = w)) and 
+((v = w and m2 = m1 and e_101 = e_107 and e_109 = e_113) impl (m1 = w)) and 
+((w = w and m2 = m1 and e_101 = e_107 and e_109 = e_114) impl (m1 = w)) and 
+((m1 = w and p = m1 and e_101 = e_107 and e_110 = e_108) impl (m1 = w)) and 
+((m2 = w and p = m1 and e_101 = e_107 and e_110 = e_109) impl (m1 = w)) and 
+((p = w and p = m1 and e_101 = e_107 and e_110 = e_110) impl (m1 = w)) and 
+((t = w and p = m1 and e_101 = e_107 and e_110 = e_111) impl (m1 = w)) and 
+((u = w and p = m1 and e_101 = e_107 and e_110 = e_112) impl (m1 = w)) and 
+((v = w and p = m1 and e_101 = e_107 and e_110 = e_113) impl (m1 = w)) and 
+((w = w and p = m1 and e_101 = e_107 and e_110 = e_114) impl (m1 = w)) and 
+((m1 = w and t = m1 and e_101 = e_107 and e_111 = e_108) impl (m1 = w)) and 
+((m2 = w and t = m1 and e_101 = e_107 and e_111 = e_109) impl (m1 = w)) and 
+((p = w and t = m1 and e_101 = e_107 and e_111 = e_110) impl (m1 = w)) and 
+((t = w and t = m1 and e_101 = e_107 and e_111 = e_111) impl (m1 = w)) and 
+((u = w and t = m1 and e_101 = e_107 and e_111 = e_112) impl (m1 = w)) and 
+((v = w and t = m1 and e_101 = e_107 and e_111 = e_113) impl (m1 = w)) and 
+((w = w and t = m1 and e_101 = e_107 and e_111 = e_114) impl (m1 = w)) and 
+((m1 = w and u = m1 and e_101 = e_107 and e_112 = e_108) impl (m1 = w)) and 
+((m2 = w and u = m1 and e_101 = e_107 and e_112 = e_109) impl (m1 = w)) and 
+((p = w and u = m1 and e_101 = e_107 and e_112 = e_110) impl (m1 = w)) and 
+((t = w and u = m1 and e_101 = e_107 and e_112 = e_111) impl (m1 = w)) and 
+((u = w and u = m1 and e_101 = e_107 and e_112 = e_112) impl (m1 = w)) and 
+((v = w and u = m1 and e_101 = e_107 and e_112 = e_113) impl (m1 = w)) and 
+((w = w and u = m1 and e_101 = e_107 and e_112 = e_114) impl (m1 = w)) and 
+((m1 = w and v = m1 and e_101 = e_107 and e_113 = e_108) impl (m1 = w)) and 
+((m2 = w and v = m1 and e_101 = e_107 and e_113 = e_109) impl (m1 = w)) and 
+((p = w and v = m1 and e_101 = e_107 and e_113 = e_110) impl (m1 = w)) and 
+((t = w and v = m1 and e_101 = e_107 and e_113 = e_111) impl (m1 = w)) and 
+((u = w and v = m1 and e_101 = e_107 and e_113 = e_112) impl (m1 = w)) and 
+((v = w and v = m1 and e_101 = e_107 and e_113 = e_113) impl (m1 = w)) and 
+((w = w and v = m1 and e_101 = e_107 and e_113 = e_114) impl (m1 = w)) and 
+((m1 = w and w = m1 and e_101 = e_107 and e_114 = e_108) impl (m1 = w)) and 
+((m2 = w and w = m1 and e_101 = e_107 and e_114 = e_109) impl (m1 = w)) and 
+((p = w and w = m1 and e_101 = e_107 and e_114 = e_110) impl (m1 = w)) and 
+((t = w and w = m1 and e_101 = e_107 and e_114 = e_111) impl (m1 = w)) and 
+((u = w and w = m1 and e_101 = e_107 and e_114 = e_112) impl (m1 = w)) and 
+((v = w and w = m1 and e_101 = e_107 and e_114 = e_113) impl (m1 = w)) and 
+((w = w and w = m1 and e_101 = e_107 and e_114 = e_114) impl (m1 = w)) and 
+((m1 = m1 and m1 = m2 and e_102 = e_101 and e_108 = e_108) impl (m2 = m1)) and 
+((m2 = m1 and m1 = m2 and e_102 = e_101 and e_108 = e_109) impl (m2 = m1)) and 
+((p = m1 and m1 = m2 and e_102 = e_101 and e_108 = e_110) impl (m2 = m1)) and 
+((t = m1 and m1 = m2 and e_102 = e_101 and e_108 = e_111) impl (m2 = m1)) and 
+((u = m1 and m1 = m2 and e_102 = e_101 and e_108 = e_112) impl (m2 = m1)) and 
+((v = m1 and m1 = m2 and e_102 = e_101 and e_108 = e_113) impl (m2 = m1)) and 
+((w = m1 and m1 = m2 and e_102 = e_101 and e_108 = e_114) impl (m2 = m1)) and 
+((m1 = m1 and m2 = m2 and e_102 = e_101 and e_109 = e_108) impl (m2 = m1)) and 
+((m2 = m1 and m2 = m2 and e_102 = e_101 and e_109 = e_109) impl (m2 = m1)) and 
+((p = m1 and m2 = m2 and e_102 = e_101 and e_109 = e_110) impl (m2 = m1)) and 
+((t = m1 and m2 = m2 and e_102 = e_101 and e_109 = e_111) impl (m2 = m1)) and 
+((u = m1 and m2 = m2 and e_102 = e_101 and e_109 = e_112) impl (m2 = m1)) and 
+((v = m1 and m2 = m2 and e_102 = e_101 and e_109 = e_113) impl (m2 = m1)) and 
+((w = m1 and m2 = m2 and e_102 = e_101 and e_109 = e_114) impl (m2 = m1)) and 
+((m1 = m1 and p = m2 and e_102 = e_101 and e_110 = e_108) impl (m2 = m1)) and 
+((m2 = m1 and p = m2 and e_102 = e_101 and e_110 = e_109) impl (m2 = m1)) and 
+((p = m1 and p = m2 and e_102 = e_101 and e_110 = e_110) impl (m2 = m1)) and 
+((t = m1 and p = m2 and e_102 = e_101 and e_110 = e_111) impl (m2 = m1)) and 
+((u = m1 and p = m2 and e_102 = e_101 and e_110 = e_112) impl (m2 = m1)) and 
+((v = m1 and p = m2 and e_102 = e_101 and e_110 = e_113) impl (m2 = m1)) and 
+((w = m1 and p = m2 and e_102 = e_101 and e_110 = e_114) impl (m2 = m1)) and 
+((m1 = m1 and t = m2 and e_102 = e_101 and e_111 = e_108) impl (m2 = m1)) and 
+((m2 = m1 and t = m2 and e_102 = e_101 and e_111 = e_109) impl (m2 = m1)) and 
+((p = m1 and t = m2 and e_102 = e_101 and e_111 = e_110) impl (m2 = m1)) and 
+((t = m1 and t = m2 and e_102 = e_101 and e_111 = e_111) impl (m2 = m1)) and 
+((u = m1 and t = m2 and e_102 = e_101 and e_111 = e_112) impl (m2 = m1)) and 
+((v = m1 and t = m2 and e_102 = e_101 and e_111 = e_113) impl (m2 = m1)) and 
+((w = m1 and t = m2 and e_102 = e_101 and e_111 = e_114) impl (m2 = m1)) and 
+((m1 = m1 and u = m2 and e_102 = e_101 and e_112 = e_108) impl (m2 = m1)) and 
+((m2 = m1 and u = m2 and e_102 = e_101 and e_112 = e_109) impl (m2 = m1)) and 
+((p = m1 and u = m2 and e_102 = e_101 and e_112 = e_110) impl (m2 = m1)) and 
+((t = m1 and u = m2 and e_102 = e_101 and e_112 = e_111) impl (m2 = m1)) and 
+((u = m1 and u = m2 and e_102 = e_101 and e_112 = e_112) impl (m2 = m1)) and 
+((v = m1 and u = m2 and e_102 = e_101 and e_112 = e_113) impl (m2 = m1)) and 
+((w = m1 and u = m2 and e_102 = e_101 and e_112 = e_114) impl (m2 = m1)) and 
+((m1 = m1 and v = m2 and e_102 = e_101 and e_113 = e_108) impl (m2 = m1)) and 
+((m2 = m1 and v = m2 and e_102 = e_101 and e_113 = e_109) impl (m2 = m1)) and 
+((p = m1 and v = m2 and e_102 = e_101 and e_113 = e_110) impl (m2 = m1)) and 
+((t = m1 and v = m2 and e_102 = e_101 and e_113 = e_111) impl (m2 = m1)) and 
+((u = m1 and v = m2 and e_102 = e_101 and e_113 = e_112) impl (m2 = m1)) and 
+((v = m1 and v = m2 and e_102 = e_101 and e_113 = e_113) impl (m2 = m1)) and 
+((w = m1 and v = m2 and e_102 = e_101 and e_113 = e_114) impl (m2 = m1)) and 
+((m1 = m1 and w = m2 and e_102 = e_101 and e_114 = e_108) impl (m2 = m1)) and 
+((m2 = m1 and w = m2 and e_102 = e_101 and e_114 = e_109) impl (m2 = m1)) and 
+((p = m1 and w = m2 and e_102 = e_101 and e_114 = e_110) impl (m2 = m1)) and 
+((t = m1 and w = m2 and e_102 = e_101 and e_114 = e_111) impl (m2 = m1)) and 
+((u = m1 and w = m2 and e_102 = e_101 and e_114 = e_112) impl (m2 = m1)) and 
+((v = m1 and w = m2 and e_102 = e_101 and e_114 = e_113) impl (m2 = m1)) and 
+((w = m1 and w = m2 and e_102 = e_101 and e_114 = e_114) impl (m2 = m1)) and 
+((m1 = p and m1 = m2 and e_102 = e_103 and e_108 = e_108) impl (m2 = p)) and 
+((m2 = p and m1 = m2 and e_102 = e_103 and e_108 = e_109) impl (m2 = p)) and 
+((p = p and m1 = m2 and e_102 = e_103 and e_108 = e_110) impl (m2 = p)) and 
+((t = p and m1 = m2 and e_102 = e_103 and e_108 = e_111) impl (m2 = p)) and 
+((u = p and m1 = m2 and e_102 = e_103 and e_108 = e_112) impl (m2 = p)) and 
+((v = p and m1 = m2 and e_102 = e_103 and e_108 = e_113) impl (m2 = p)) and 
+((w = p and m1 = m2 and e_102 = e_103 and e_108 = e_114) impl (m2 = p)) and 
+((m1 = p and m2 = m2 and e_102 = e_103 and e_109 = e_108) impl (m2 = p)) and 
+((m2 = p and m2 = m2 and e_102 = e_103 and e_109 = e_109) impl (m2 = p)) and 
+((p = p and m2 = m2 and e_102 = e_103 and e_109 = e_110) impl (m2 = p)) and 
+((t = p and m2 = m2 and e_102 = e_103 and e_109 = e_111) impl (m2 = p)) and 
+((u = p and m2 = m2 and e_102 = e_103 and e_109 = e_112) impl (m2 = p)) and 
+((v = p and m2 = m2 and e_102 = e_103 and e_109 = e_113) impl (m2 = p)) and 
+((w = p and m2 = m2 and e_102 = e_103 and e_109 = e_114) impl (m2 = p)) and 
+((m1 = p and p = m2 and e_102 = e_103 and e_110 = e_108) impl (m2 = p)) and 
+((m2 = p and p = m2 and e_102 = e_103 and e_110 = e_109) impl (m2 = p)) and 
+((p = p and p = m2 and e_102 = e_103 and e_110 = e_110) impl (m2 = p)) and 
+((t = p and p = m2 and e_102 = e_103 and e_110 = e_111) impl (m2 = p)) and 
+((u = p and p = m2 and e_102 = e_103 and e_110 = e_112) impl (m2 = p)) and 
+((v = p and p = m2 and e_102 = e_103 and e_110 = e_113) impl (m2 = p)) and 
+((w = p and p = m2 and e_102 = e_103 and e_110 = e_114) impl (m2 = p)) and 
+((m1 = p and t = m2 and e_102 = e_103 and e_111 = e_108) impl (m2 = p)) and 
+((m2 = p and t = m2 and e_102 = e_103 and e_111 = e_109) impl (m2 = p)) and 
+((p = p and t = m2 and e_102 = e_103 and e_111 = e_110) impl (m2 = p)) and 
+((t = p and t = m2 and e_102 = e_103 and e_111 = e_111) impl (m2 = p)) and 
+((u = p and t = m2 and e_102 = e_103 and e_111 = e_112) impl (m2 = p)) and 
+((v = p and t = m2 and e_102 = e_103 and e_111 = e_113) impl (m2 = p)) and 
+((w = p and t = m2 and e_102 = e_103 and e_111 = e_114) impl (m2 = p)) and 
+((m1 = p and u = m2 and e_102 = e_103 and e_112 = e_108) impl (m2 = p)) and 
+((m2 = p and u = m2 and e_102 = e_103 and e_112 = e_109) impl (m2 = p)) and 
+((p = p and u = m2 and e_102 = e_103 and e_112 = e_110) impl (m2 = p)) and 
+((t = p and u = m2 and e_102 = e_103 and e_112 = e_111) impl (m2 = p)) and 
+((u = p and u = m2 and e_102 = e_103 and e_112 = e_112) impl (m2 = p)) and 
+((v = p and u = m2 and e_102 = e_103 and e_112 = e_113) impl (m2 = p)) and 
+((w = p and u = m2 and e_102 = e_103 and e_112 = e_114) impl (m2 = p)) and 
+((m1 = p and v = m2 and e_102 = e_103 and e_113 = e_108) impl (m2 = p)) and 
+((m2 = p and v = m2 and e_102 = e_103 and e_113 = e_109) impl (m2 = p)) and 
+((p = p and v = m2 and e_102 = e_103 and e_113 = e_110) impl (m2 = p)) and 
+((t = p and v = m2 and e_102 = e_103 and e_113 = e_111) impl (m2 = p)) and 
+((u = p and v = m2 and e_102 = e_103 and e_113 = e_112) impl (m2 = p)) and 
+((v = p and v = m2 and e_102 = e_103 and e_113 = e_113) impl (m2 = p)) and 
+((w = p and v = m2 and e_102 = e_103 and e_113 = e_114) impl (m2 = p)) and 
+((m1 = p and w = m2 and e_102 = e_103 and e_114 = e_108) impl (m2 = p)) and 
+((m2 = p and w = m2 and e_102 = e_103 and e_114 = e_109) impl (m2 = p)) and 
+((p = p and w = m2 and e_102 = e_103 and e_114 = e_110) impl (m2 = p)) and 
+((t = p and w = m2 and e_102 = e_103 and e_114 = e_111) impl (m2 = p)) and 
+((u = p and w = m2 and e_102 = e_103 and e_114 = e_112) impl (m2 = p)) and 
+((v = p and w = m2 and e_102 = e_103 and e_114 = e_113) impl (m2 = p)) and 
+((w = p and w = m2 and e_102 = e_103 and e_114 = e_114) impl (m2 = p)) and 
+((m1 = t and m1 = m2 and e_102 = e_104 and e_108 = e_108) impl (m2 = t)) and 
+((m2 = t and m1 = m2 and e_102 = e_104 and e_108 = e_109) impl (m2 = t)) and 
+((p = t and m1 = m2 and e_102 = e_104 and e_108 = e_110) impl (m2 = t)) and 
+((t = t and m1 = m2 and e_102 = e_104 and e_108 = e_111) impl (m2 = t)) and 
+((u = t and m1 = m2 and e_102 = e_104 and e_108 = e_112) impl (m2 = t)) and 
+((v = t and m1 = m2 and e_102 = e_104 and e_108 = e_113) impl (m2 = t)) and 
+((w = t and m1 = m2 and e_102 = e_104 and e_108 = e_114) impl (m2 = t)) and 
+((m1 = t and m2 = m2 and e_102 = e_104 and e_109 = e_108) impl (m2 = t)) and 
+((m2 = t and m2 = m2 and e_102 = e_104 and e_109 = e_109) impl (m2 = t)) and 
+((p = t and m2 = m2 and e_102 = e_104 and e_109 = e_110) impl (m2 = t)) and 
+((t = t and m2 = m2 and e_102 = e_104 and e_109 = e_111) impl (m2 = t)) and 
+((u = t and m2 = m2 and e_102 = e_104 and e_109 = e_112) impl (m2 = t)) and 
+((v = t and m2 = m2 and e_102 = e_104 and e_109 = e_113) impl (m2 = t)) and 
+((w = t and m2 = m2 and e_102 = e_104 and e_109 = e_114) impl (m2 = t)) and 
+((m1 = t and p = m2 and e_102 = e_104 and e_110 = e_108) impl (m2 = t)) and 
+((m2 = t and p = m2 and e_102 = e_104 and e_110 = e_109) impl (m2 = t)) and 
+((p = t and p = m2 and e_102 = e_104 and e_110 = e_110) impl (m2 = t)) and 
+((t = t and p = m2 and e_102 = e_104 and e_110 = e_111) impl (m2 = t)) and 
+((u = t and p = m2 and e_102 = e_104 and e_110 = e_112) impl (m2 = t)) and 
+((v = t and p = m2 and e_102 = e_104 and e_110 = e_113) impl (m2 = t)) and 
+((w = t and p = m2 and e_102 = e_104 and e_110 = e_114) impl (m2 = t)) and 
+((m1 = t and t = m2 and e_102 = e_104 and e_111 = e_108) impl (m2 = t)) and 
+((m2 = t and t = m2 and e_102 = e_104 and e_111 = e_109) impl (m2 = t)) and 
+((p = t and t = m2 and e_102 = e_104 and e_111 = e_110) impl (m2 = t)) and 
+((t = t and t = m2 and e_102 = e_104 and e_111 = e_111) impl (m2 = t)) and 
+((u = t and t = m2 and e_102 = e_104 and e_111 = e_112) impl (m2 = t)) and 
+((v = t and t = m2 and e_102 = e_104 and e_111 = e_113) impl (m2 = t)) and 
+((w = t and t = m2 and e_102 = e_104 and e_111 = e_114) impl (m2 = t)) and 
+((m1 = t and u = m2 and e_102 = e_104 and e_112 = e_108) impl (m2 = t)) and 
+((m2 = t and u = m2 and e_102 = e_104 and e_112 = e_109) impl (m2 = t)) and 
+((p = t and u = m2 and e_102 = e_104 and e_112 = e_110) impl (m2 = t)) and 
+((t = t and u = m2 and e_102 = e_104 and e_112 = e_111) impl (m2 = t)) and 
+((u = t and u = m2 and e_102 = e_104 and e_112 = e_112) impl (m2 = t)) and 
+((v = t and u = m2 and e_102 = e_104 and e_112 = e_113) impl (m2 = t)) and 
+((w = t and u = m2 and e_102 = e_104 and e_112 = e_114) impl (m2 = t)) and 
+((m1 = t and v = m2 and e_102 = e_104 and e_113 = e_108) impl (m2 = t)) and 
+((m2 = t and v = m2 and e_102 = e_104 and e_113 = e_109) impl (m2 = t)) and 
+((p = t and v = m2 and e_102 = e_104 and e_113 = e_110) impl (m2 = t)) and 
+((t = t and v = m2 and e_102 = e_104 and e_113 = e_111) impl (m2 = t)) and 
+((u = t and v = m2 and e_102 = e_104 and e_113 = e_112) impl (m2 = t)) and 
+((v = t and v = m2 and e_102 = e_104 and e_113 = e_113) impl (m2 = t)) and 
+((w = t and v = m2 and e_102 = e_104 and e_113 = e_114) impl (m2 = t)) and 
+((m1 = t and w = m2 and e_102 = e_104 and e_114 = e_108) impl (m2 = t)) and 
+((m2 = t and w = m2 and e_102 = e_104 and e_114 = e_109) impl (m2 = t)) and 
+((p = t and w = m2 and e_102 = e_104 and e_114 = e_110) impl (m2 = t)) and 
+((t = t and w = m2 and e_102 = e_104 and e_114 = e_111) impl (m2 = t)) and 
+((u = t and w = m2 and e_102 = e_104 and e_114 = e_112) impl (m2 = t)) and 
+((v = t and w = m2 and e_102 = e_104 and e_114 = e_113) impl (m2 = t)) and 
+((w = t and w = m2 and e_102 = e_104 and e_114 = e_114) impl (m2 = t)) and 
+((m1 = u and m1 = m2 and e_102 = e_105 and e_108 = e_108) impl (m2 = u)) and 
+((m2 = u and m1 = m2 and e_102 = e_105 and e_108 = e_109) impl (m2 = u)) and 
+((p = u and m1 = m2 and e_102 = e_105 and e_108 = e_110) impl (m2 = u)) and 
+((t = u and m1 = m2 and e_102 = e_105 and e_108 = e_111) impl (m2 = u)) and 
+((u = u and m1 = m2 and e_102 = e_105 and e_108 = e_112) impl (m2 = u)) and 
+((v = u and m1 = m2 and e_102 = e_105 and e_108 = e_113) impl (m2 = u)) and 
+((w = u and m1 = m2 and e_102 = e_105 and e_108 = e_114) impl (m2 = u)) and 
+((m1 = u and m2 = m2 and e_102 = e_105 and e_109 = e_108) impl (m2 = u)) and 
+((m2 = u and m2 = m2 and e_102 = e_105 and e_109 = e_109) impl (m2 = u)) and 
+((p = u and m2 = m2 and e_102 = e_105 and e_109 = e_110) impl (m2 = u)) and 
+((t = u and m2 = m2 and e_102 = e_105 and e_109 = e_111) impl (m2 = u)) and 
+((u = u and m2 = m2 and e_102 = e_105 and e_109 = e_112) impl (m2 = u)) and 
+((v = u and m2 = m2 and e_102 = e_105 and e_109 = e_113) impl (m2 = u)) and 
+((w = u and m2 = m2 and e_102 = e_105 and e_109 = e_114) impl (m2 = u)) and 
+((m1 = u and p = m2 and e_102 = e_105 and e_110 = e_108) impl (m2 = u)) and 
+((m2 = u and p = m2 and e_102 = e_105 and e_110 = e_109) impl (m2 = u)) and 
+((p = u and p = m2 and e_102 = e_105 and e_110 = e_110) impl (m2 = u)) and 
+((t = u and p = m2 and e_102 = e_105 and e_110 = e_111) impl (m2 = u)) and 
+((u = u and p = m2 and e_102 = e_105 and e_110 = e_112) impl (m2 = u)) and 
+((v = u and p = m2 and e_102 = e_105 and e_110 = e_113) impl (m2 = u)) and 
+((w = u and p = m2 and e_102 = e_105 and e_110 = e_114) impl (m2 = u)) and 
+((m1 = u and t = m2 and e_102 = e_105 and e_111 = e_108) impl (m2 = u)) and 
+((m2 = u and t = m2 and e_102 = e_105 and e_111 = e_109) impl (m2 = u)) and 
+((p = u and t = m2 and e_102 = e_105 and e_111 = e_110) impl (m2 = u)) and 
+((t = u and t = m2 and e_102 = e_105 and e_111 = e_111) impl (m2 = u)) and 
+((u = u and t = m2 and e_102 = e_105 and e_111 = e_112) impl (m2 = u)) and 
+((v = u and t = m2 and e_102 = e_105 and e_111 = e_113) impl (m2 = u)) and 
+((w = u and t = m2 and e_102 = e_105 and e_111 = e_114) impl (m2 = u)) and 
+((m1 = u and u = m2 and e_102 = e_105 and e_112 = e_108) impl (m2 = u)) and 
+((m2 = u and u = m2 and e_102 = e_105 and e_112 = e_109) impl (m2 = u)) and 
+((p = u and u = m2 and e_102 = e_105 and e_112 = e_110) impl (m2 = u)) and 
+((t = u and u = m2 and e_102 = e_105 and e_112 = e_111) impl (m2 = u)) and 
+((u = u and u = m2 and e_102 = e_105 and e_112 = e_112) impl (m2 = u)) and 
+((v = u and u = m2 and e_102 = e_105 and e_112 = e_113) impl (m2 = u)) and 
+((w = u and u = m2 and e_102 = e_105 and e_112 = e_114) impl (m2 = u)) and 
+((m1 = u and v = m2 and e_102 = e_105 and e_113 = e_108) impl (m2 = u)) and 
+((m2 = u and v = m2 and e_102 = e_105 and e_113 = e_109) impl (m2 = u)) and 
+((p = u and v = m2 and e_102 = e_105 and e_113 = e_110) impl (m2 = u)) and 
+((t = u and v = m2 and e_102 = e_105 and e_113 = e_111) impl (m2 = u)) and 
+((u = u and v = m2 and e_102 = e_105 and e_113 = e_112) impl (m2 = u)) and 
+((v = u and v = m2 and e_102 = e_105 and e_113 = e_113) impl (m2 = u)) and 
+((w = u and v = m2 and e_102 = e_105 and e_113 = e_114) impl (m2 = u)) and 
+((m1 = u and w = m2 and e_102 = e_105 and e_114 = e_108) impl (m2 = u)) and 
+((m2 = u and w = m2 and e_102 = e_105 and e_114 = e_109) impl (m2 = u)) and 
+((p = u and w = m2 and e_102 = e_105 and e_114 = e_110) impl (m2 = u)) and 
+((t = u and w = m2 and e_102 = e_105 and e_114 = e_111) impl (m2 = u)) and 
+((u = u and w = m2 and e_102 = e_105 and e_114 = e_112) impl (m2 = u)) and 
+((v = u and w = m2 and e_102 = e_105 and e_114 = e_113) impl (m2 = u)) and 
+((w = u and w = m2 and e_102 = e_105 and e_114 = e_114) impl (m2 = u)) and 
+((m1 = v and m1 = m2 and e_102 = e_106 and e_108 = e_108) impl (m2 = v)) and 
+((m2 = v and m1 = m2 and e_102 = e_106 and e_108 = e_109) impl (m2 = v)) and 
+((p = v and m1 = m2 and e_102 = e_106 and e_108 = e_110) impl (m2 = v)) and 
+((t = v and m1 = m2 and e_102 = e_106 and e_108 = e_111) impl (m2 = v)) and 
+((u = v and m1 = m2 and e_102 = e_106 and e_108 = e_112) impl (m2 = v)) and 
+((v = v and m1 = m2 and e_102 = e_106 and e_108 = e_113) impl (m2 = v)) and 
+((w = v and m1 = m2 and e_102 = e_106 and e_108 = e_114) impl (m2 = v)) and 
+((m1 = v and m2 = m2 and e_102 = e_106 and e_109 = e_108) impl (m2 = v)) and 
+((m2 = v and m2 = m2 and e_102 = e_106 and e_109 = e_109) impl (m2 = v)) and 
+((p = v and m2 = m2 and e_102 = e_106 and e_109 = e_110) impl (m2 = v)) and 
+((t = v and m2 = m2 and e_102 = e_106 and e_109 = e_111) impl (m2 = v)) and 
+((u = v and m2 = m2 and e_102 = e_106 and e_109 = e_112) impl (m2 = v)) and 
+((v = v and m2 = m2 and e_102 = e_106 and e_109 = e_113) impl (m2 = v)) and 
+((w = v and m2 = m2 and e_102 = e_106 and e_109 = e_114) impl (m2 = v)) and 
+((m1 = v and p = m2 and e_102 = e_106 and e_110 = e_108) impl (m2 = v)) and 
+((m2 = v and p = m2 and e_102 = e_106 and e_110 = e_109) impl (m2 = v)) and 
+((p = v and p = m2 and e_102 = e_106 and e_110 = e_110) impl (m2 = v)) and 
+((t = v and p = m2 and e_102 = e_106 and e_110 = e_111) impl (m2 = v)) and 
+((u = v and p = m2 and e_102 = e_106 and e_110 = e_112) impl (m2 = v)) and 
+((v = v and p = m2 and e_102 = e_106 and e_110 = e_113) impl (m2 = v)) and 
+((w = v and p = m2 and e_102 = e_106 and e_110 = e_114) impl (m2 = v)) and 
+((m1 = v and t = m2 and e_102 = e_106 and e_111 = e_108) impl (m2 = v)) and 
+((m2 = v and t = m2 and e_102 = e_106 and e_111 = e_109) impl (m2 = v)) and 
+((p = v and t = m2 and e_102 = e_106 and e_111 = e_110) impl (m2 = v)) and 
+((t = v and t = m2 and e_102 = e_106 and e_111 = e_111) impl (m2 = v)) and 
+((u = v and t = m2 and e_102 = e_106 and e_111 = e_112) impl (m2 = v)) and 
+((v = v and t = m2 and e_102 = e_106 and e_111 = e_113) impl (m2 = v)) and 
+((w = v and t = m2 and e_102 = e_106 and e_111 = e_114) impl (m2 = v)) and 
+((m1 = v and u = m2 and e_102 = e_106 and e_112 = e_108) impl (m2 = v)) and 
+((m2 = v and u = m2 and e_102 = e_106 and e_112 = e_109) impl (m2 = v)) and 
+((p = v and u = m2 and e_102 = e_106 and e_112 = e_110) impl (m2 = v)) and 
+((t = v and u = m2 and e_102 = e_106 and e_112 = e_111) impl (m2 = v)) and 
+((u = v and u = m2 and e_102 = e_106 and e_112 = e_112) impl (m2 = v)) and 
+((v = v and u = m2 and e_102 = e_106 and e_112 = e_113) impl (m2 = v)) and 
+((w = v and u = m2 and e_102 = e_106 and e_112 = e_114) impl (m2 = v)) and 
+((m1 = v and v = m2 and e_102 = e_106 and e_113 = e_108) impl (m2 = v)) and 
+((m2 = v and v = m2 and e_102 = e_106 and e_113 = e_109) impl (m2 = v)) and 
+((p = v and v = m2 and e_102 = e_106 and e_113 = e_110) impl (m2 = v)) and 
+((t = v and v = m2 and e_102 = e_106 and e_113 = e_111) impl (m2 = v)) and 
+((u = v and v = m2 and e_102 = e_106 and e_113 = e_112) impl (m2 = v)) and 
+((v = v and v = m2 and e_102 = e_106 and e_113 = e_113) impl (m2 = v)) and 
+((w = v and v = m2 and e_102 = e_106 and e_113 = e_114) impl (m2 = v)) and 
+((m1 = v and w = m2 and e_102 = e_106 and e_114 = e_108) impl (m2 = v)) and 
+((m2 = v and w = m2 and e_102 = e_106 and e_114 = e_109) impl (m2 = v)) and 
+((p = v and w = m2 and e_102 = e_106 and e_114 = e_110) impl (m2 = v)) and 
+((t = v and w = m2 and e_102 = e_106 and e_114 = e_111) impl (m2 = v)) and 
+((u = v and w = m2 and e_102 = e_106 and e_114 = e_112) impl (m2 = v)) and 
+((v = v and w = m2 and e_102 = e_106 and e_114 = e_113) impl (m2 = v)) and 
+((w = v and w = m2 and e_102 = e_106 and e_114 = e_114) impl (m2 = v)) and 
+((m1 = w and m1 = m2 and e_102 = e_107 and e_108 = e_108) impl (m2 = w)) and 
+((m2 = w and m1 = m2 and e_102 = e_107 and e_108 = e_109) impl (m2 = w)) and 
+((p = w and m1 = m2 and e_102 = e_107 and e_108 = e_110) impl (m2 = w)) and 
+((t = w and m1 = m2 and e_102 = e_107 and e_108 = e_111) impl (m2 = w)) and 
+((u = w and m1 = m2 and e_102 = e_107 and e_108 = e_112) impl (m2 = w)) and 
+((v = w and m1 = m2 and e_102 = e_107 and e_108 = e_113) impl (m2 = w)) and 
+((w = w and m1 = m2 and e_102 = e_107 and e_108 = e_114) impl (m2 = w)) and 
+((m1 = w and m2 = m2 and e_102 = e_107 and e_109 = e_108) impl (m2 = w)) and 
+((m2 = w and m2 = m2 and e_102 = e_107 and e_109 = e_109) impl (m2 = w)) and 
+((p = w and m2 = m2 and e_102 = e_107 and e_109 = e_110) impl (m2 = w)) and 
+((t = w and m2 = m2 and e_102 = e_107 and e_109 = e_111) impl (m2 = w)) and 
+((u = w and m2 = m2 and e_102 = e_107 and e_109 = e_112) impl (m2 = w)) and 
+((v = w and m2 = m2 and e_102 = e_107 and e_109 = e_113) impl (m2 = w)) and 
+((w = w and m2 = m2 and e_102 = e_107 and e_109 = e_114) impl (m2 = w)) and 
+((m1 = w and p = m2 and e_102 = e_107 and e_110 = e_108) impl (m2 = w)) and 
+((m2 = w and p = m2 and e_102 = e_107 and e_110 = e_109) impl (m2 = w)) and 
+((p = w and p = m2 and e_102 = e_107 and e_110 = e_110) impl (m2 = w)) and 
+((t = w and p = m2 and e_102 = e_107 and e_110 = e_111) impl (m2 = w)) and 
+((u = w and p = m2 and e_102 = e_107 and e_110 = e_112) impl (m2 = w)) and 
+((v = w and p = m2 and e_102 = e_107 and e_110 = e_113) impl (m2 = w)) and 
+((w = w and p = m2 and e_102 = e_107 and e_110 = e_114) impl (m2 = w)) and 
+((m1 = w and t = m2 and e_102 = e_107 and e_111 = e_108) impl (m2 = w)) and 
+((m2 = w and t = m2 and e_102 = e_107 and e_111 = e_109) impl (m2 = w)) and 
+((p = w and t = m2 and e_102 = e_107 and e_111 = e_110) impl (m2 = w)) and 
+((t = w and t = m2 and e_102 = e_107 and e_111 = e_111) impl (m2 = w)) and 
+((u = w and t = m2 and e_102 = e_107 and e_111 = e_112) impl (m2 = w)) and 
+((v = w and t = m2 and e_102 = e_107 and e_111 = e_113) impl (m2 = w)) and 
+((w = w and t = m2 and e_102 = e_107 and e_111 = e_114) impl (m2 = w)) and 
+((m1 = w and u = m2 and e_102 = e_107 and e_112 = e_108) impl (m2 = w)) and 
+((m2 = w and u = m2 and e_102 = e_107 and e_112 = e_109) impl (m2 = w)) and 
+((p = w and u = m2 and e_102 = e_107 and e_112 = e_110) impl (m2 = w)) and 
+((t = w and u = m2 and e_102 = e_107 and e_112 = e_111) impl (m2 = w)) and 
+((u = w and u = m2 and e_102 = e_107 and e_112 = e_112) impl (m2 = w)) and 
+((v = w and u = m2 and e_102 = e_107 and e_112 = e_113) impl (m2 = w)) and 
+((w = w and u = m2 and e_102 = e_107 and e_112 = e_114) impl (m2 = w)) and 
+((m1 = w and v = m2 and e_102 = e_107 and e_113 = e_108) impl (m2 = w)) and 
+((m2 = w and v = m2 and e_102 = e_107 and e_113 = e_109) impl (m2 = w)) and 
+((p = w and v = m2 and e_102 = e_107 and e_113 = e_110) impl (m2 = w)) and 
+((t = w and v = m2 and e_102 = e_107 and e_113 = e_111) impl (m2 = w)) and 
+((u = w and v = m2 and e_102 = e_107 and e_113 = e_112) impl (m2 = w)) and 
+((v = w and v = m2 and e_102 = e_107 and e_113 = e_113) impl (m2 = w)) and 
+((w = w and v = m2 and e_102 = e_107 and e_113 = e_114) impl (m2 = w)) and 
+((m1 = w and w = m2 and e_102 = e_107 and e_114 = e_108) impl (m2 = w)) and 
+((m2 = w and w = m2 and e_102 = e_107 and e_114 = e_109) impl (m2 = w)) and 
+((p = w and w = m2 and e_102 = e_107 and e_114 = e_110) impl (m2 = w)) and 
+((t = w and w = m2 and e_102 = e_107 and e_114 = e_111) impl (m2 = w)) and 
+((u = w and w = m2 and e_102 = e_107 and e_114 = e_112) impl (m2 = w)) and 
+((v = w and w = m2 and e_102 = e_107 and e_114 = e_113) impl (m2 = w)) and 
+((w = w and w = m2 and e_102 = e_107 and e_114 = e_114) impl (m2 = w)) and 
+((m1 = m1 and m1 = p and e_103 = e_101 and e_108 = e_108) impl (p = m1)) and 
+((m2 = m1 and m1 = p and e_103 = e_101 and e_108 = e_109) impl (p = m1)) and 
+((p = m1 and m1 = p and e_103 = e_101 and e_108 = e_110) impl (p = m1)) and 
+((t = m1 and m1 = p and e_103 = e_101 and e_108 = e_111) impl (p = m1)) and 
+((u = m1 and m1 = p and e_103 = e_101 and e_108 = e_112) impl (p = m1)) and 
+((v = m1 and m1 = p and e_103 = e_101 and e_108 = e_113) impl (p = m1)) and 
+((w = m1 and m1 = p and e_103 = e_101 and e_108 = e_114) impl (p = m1)) and 
+((m1 = m1 and m2 = p and e_103 = e_101 and e_109 = e_108) impl (p = m1)) and 
+((m2 = m1 and m2 = p and e_103 = e_101 and e_109 = e_109) impl (p = m1)) and 
+((p = m1 and m2 = p and e_103 = e_101 and e_109 = e_110) impl (p = m1)) and 
+((t = m1 and m2 = p and e_103 = e_101 and e_109 = e_111) impl (p = m1)) and 
+((u = m1 and m2 = p and e_103 = e_101 and e_109 = e_112) impl (p = m1)) and 
+((v = m1 and m2 = p and e_103 = e_101 and e_109 = e_113) impl (p = m1)) and 
+((w = m1 and m2 = p and e_103 = e_101 and e_109 = e_114) impl (p = m1)) and 
+((m1 = m1 and p = p and e_103 = e_101 and e_110 = e_108) impl (p = m1)) and 
+((m2 = m1 and p = p and e_103 = e_101 and e_110 = e_109) impl (p = m1)) and 
+((p = m1 and p = p and e_103 = e_101 and e_110 = e_110) impl (p = m1)) and 
+((t = m1 and p = p and e_103 = e_101 and e_110 = e_111) impl (p = m1)) and 
+((u = m1 and p = p and e_103 = e_101 and e_110 = e_112) impl (p = m1)) and 
+((v = m1 and p = p and e_103 = e_101 and e_110 = e_113) impl (p = m1)) and 
+((w = m1 and p = p and e_103 = e_101 and e_110 = e_114) impl (p = m1)) and 
+((m1 = m1 and t = p and e_103 = e_101 and e_111 = e_108) impl (p = m1)) and 
+((m2 = m1 and t = p and e_103 = e_101 and e_111 = e_109) impl (p = m1)) and 
+((p = m1 and t = p and e_103 = e_101 and e_111 = e_110) impl (p = m1)) and 
+((t = m1 and t = p and e_103 = e_101 and e_111 = e_111) impl (p = m1)) and 
+((u = m1 and t = p and e_103 = e_101 and e_111 = e_112) impl (p = m1)) and 
+((v = m1 and t = p and e_103 = e_101 and e_111 = e_113) impl (p = m1)) and 
+((w = m1 and t = p and e_103 = e_101 and e_111 = e_114) impl (p = m1)) and 
+((m1 = m1 and u = p and e_103 = e_101 and e_112 = e_108) impl (p = m1)) and 
+((m2 = m1 and u = p and e_103 = e_101 and e_112 = e_109) impl (p = m1)) and 
+((p = m1 and u = p and e_103 = e_101 and e_112 = e_110) impl (p = m1)) and 
+((t = m1 and u = p and e_103 = e_101 and e_112 = e_111) impl (p = m1)) and 
+((u = m1 and u = p and e_103 = e_101 and e_112 = e_112) impl (p = m1)) and 
+((v = m1 and u = p and e_103 = e_101 and e_112 = e_113) impl (p = m1)) and 
+((w = m1 and u = p and e_103 = e_101 and e_112 = e_114) impl (p = m1)) and 
+((m1 = m1 and v = p and e_103 = e_101 and e_113 = e_108) impl (p = m1)) and 
+((m2 = m1 and v = p and e_103 = e_101 and e_113 = e_109) impl (p = m1)) and 
+((p = m1 and v = p and e_103 = e_101 and e_113 = e_110) impl (p = m1)) and 
+((t = m1 and v = p and e_103 = e_101 and e_113 = e_111) impl (p = m1)) and 
+((u = m1 and v = p and e_103 = e_101 and e_113 = e_112) impl (p = m1)) and 
+((v = m1 and v = p and e_103 = e_101 and e_113 = e_113) impl (p = m1)) and 
+((w = m1 and v = p and e_103 = e_101 and e_113 = e_114) impl (p = m1)) and 
+((m1 = m1 and w = p and e_103 = e_101 and e_114 = e_108) impl (p = m1)) and 
+((m2 = m1 and w = p and e_103 = e_101 and e_114 = e_109) impl (p = m1)) and 
+((p = m1 and w = p and e_103 = e_101 and e_114 = e_110) impl (p = m1)) and 
+((t = m1 and w = p and e_103 = e_101 and e_114 = e_111) impl (p = m1)) and 
+((u = m1 and w = p and e_103 = e_101 and e_114 = e_112) impl (p = m1)) and 
+((v = m1 and w = p and e_103 = e_101 and e_114 = e_113) impl (p = m1)) and 
+((w = m1 and w = p and e_103 = e_101 and e_114 = e_114) impl (p = m1)) and 
+((m1 = m2 and m1 = p and e_103 = e_102 and e_108 = e_108) impl (p = m2)) and 
+((m2 = m2 and m1 = p and e_103 = e_102 and e_108 = e_109) impl (p = m2)) and 
+((p = m2 and m1 = p and e_103 = e_102 and e_108 = e_110) impl (p = m2)) and 
+((t = m2 and m1 = p and e_103 = e_102 and e_108 = e_111) impl (p = m2)) and 
+((u = m2 and m1 = p and e_103 = e_102 and e_108 = e_112) impl (p = m2)) and 
+((v = m2 and m1 = p and e_103 = e_102 and e_108 = e_113) impl (p = m2)) and 
+((w = m2 and m1 = p and e_103 = e_102 and e_108 = e_114) impl (p = m2)) and 
+((m1 = m2 and m2 = p and e_103 = e_102 and e_109 = e_108) impl (p = m2)) and 
+((m2 = m2 and m2 = p and e_103 = e_102 and e_109 = e_109) impl (p = m2)) and 
+((p = m2 and m2 = p and e_103 = e_102 and e_109 = e_110) impl (p = m2)) and 
+((t = m2 and m2 = p and e_103 = e_102 and e_109 = e_111) impl (p = m2)) and 
+((u = m2 and m2 = p and e_103 = e_102 and e_109 = e_112) impl (p = m2)) and 
+((v = m2 and m2 = p and e_103 = e_102 and e_109 = e_113) impl (p = m2)) and 
+((w = m2 and m2 = p and e_103 = e_102 and e_109 = e_114) impl (p = m2)) and 
+((m1 = m2 and p = p and e_103 = e_102 and e_110 = e_108) impl (p = m2)) and 
+((m2 = m2 and p = p and e_103 = e_102 and e_110 = e_109) impl (p = m2)) and 
+((p = m2 and p = p and e_103 = e_102 and e_110 = e_110) impl (p = m2)) and 
+((t = m2 and p = p and e_103 = e_102 and e_110 = e_111) impl (p = m2)) and 
+((u = m2 and p = p and e_103 = e_102 and e_110 = e_112) impl (p = m2)) and 
+((v = m2 and p = p and e_103 = e_102 and e_110 = e_113) impl (p = m2)) and 
+((w = m2 and p = p and e_103 = e_102 and e_110 = e_114) impl (p = m2)) and 
+((m1 = m2 and t = p and e_103 = e_102 and e_111 = e_108) impl (p = m2)) and 
+((m2 = m2 and t = p and e_103 = e_102 and e_111 = e_109) impl (p = m2)) and 
+((p = m2 and t = p and e_103 = e_102 and e_111 = e_110) impl (p = m2)) and 
+((t = m2 and t = p and e_103 = e_102 and e_111 = e_111) impl (p = m2)) and 
+((u = m2 and t = p and e_103 = e_102 and e_111 = e_112) impl (p = m2)) and 
+((v = m2 and t = p and e_103 = e_102 and e_111 = e_113) impl (p = m2)) and 
+((w = m2 and t = p and e_103 = e_102 and e_111 = e_114) impl (p = m2)) and 
+((m1 = m2 and u = p and e_103 = e_102 and e_112 = e_108) impl (p = m2)) and 
+((m2 = m2 and u = p and e_103 = e_102 and e_112 = e_109) impl (p = m2)) and 
+((p = m2 and u = p and e_103 = e_102 and e_112 = e_110) impl (p = m2)) and 
+((t = m2 and u = p and e_103 = e_102 and e_112 = e_111) impl (p = m2)) and 
+((u = m2 and u = p and e_103 = e_102 and e_112 = e_112) impl (p = m2)) and 
+((v = m2 and u = p and e_103 = e_102 and e_112 = e_113) impl (p = m2)) and 
+((w = m2 and u = p and e_103 = e_102 and e_112 = e_114) impl (p = m2)) and 
+((m1 = m2 and v = p and e_103 = e_102 and e_113 = e_108) impl (p = m2)) and 
+((m2 = m2 and v = p and e_103 = e_102 and e_113 = e_109) impl (p = m2)) and 
+((p = m2 and v = p and e_103 = e_102 and e_113 = e_110) impl (p = m2)) and 
+((t = m2 and v = p and e_103 = e_102 and e_113 = e_111) impl (p = m2)) and 
+((u = m2 and v = p and e_103 = e_102 and e_113 = e_112) impl (p = m2)) and 
+((v = m2 and v = p and e_103 = e_102 and e_113 = e_113) impl (p = m2)) and 
+((w = m2 and v = p and e_103 = e_102 and e_113 = e_114) impl (p = m2)) and 
+((m1 = m2 and w = p and e_103 = e_102 and e_114 = e_108) impl (p = m2)) and 
+((m2 = m2 and w = p and e_103 = e_102 and e_114 = e_109) impl (p = m2)) and 
+((p = m2 and w = p and e_103 = e_102 and e_114 = e_110) impl (p = m2)) and 
+((t = m2 and w = p and e_103 = e_102 and e_114 = e_111) impl (p = m2)) and 
+((u = m2 and w = p and e_103 = e_102 and e_114 = e_112) impl (p = m2)) and 
+((v = m2 and w = p and e_103 = e_102 and e_114 = e_113) impl (p = m2)) and 
+((w = m2 and w = p and e_103 = e_102 and e_114 = e_114) impl (p = m2)) and 
+((m1 = t and m1 = p and e_103 = e_104 and e_108 = e_108) impl (p = t)) and 
+((m2 = t and m1 = p and e_103 = e_104 and e_108 = e_109) impl (p = t)) and 
+((p = t and m1 = p and e_103 = e_104 and e_108 = e_110) impl (p = t)) and 
+((t = t and m1 = p and e_103 = e_104 and e_108 = e_111) impl (p = t)) and 
+((u = t and m1 = p and e_103 = e_104 and e_108 = e_112) impl (p = t)) and 
+((v = t and m1 = p and e_103 = e_104 and e_108 = e_113) impl (p = t)) and 
+((w = t and m1 = p and e_103 = e_104 and e_108 = e_114) impl (p = t)) and 
+((m1 = t and m2 = p and e_103 = e_104 and e_109 = e_108) impl (p = t)) and 
+((m2 = t and m2 = p and e_103 = e_104 and e_109 = e_109) impl (p = t)) and 
+((p = t and m2 = p and e_103 = e_104 and e_109 = e_110) impl (p = t)) and 
+((t = t and m2 = p and e_103 = e_104 and e_109 = e_111) impl (p = t)) and 
+((u = t and m2 = p and e_103 = e_104 and e_109 = e_112) impl (p = t)) and 
+((v = t and m2 = p and e_103 = e_104 and e_109 = e_113) impl (p = t)) and 
+((w = t and m2 = p and e_103 = e_104 and e_109 = e_114) impl (p = t)) and 
+((m1 = t and p = p and e_103 = e_104 and e_110 = e_108) impl (p = t)) and 
+((m2 = t and p = p and e_103 = e_104 and e_110 = e_109) impl (p = t)) and 
+((p = t and p = p and e_103 = e_104 and e_110 = e_110) impl (p = t)) and 
+((t = t and p = p and e_103 = e_104 and e_110 = e_111) impl (p = t)) and 
+((u = t and p = p and e_103 = e_104 and e_110 = e_112) impl (p = t)) and 
+((v = t and p = p and e_103 = e_104 and e_110 = e_113) impl (p = t)) and 
+((w = t and p = p and e_103 = e_104 and e_110 = e_114) impl (p = t)) and 
+((m1 = t and t = p and e_103 = e_104 and e_111 = e_108) impl (p = t)) and 
+((m2 = t and t = p and e_103 = e_104 and e_111 = e_109) impl (p = t)) and 
+((p = t and t = p and e_103 = e_104 and e_111 = e_110) impl (p = t)) and 
+((t = t and t = p and e_103 = e_104 and e_111 = e_111) impl (p = t)) and 
+((u = t and t = p and e_103 = e_104 and e_111 = e_112) impl (p = t)) and 
+((v = t and t = p and e_103 = e_104 and e_111 = e_113) impl (p = t)) and 
+((w = t and t = p and e_103 = e_104 and e_111 = e_114) impl (p = t)) and 
+((m1 = t and u = p and e_103 = e_104 and e_112 = e_108) impl (p = t)) and 
+((m2 = t and u = p and e_103 = e_104 and e_112 = e_109) impl (p = t)) and 
+((p = t and u = p and e_103 = e_104 and e_112 = e_110) impl (p = t)) and 
+((t = t and u = p and e_103 = e_104 and e_112 = e_111) impl (p = t)) and 
+((u = t and u = p and e_103 = e_104 and e_112 = e_112) impl (p = t)) and 
+((v = t and u = p and e_103 = e_104 and e_112 = e_113) impl (p = t)) and 
+((w = t and u = p and e_103 = e_104 and e_112 = e_114) impl (p = t)) and 
+((m1 = t and v = p and e_103 = e_104 and e_113 = e_108) impl (p = t)) and 
+((m2 = t and v = p and e_103 = e_104 and e_113 = e_109) impl (p = t)) and 
+((p = t and v = p and e_103 = e_104 and e_113 = e_110) impl (p = t)) and 
+((t = t and v = p and e_103 = e_104 and e_113 = e_111) impl (p = t)) and 
+((u = t and v = p and e_103 = e_104 and e_113 = e_112) impl (p = t)) and 
+((v = t and v = p and e_103 = e_104 and e_113 = e_113) impl (p = t)) and 
+((w = t and v = p and e_103 = e_104 and e_113 = e_114) impl (p = t)) and 
+((m1 = t and w = p and e_103 = e_104 and e_114 = e_108) impl (p = t)) and 
+((m2 = t and w = p and e_103 = e_104 and e_114 = e_109) impl (p = t)) and 
+((p = t and w = p and e_103 = e_104 and e_114 = e_110) impl (p = t)) and 
+((t = t and w = p and e_103 = e_104 and e_114 = e_111) impl (p = t)) and 
+((u = t and w = p and e_103 = e_104 and e_114 = e_112) impl (p = t)) and 
+((v = t and w = p and e_103 = e_104 and e_114 = e_113) impl (p = t)) and 
+((w = t and w = p and e_103 = e_104 and e_114 = e_114) impl (p = t)) and 
+((m1 = u and m1 = p and e_103 = e_105 and e_108 = e_108) impl (p = u)) and 
+((m2 = u and m1 = p and e_103 = e_105 and e_108 = e_109) impl (p = u)) and 
+((p = u and m1 = p and e_103 = e_105 and e_108 = e_110) impl (p = u)) and 
+((t = u and m1 = p and e_103 = e_105 and e_108 = e_111) impl (p = u)) and 
+((u = u and m1 = p and e_103 = e_105 and e_108 = e_112) impl (p = u)) and 
+((v = u and m1 = p and e_103 = e_105 and e_108 = e_113) impl (p = u)) and 
+((w = u and m1 = p and e_103 = e_105 and e_108 = e_114) impl (p = u)) and 
+((m1 = u and m2 = p and e_103 = e_105 and e_109 = e_108) impl (p = u)) and 
+((m2 = u and m2 = p and e_103 = e_105 and e_109 = e_109) impl (p = u)) and 
+((p = u and m2 = p and e_103 = e_105 and e_109 = e_110) impl (p = u)) and 
+((t = u and m2 = p and e_103 = e_105 and e_109 = e_111) impl (p = u)) and 
+((u = u and m2 = p and e_103 = e_105 and e_109 = e_112) impl (p = u)) and 
+((v = u and m2 = p and e_103 = e_105 and e_109 = e_113) impl (p = u)) and 
+((w = u and m2 = p and e_103 = e_105 and e_109 = e_114) impl (p = u)) and 
+((m1 = u and p = p and e_103 = e_105 and e_110 = e_108) impl (p = u)) and 
+((m2 = u and p = p and e_103 = e_105 and e_110 = e_109) impl (p = u)) and 
+((p = u and p = p and e_103 = e_105 and e_110 = e_110) impl (p = u)) and 
+((t = u and p = p and e_103 = e_105 and e_110 = e_111) impl (p = u)) and 
+((u = u and p = p and e_103 = e_105 and e_110 = e_112) impl (p = u)) and 
+((v = u and p = p and e_103 = e_105 and e_110 = e_113) impl (p = u)) and 
+((w = u and p = p and e_103 = e_105 and e_110 = e_114) impl (p = u)) and 
+((m1 = u and t = p and e_103 = e_105 and e_111 = e_108) impl (p = u)) and 
+((m2 = u and t = p and e_103 = e_105 and e_111 = e_109) impl (p = u)) and 
+((p = u and t = p and e_103 = e_105 and e_111 = e_110) impl (p = u)) and 
+((t = u and t = p and e_103 = e_105 and e_111 = e_111) impl (p = u)) and 
+((u = u and t = p and e_103 = e_105 and e_111 = e_112) impl (p = u)) and 
+((v = u and t = p and e_103 = e_105 and e_111 = e_113) impl (p = u)) and 
+((w = u and t = p and e_103 = e_105 and e_111 = e_114) impl (p = u)) and 
+((m1 = u and u = p and e_103 = e_105 and e_112 = e_108) impl (p = u)) and 
+((m2 = u and u = p and e_103 = e_105 and e_112 = e_109) impl (p = u)) and 
+((p = u and u = p and e_103 = e_105 and e_112 = e_110) impl (p = u)) and 
+((t = u and u = p and e_103 = e_105 and e_112 = e_111) impl (p = u)) and 
+((u = u and u = p and e_103 = e_105 and e_112 = e_112) impl (p = u)) and 
+((v = u and u = p and e_103 = e_105 and e_112 = e_113) impl (p = u)) and 
+((w = u and u = p and e_103 = e_105 and e_112 = e_114) impl (p = u)) and 
+((m1 = u and v = p and e_103 = e_105 and e_113 = e_108) impl (p = u)) and 
+((m2 = u and v = p and e_103 = e_105 and e_113 = e_109) impl (p = u)) and 
+((p = u and v = p and e_103 = e_105 and e_113 = e_110) impl (p = u)) and 
+((t = u and v = p and e_103 = e_105 and e_113 = e_111) impl (p = u)) and 
+((u = u and v = p and e_103 = e_105 and e_113 = e_112) impl (p = u)) and 
+((v = u and v = p and e_103 = e_105 and e_113 = e_113) impl (p = u)) and 
+((w = u and v = p and e_103 = e_105 and e_113 = e_114) impl (p = u)) and 
+((m1 = u and w = p and e_103 = e_105 and e_114 = e_108) impl (p = u)) and 
+((m2 = u and w = p and e_103 = e_105 and e_114 = e_109) impl (p = u)) and 
+((p = u and w = p and e_103 = e_105 and e_114 = e_110) impl (p = u)) and 
+((t = u and w = p and e_103 = e_105 and e_114 = e_111) impl (p = u)) and 
+((u = u and w = p and e_103 = e_105 and e_114 = e_112) impl (p = u)) and 
+((v = u and w = p and e_103 = e_105 and e_114 = e_113) impl (p = u)) and 
+((w = u and w = p and e_103 = e_105 and e_114 = e_114) impl (p = u)) and 
+((m1 = v and m1 = p and e_103 = e_106 and e_108 = e_108) impl (p = v)) and 
+((m2 = v and m1 = p and e_103 = e_106 and e_108 = e_109) impl (p = v)) and 
+((p = v and m1 = p and e_103 = e_106 and e_108 = e_110) impl (p = v)) and 
+((t = v and m1 = p and e_103 = e_106 and e_108 = e_111) impl (p = v)) and 
+((u = v and m1 = p and e_103 = e_106 and e_108 = e_112) impl (p = v)) and 
+((v = v and m1 = p and e_103 = e_106 and e_108 = e_113) impl (p = v)) and 
+((w = v and m1 = p and e_103 = e_106 and e_108 = e_114) impl (p = v)) and 
+((m1 = v and m2 = p and e_103 = e_106 and e_109 = e_108) impl (p = v)) and 
+((m2 = v and m2 = p and e_103 = e_106 and e_109 = e_109) impl (p = v)) and 
+((p = v and m2 = p and e_103 = e_106 and e_109 = e_110) impl (p = v)) and 
+((t = v and m2 = p and e_103 = e_106 and e_109 = e_111) impl (p = v)) and 
+((u = v and m2 = p and e_103 = e_106 and e_109 = e_112) impl (p = v)) and 
+((v = v and m2 = p and e_103 = e_106 and e_109 = e_113) impl (p = v)) and 
+((w = v and m2 = p and e_103 = e_106 and e_109 = e_114) impl (p = v)) and 
+((m1 = v and p = p and e_103 = e_106 and e_110 = e_108) impl (p = v)) and 
+((m2 = v and p = p and e_103 = e_106 and e_110 = e_109) impl (p = v)) and 
+((p = v and p = p and e_103 = e_106 and e_110 = e_110) impl (p = v)) and 
+((t = v and p = p and e_103 = e_106 and e_110 = e_111) impl (p = v)) and 
+((u = v and p = p and e_103 = e_106 and e_110 = e_112) impl (p = v)) and 
+((v = v and p = p and e_103 = e_106 and e_110 = e_113) impl (p = v)) and 
+((w = v and p = p and e_103 = e_106 and e_110 = e_114) impl (p = v)) and 
+((m1 = v and t = p and e_103 = e_106 and e_111 = e_108) impl (p = v)) and 
+((m2 = v and t = p and e_103 = e_106 and e_111 = e_109) impl (p = v)) and 
+((p = v and t = p and e_103 = e_106 and e_111 = e_110) impl (p = v)) and 
+((t = v and t = p and e_103 = e_106 and e_111 = e_111) impl (p = v)) and 
+((u = v and t = p and e_103 = e_106 and e_111 = e_112) impl (p = v)) and 
+((v = v and t = p and e_103 = e_106 and e_111 = e_113) impl (p = v)) and 
+((w = v and t = p and e_103 = e_106 and e_111 = e_114) impl (p = v)) and 
+((m1 = v and u = p and e_103 = e_106 and e_112 = e_108) impl (p = v)) and 
+((m2 = v and u = p and e_103 = e_106 and e_112 = e_109) impl (p = v)) and 
+((p = v and u = p and e_103 = e_106 and e_112 = e_110) impl (p = v)) and 
+((t = v and u = p and e_103 = e_106 and e_112 = e_111) impl (p = v)) and 
+((u = v and u = p and e_103 = e_106 and e_112 = e_112) impl (p = v)) and 
+((v = v and u = p and e_103 = e_106 and e_112 = e_113) impl (p = v)) and 
+((w = v and u = p and e_103 = e_106 and e_112 = e_114) impl (p = v)) and 
+((m1 = v and v = p and e_103 = e_106 and e_113 = e_108) impl (p = v)) and 
+((m2 = v and v = p and e_103 = e_106 and e_113 = e_109) impl (p = v)) and 
+((p = v and v = p and e_103 = e_106 and e_113 = e_110) impl (p = v)) and 
+((t = v and v = p and e_103 = e_106 and e_113 = e_111) impl (p = v)) and 
+((u = v and v = p and e_103 = e_106 and e_113 = e_112) impl (p = v)) and 
+((v = v and v = p and e_103 = e_106 and e_113 = e_113) impl (p = v)) and 
+((w = v and v = p and e_103 = e_106 and e_113 = e_114) impl (p = v)) and 
+((m1 = v and w = p and e_103 = e_106 and e_114 = e_108) impl (p = v)) and 
+((m2 = v and w = p and e_103 = e_106 and e_114 = e_109) impl (p = v)) and 
+((p = v and w = p and e_103 = e_106 and e_114 = e_110) impl (p = v)) and 
+((t = v and w = p and e_103 = e_106 and e_114 = e_111) impl (p = v)) and 
+((u = v and w = p and e_103 = e_106 and e_114 = e_112) impl (p = v)) and 
+((v = v and w = p and e_103 = e_106 and e_114 = e_113) impl (p = v)) and 
+((w = v and w = p and e_103 = e_106 and e_114 = e_114) impl (p = v)) and 
+((m1 = w and m1 = p and e_103 = e_107 and e_108 = e_108) impl (p = w)) and 
+((m2 = w and m1 = p and e_103 = e_107 and e_108 = e_109) impl (p = w)) and 
+((p = w and m1 = p and e_103 = e_107 and e_108 = e_110) impl (p = w)) and 
+((t = w and m1 = p and e_103 = e_107 and e_108 = e_111) impl (p = w)) and 
+((u = w and m1 = p and e_103 = e_107 and e_108 = e_112) impl (p = w)) and 
+((v = w and m1 = p and e_103 = e_107 and e_108 = e_113) impl (p = w)) and 
+((w = w and m1 = p and e_103 = e_107 and e_108 = e_114) impl (p = w)) and 
+((m1 = w and m2 = p and e_103 = e_107 and e_109 = e_108) impl (p = w)) and 
+((m2 = w and m2 = p and e_103 = e_107 and e_109 = e_109) impl (p = w)) and 
+((p = w and m2 = p and e_103 = e_107 and e_109 = e_110) impl (p = w)) and 
+((t = w and m2 = p and e_103 = e_107 and e_109 = e_111) impl (p = w)) and 
+((u = w and m2 = p and e_103 = e_107 and e_109 = e_112) impl (p = w)) and 
+((v = w and m2 = p and e_103 = e_107 and e_109 = e_113) impl (p = w)) and 
+((w = w and m2 = p and e_103 = e_107 and e_109 = e_114) impl (p = w)) and 
+((m1 = w and p = p and e_103 = e_107 and e_110 = e_108) impl (p = w)) and 
+((m2 = w and p = p and e_103 = e_107 and e_110 = e_109) impl (p = w)) and 
+((p = w and p = p and e_103 = e_107 and e_110 = e_110) impl (p = w)) and 
+((t = w and p = p and e_103 = e_107 and e_110 = e_111) impl (p = w)) and 
+((u = w and p = p and e_103 = e_107 and e_110 = e_112) impl (p = w)) and 
+((v = w and p = p and e_103 = e_107 and e_110 = e_113) impl (p = w)) and 
+((w = w and p = p and e_103 = e_107 and e_110 = e_114) impl (p = w)) and 
+((m1 = w and t = p and e_103 = e_107 and e_111 = e_108) impl (p = w)) and 
+((m2 = w and t = p and e_103 = e_107 and e_111 = e_109) impl (p = w)) and 
+((p = w and t = p and e_103 = e_107 and e_111 = e_110) impl (p = w)) and 
+((t = w and t = p and e_103 = e_107 and e_111 = e_111) impl (p = w)) and 
+((u = w and t = p and e_103 = e_107 and e_111 = e_112) impl (p = w)) and 
+((v = w and t = p and e_103 = e_107 and e_111 = e_113) impl (p = w)) and 
+((w = w and t = p and e_103 = e_107 and e_111 = e_114) impl (p = w)) and 
+((m1 = w and u = p and e_103 = e_107 and e_112 = e_108) impl (p = w)) and 
+((m2 = w and u = p and e_103 = e_107 and e_112 = e_109) impl (p = w)) and 
+((p = w and u = p and e_103 = e_107 and e_112 = e_110) impl (p = w)) and 
+((t = w and u = p and e_103 = e_107 and e_112 = e_111) impl (p = w)) and 
+((u = w and u = p and e_103 = e_107 and e_112 = e_112) impl (p = w)) and 
+((v = w and u = p and e_103 = e_107 and e_112 = e_113) impl (p = w)) and 
+((w = w and u = p and e_103 = e_107 and e_112 = e_114) impl (p = w)) and 
+((m1 = w and v = p and e_103 = e_107 and e_113 = e_108) impl (p = w)) and 
+((m2 = w and v = p and e_103 = e_107 and e_113 = e_109) impl (p = w)) and 
+((p = w and v = p and e_103 = e_107 and e_113 = e_110) impl (p = w)) and 
+((t = w and v = p and e_103 = e_107 and e_113 = e_111) impl (p = w)) and 
+((u = w and v = p and e_103 = e_107 and e_113 = e_112) impl (p = w)) and 
+((v = w and v = p and e_103 = e_107 and e_113 = e_113) impl (p = w)) and 
+((w = w and v = p and e_103 = e_107 and e_113 = e_114) impl (p = w)) and 
+((m1 = w and w = p and e_103 = e_107 and e_114 = e_108) impl (p = w)) and 
+((m2 = w and w = p and e_103 = e_107 and e_114 = e_109) impl (p = w)) and 
+((p = w and w = p and e_103 = e_107 and e_114 = e_110) impl (p = w)) and 
+((t = w and w = p and e_103 = e_107 and e_114 = e_111) impl (p = w)) and 
+((u = w and w = p and e_103 = e_107 and e_114 = e_112) impl (p = w)) and 
+((v = w and w = p and e_103 = e_107 and e_114 = e_113) impl (p = w)) and 
+((w = w and w = p and e_103 = e_107 and e_114 = e_114) impl (p = w)) and 
+((m1 = m1 and m1 = t and e_104 = e_101 and e_108 = e_108) impl (t = m1)) and 
+((m2 = m1 and m1 = t and e_104 = e_101 and e_108 = e_109) impl (t = m1)) and 
+((p = m1 and m1 = t and e_104 = e_101 and e_108 = e_110) impl (t = m1)) and 
+((t = m1 and m1 = t and e_104 = e_101 and e_108 = e_111) impl (t = m1)) and 
+((u = m1 and m1 = t and e_104 = e_101 and e_108 = e_112) impl (t = m1)) and 
+((v = m1 and m1 = t and e_104 = e_101 and e_108 = e_113) impl (t = m1)) and 
+((w = m1 and m1 = t and e_104 = e_101 and e_108 = e_114) impl (t = m1)) and 
+((m1 = m1 and m2 = t and e_104 = e_101 and e_109 = e_108) impl (t = m1)) and 
+((m2 = m1 and m2 = t and e_104 = e_101 and e_109 = e_109) impl (t = m1)) and 
+((p = m1 and m2 = t and e_104 = e_101 and e_109 = e_110) impl (t = m1)) and 
+((t = m1 and m2 = t and e_104 = e_101 and e_109 = e_111) impl (t = m1)) and 
+((u = m1 and m2 = t and e_104 = e_101 and e_109 = e_112) impl (t = m1)) and 
+((v = m1 and m2 = t and e_104 = e_101 and e_109 = e_113) impl (t = m1)) and 
+((w = m1 and m2 = t and e_104 = e_101 and e_109 = e_114) impl (t = m1)) and 
+((m1 = m1 and p = t and e_104 = e_101 and e_110 = e_108) impl (t = m1)) and 
+((m2 = m1 and p = t and e_104 = e_101 and e_110 = e_109) impl (t = m1)) and 
+((p = m1 and p = t and e_104 = e_101 and e_110 = e_110) impl (t = m1)) and 
+((t = m1 and p = t and e_104 = e_101 and e_110 = e_111) impl (t = m1)) and 
+((u = m1 and p = t and e_104 = e_101 and e_110 = e_112) impl (t = m1)) and 
+((v = m1 and p = t and e_104 = e_101 and e_110 = e_113) impl (t = m1)) and 
+((w = m1 and p = t and e_104 = e_101 and e_110 = e_114) impl (t = m1)) and 
+((m1 = m1 and t = t and e_104 = e_101 and e_111 = e_108) impl (t = m1)) and 
+((m2 = m1 and t = t and e_104 = e_101 and e_111 = e_109) impl (t = m1)) and 
+((p = m1 and t = t and e_104 = e_101 and e_111 = e_110) impl (t = m1)) and 
+((t = m1 and t = t and e_104 = e_101 and e_111 = e_111) impl (t = m1)) and 
+((u = m1 and t = t and e_104 = e_101 and e_111 = e_112) impl (t = m1)) and 
+((v = m1 and t = t and e_104 = e_101 and e_111 = e_113) impl (t = m1)) and 
+((w = m1 and t = t and e_104 = e_101 and e_111 = e_114) impl (t = m1)) and 
+((m1 = m1 and u = t and e_104 = e_101 and e_112 = e_108) impl (t = m1)) and 
+((m2 = m1 and u = t and e_104 = e_101 and e_112 = e_109) impl (t = m1)) and 
+((p = m1 and u = t and e_104 = e_101 and e_112 = e_110) impl (t = m1)) and 
+((t = m1 and u = t and e_104 = e_101 and e_112 = e_111) impl (t = m1)) and 
+((u = m1 and u = t and e_104 = e_101 and e_112 = e_112) impl (t = m1)) and 
+((v = m1 and u = t and e_104 = e_101 and e_112 = e_113) impl (t = m1)) and 
+((w = m1 and u = t and e_104 = e_101 and e_112 = e_114) impl (t = m1)) and 
+((m1 = m1 and v = t and e_104 = e_101 and e_113 = e_108) impl (t = m1)) and 
+((m2 = m1 and v = t and e_104 = e_101 and e_113 = e_109) impl (t = m1)) and 
+((p = m1 and v = t and e_104 = e_101 and e_113 = e_110) impl (t = m1)) and 
+((t = m1 and v = t and e_104 = e_101 and e_113 = e_111) impl (t = m1)) and 
+((u = m1 and v = t and e_104 = e_101 and e_113 = e_112) impl (t = m1)) and 
+((v = m1 and v = t and e_104 = e_101 and e_113 = e_113) impl (t = m1)) and 
+((w = m1 and v = t and e_104 = e_101 and e_113 = e_114) impl (t = m1)) and 
+((m1 = m1 and w = t and e_104 = e_101 and e_114 = e_108) impl (t = m1)) and 
+((m2 = m1 and w = t and e_104 = e_101 and e_114 = e_109) impl (t = m1)) and 
+((p = m1 and w = t and e_104 = e_101 and e_114 = e_110) impl (t = m1)) and 
+((t = m1 and w = t and e_104 = e_101 and e_114 = e_111) impl (t = m1)) and 
+((u = m1 and w = t and e_104 = e_101 and e_114 = e_112) impl (t = m1)) and 
+((v = m1 and w = t and e_104 = e_101 and e_114 = e_113) impl (t = m1)) and 
+((w = m1 and w = t and e_104 = e_101 and e_114 = e_114) impl (t = m1)) and 
+((m1 = m2 and m1 = t and e_104 = e_102 and e_108 = e_108) impl (t = m2)) and 
+((m2 = m2 and m1 = t and e_104 = e_102 and e_108 = e_109) impl (t = m2)) and 
+((p = m2 and m1 = t and e_104 = e_102 and e_108 = e_110) impl (t = m2)) and 
+((t = m2 and m1 = t and e_104 = e_102 and e_108 = e_111) impl (t = m2)) and 
+((u = m2 and m1 = t and e_104 = e_102 and e_108 = e_112) impl (t = m2)) and 
+((v = m2 and m1 = t and e_104 = e_102 and e_108 = e_113) impl (t = m2)) and 
+((w = m2 and m1 = t and e_104 = e_102 and e_108 = e_114) impl (t = m2)) and 
+((m1 = m2 and m2 = t and e_104 = e_102 and e_109 = e_108) impl (t = m2)) and 
+((m2 = m2 and m2 = t and e_104 = e_102 and e_109 = e_109) impl (t = m2)) and 
+((p = m2 and m2 = t and e_104 = e_102 and e_109 = e_110) impl (t = m2)) and 
+((t = m2 and m2 = t and e_104 = e_102 and e_109 = e_111) impl (t = m2)) and 
+((u = m2 and m2 = t and e_104 = e_102 and e_109 = e_112) impl (t = m2)) and 
+((v = m2 and m2 = t and e_104 = e_102 and e_109 = e_113) impl (t = m2)) and 
+((w = m2 and m2 = t and e_104 = e_102 and e_109 = e_114) impl (t = m2)) and 
+((m1 = m2 and p = t and e_104 = e_102 and e_110 = e_108) impl (t = m2)) and 
+((m2 = m2 and p = t and e_104 = e_102 and e_110 = e_109) impl (t = m2)) and 
+((p = m2 and p = t and e_104 = e_102 and e_110 = e_110) impl (t = m2)) and 
+((t = m2 and p = t and e_104 = e_102 and e_110 = e_111) impl (t = m2)) and 
+((u = m2 and p = t and e_104 = e_102 and e_110 = e_112) impl (t = m2)) and 
+((v = m2 and p = t and e_104 = e_102 and e_110 = e_113) impl (t = m2)) and 
+((w = m2 and p = t and e_104 = e_102 and e_110 = e_114) impl (t = m2)) and 
+((m1 = m2 and t = t and e_104 = e_102 and e_111 = e_108) impl (t = m2)) and 
+((m2 = m2 and t = t and e_104 = e_102 and e_111 = e_109) impl (t = m2)) and 
+((p = m2 and t = t and e_104 = e_102 and e_111 = e_110) impl (t = m2)) and 
+((t = m2 and t = t and e_104 = e_102 and e_111 = e_111) impl (t = m2)) and 
+((u = m2 and t = t and e_104 = e_102 and e_111 = e_112) impl (t = m2)) and 
+((v = m2 and t = t and e_104 = e_102 and e_111 = e_113) impl (t = m2)) and 
+((w = m2 and t = t and e_104 = e_102 and e_111 = e_114) impl (t = m2)) and 
+((m1 = m2 and u = t and e_104 = e_102 and e_112 = e_108) impl (t = m2)) and 
+((m2 = m2 and u = t and e_104 = e_102 and e_112 = e_109) impl (t = m2)) and 
+((p = m2 and u = t and e_104 = e_102 and e_112 = e_110) impl (t = m2)) and 
+((t = m2 and u = t and e_104 = e_102 and e_112 = e_111) impl (t = m2)) and 
+((u = m2 and u = t and e_104 = e_102 and e_112 = e_112) impl (t = m2)) and 
+((v = m2 and u = t and e_104 = e_102 and e_112 = e_113) impl (t = m2)) and 
+((w = m2 and u = t and e_104 = e_102 and e_112 = e_114) impl (t = m2)) and 
+((m1 = m2 and v = t and e_104 = e_102 and e_113 = e_108) impl (t = m2)) and 
+((m2 = m2 and v = t and e_104 = e_102 and e_113 = e_109) impl (t = m2)) and 
+((p = m2 and v = t and e_104 = e_102 and e_113 = e_110) impl (t = m2)) and 
+((t = m2 and v = t and e_104 = e_102 and e_113 = e_111) impl (t = m2)) and 
+((u = m2 and v = t and e_104 = e_102 and e_113 = e_112) impl (t = m2)) and 
+((v = m2 and v = t and e_104 = e_102 and e_113 = e_113) impl (t = m2)) and 
+((w = m2 and v = t and e_104 = e_102 and e_113 = e_114) impl (t = m2)) and 
+((m1 = m2 and w = t and e_104 = e_102 and e_114 = e_108) impl (t = m2)) and 
+((m2 = m2 and w = t and e_104 = e_102 and e_114 = e_109) impl (t = m2)) and 
+((p = m2 and w = t and e_104 = e_102 and e_114 = e_110) impl (t = m2)) and 
+((t = m2 and w = t and e_104 = e_102 and e_114 = e_111) impl (t = m2)) and 
+((u = m2 and w = t and e_104 = e_102 and e_114 = e_112) impl (t = m2)) and 
+((v = m2 and w = t and e_104 = e_102 and e_114 = e_113) impl (t = m2)) and 
+((w = m2 and w = t and e_104 = e_102 and e_114 = e_114) impl (t = m2)) and 
+((m1 = p and m1 = t and e_104 = e_103 and e_108 = e_108) impl (t = p)) and 
+((m2 = p and m1 = t and e_104 = e_103 and e_108 = e_109) impl (t = p)) and 
+((p = p and m1 = t and e_104 = e_103 and e_108 = e_110) impl (t = p)) and 
+((t = p and m1 = t and e_104 = e_103 and e_108 = e_111) impl (t = p)) and 
+((u = p and m1 = t and e_104 = e_103 and e_108 = e_112) impl (t = p)) and 
+((v = p and m1 = t and e_104 = e_103 and e_108 = e_113) impl (t = p)) and 
+((w = p and m1 = t and e_104 = e_103 and e_108 = e_114) impl (t = p)) and 
+((m1 = p and m2 = t and e_104 = e_103 and e_109 = e_108) impl (t = p)) and 
+((m2 = p and m2 = t and e_104 = e_103 and e_109 = e_109) impl (t = p)) and 
+((p = p and m2 = t and e_104 = e_103 and e_109 = e_110) impl (t = p)) and 
+((t = p and m2 = t and e_104 = e_103 and e_109 = e_111) impl (t = p)) and 
+((u = p and m2 = t and e_104 = e_103 and e_109 = e_112) impl (t = p)) and 
+((v = p and m2 = t and e_104 = e_103 and e_109 = e_113) impl (t = p)) and 
+((w = p and m2 = t and e_104 = e_103 and e_109 = e_114) impl (t = p)) and 
+((m1 = p and p = t and e_104 = e_103 and e_110 = e_108) impl (t = p)) and 
+((m2 = p and p = t and e_104 = e_103 and e_110 = e_109) impl (t = p)) and 
+((p = p and p = t and e_104 = e_103 and e_110 = e_110) impl (t = p)) and 
+((t = p and p = t and e_104 = e_103 and e_110 = e_111) impl (t = p)) and 
+((u = p and p = t and e_104 = e_103 and e_110 = e_112) impl (t = p)) and 
+((v = p and p = t and e_104 = e_103 and e_110 = e_113) impl (t = p)) and 
+((w = p and p = t and e_104 = e_103 and e_110 = e_114) impl (t = p)) and 
+((m1 = p and t = t and e_104 = e_103 and e_111 = e_108) impl (t = p)) and 
+((m2 = p and t = t and e_104 = e_103 and e_111 = e_109) impl (t = p)) and 
+((p = p and t = t and e_104 = e_103 and e_111 = e_110) impl (t = p)) and 
+((t = p and t = t and e_104 = e_103 and e_111 = e_111) impl (t = p)) and 
+((u = p and t = t and e_104 = e_103 and e_111 = e_112) impl (t = p)) and 
+((v = p and t = t and e_104 = e_103 and e_111 = e_113) impl (t = p)) and 
+((w = p and t = t and e_104 = e_103 and e_111 = e_114) impl (t = p)) and 
+((m1 = p and u = t and e_104 = e_103 and e_112 = e_108) impl (t = p)) and 
+((m2 = p and u = t and e_104 = e_103 and e_112 = e_109) impl (t = p)) and 
+((p = p and u = t and e_104 = e_103 and e_112 = e_110) impl (t = p)) and 
+((t = p and u = t and e_104 = e_103 and e_112 = e_111) impl (t = p)) and 
+((u = p and u = t and e_104 = e_103 and e_112 = e_112) impl (t = p)) and 
+((v = p and u = t and e_104 = e_103 and e_112 = e_113) impl (t = p)) and 
+((w = p and u = t and e_104 = e_103 and e_112 = e_114) impl (t = p)) and 
+((m1 = p and v = t and e_104 = e_103 and e_113 = e_108) impl (t = p)) and 
+((m2 = p and v = t and e_104 = e_103 and e_113 = e_109) impl (t = p)) and 
+((p = p and v = t and e_104 = e_103 and e_113 = e_110) impl (t = p)) and 
+((t = p and v = t and e_104 = e_103 and e_113 = e_111) impl (t = p)) and 
+((u = p and v = t and e_104 = e_103 and e_113 = e_112) impl (t = p)) and 
+((v = p and v = t and e_104 = e_103 and e_113 = e_113) impl (t = p)) and 
+((w = p and v = t and e_104 = e_103 and e_113 = e_114) impl (t = p)) and 
+((m1 = p and w = t and e_104 = e_103 and e_114 = e_108) impl (t = p)) and 
+((m2 = p and w = t and e_104 = e_103 and e_114 = e_109) impl (t = p)) and 
+((p = p and w = t and e_104 = e_103 and e_114 = e_110) impl (t = p)) and 
+((t = p and w = t and e_104 = e_103 and e_114 = e_111) impl (t = p)) and 
+((u = p and w = t and e_104 = e_103 and e_114 = e_112) impl (t = p)) and 
+((v = p and w = t and e_104 = e_103 and e_114 = e_113) impl (t = p)) and 
+((w = p and w = t and e_104 = e_103 and e_114 = e_114) impl (t = p)) and 
+((m1 = u and m1 = t and e_104 = e_105 and e_108 = e_108) impl (t = u)) and 
+((m2 = u and m1 = t and e_104 = e_105 and e_108 = e_109) impl (t = u)) and 
+((p = u and m1 = t and e_104 = e_105 and e_108 = e_110) impl (t = u)) and 
+((t = u and m1 = t and e_104 = e_105 and e_108 = e_111) impl (t = u)) and 
+((u = u and m1 = t and e_104 = e_105 and e_108 = e_112) impl (t = u)) and 
+((v = u and m1 = t and e_104 = e_105 and e_108 = e_113) impl (t = u)) and 
+((w = u and m1 = t and e_104 = e_105 and e_108 = e_114) impl (t = u)) and 
+((m1 = u and m2 = t and e_104 = e_105 and e_109 = e_108) impl (t = u)) and 
+((m2 = u and m2 = t and e_104 = e_105 and e_109 = e_109) impl (t = u)) and 
+((p = u and m2 = t and e_104 = e_105 and e_109 = e_110) impl (t = u)) and 
+((t = u and m2 = t and e_104 = e_105 and e_109 = e_111) impl (t = u)) and 
+((u = u and m2 = t and e_104 = e_105 and e_109 = e_112) impl (t = u)) and 
+((v = u and m2 = t and e_104 = e_105 and e_109 = e_113) impl (t = u)) and 
+((w = u and m2 = t and e_104 = e_105 and e_109 = e_114) impl (t = u)) and 
+((m1 = u and p = t and e_104 = e_105 and e_110 = e_108) impl (t = u)) and 
+((m2 = u and p = t and e_104 = e_105 and e_110 = e_109) impl (t = u)) and 
+((p = u and p = t and e_104 = e_105 and e_110 = e_110) impl (t = u)) and 
+((t = u and p = t and e_104 = e_105 and e_110 = e_111) impl (t = u)) and 
+((u = u and p = t and e_104 = e_105 and e_110 = e_112) impl (t = u)) and 
+((v = u and p = t and e_104 = e_105 and e_110 = e_113) impl (t = u)) and 
+((w = u and p = t and e_104 = e_105 and e_110 = e_114) impl (t = u)) and 
+((m1 = u and t = t and e_104 = e_105 and e_111 = e_108) impl (t = u)) and 
+((m2 = u and t = t and e_104 = e_105 and e_111 = e_109) impl (t = u)) and 
+((p = u and t = t and e_104 = e_105 and e_111 = e_110) impl (t = u)) and 
+((t = u and t = t and e_104 = e_105 and e_111 = e_111) impl (t = u)) and 
+((u = u and t = t and e_104 = e_105 and e_111 = e_112) impl (t = u)) and 
+((v = u and t = t and e_104 = e_105 and e_111 = e_113) impl (t = u)) and 
+((w = u and t = t and e_104 = e_105 and e_111 = e_114) impl (t = u)) and 
+((m1 = u and u = t and e_104 = e_105 and e_112 = e_108) impl (t = u)) and 
+((m2 = u and u = t and e_104 = e_105 and e_112 = e_109) impl (t = u)) and 
+((p = u and u = t and e_104 = e_105 and e_112 = e_110) impl (t = u)) and 
+((t = u and u = t and e_104 = e_105 and e_112 = e_111) impl (t = u)) and 
+((u = u and u = t and e_104 = e_105 and e_112 = e_112) impl (t = u)) and 
+((v = u and u = t and e_104 = e_105 and e_112 = e_113) impl (t = u)) and 
+((w = u and u = t and e_104 = e_105 and e_112 = e_114) impl (t = u)) and 
+((m1 = u and v = t and e_104 = e_105 and e_113 = e_108) impl (t = u)) and 
+((m2 = u and v = t and e_104 = e_105 and e_113 = e_109) impl (t = u)) and 
+((p = u and v = t and e_104 = e_105 and e_113 = e_110) impl (t = u)) and 
+((t = u and v = t and e_104 = e_105 and e_113 = e_111) impl (t = u)) and 
+((u = u and v = t and e_104 = e_105 and e_113 = e_112) impl (t = u)) and 
+((v = u and v = t and e_104 = e_105 and e_113 = e_113) impl (t = u)) and 
+((w = u and v = t and e_104 = e_105 and e_113 = e_114) impl (t = u)) and 
+((m1 = u and w = t and e_104 = e_105 and e_114 = e_108) impl (t = u)) and 
+((m2 = u and w = t and e_104 = e_105 and e_114 = e_109) impl (t = u)) and 
+((p = u and w = t and e_104 = e_105 and e_114 = e_110) impl (t = u)) and 
+((t = u and w = t and e_104 = e_105 and e_114 = e_111) impl (t = u)) and 
+((u = u and w = t and e_104 = e_105 and e_114 = e_112) impl (t = u)) and 
+((v = u and w = t and e_104 = e_105 and e_114 = e_113) impl (t = u)) and 
+((w = u and w = t and e_104 = e_105 and e_114 = e_114) impl (t = u)) and 
+((m1 = v and m1 = t and e_104 = e_106 and e_108 = e_108) impl (t = v)) and 
+((m2 = v and m1 = t and e_104 = e_106 and e_108 = e_109) impl (t = v)) and 
+((p = v and m1 = t and e_104 = e_106 and e_108 = e_110) impl (t = v)) and 
+((t = v and m1 = t and e_104 = e_106 and e_108 = e_111) impl (t = v)) and 
+((u = v and m1 = t and e_104 = e_106 and e_108 = e_112) impl (t = v)) and 
+((v = v and m1 = t and e_104 = e_106 and e_108 = e_113) impl (t = v)) and 
+((w = v and m1 = t and e_104 = e_106 and e_108 = e_114) impl (t = v)) and 
+((m1 = v and m2 = t and e_104 = e_106 and e_109 = e_108) impl (t = v)) and 
+((m2 = v and m2 = t and e_104 = e_106 and e_109 = e_109) impl (t = v)) and 
+((p = v and m2 = t and e_104 = e_106 and e_109 = e_110) impl (t = v)) and 
+((t = v and m2 = t and e_104 = e_106 and e_109 = e_111) impl (t = v)) and 
+((u = v and m2 = t and e_104 = e_106 and e_109 = e_112) impl (t = v)) and 
+((v = v and m2 = t and e_104 = e_106 and e_109 = e_113) impl (t = v)) and 
+((w = v and m2 = t and e_104 = e_106 and e_109 = e_114) impl (t = v)) and 
+((m1 = v and p = t and e_104 = e_106 and e_110 = e_108) impl (t = v)) and 
+((m2 = v and p = t and e_104 = e_106 and e_110 = e_109) impl (t = v)) and 
+((p = v and p = t and e_104 = e_106 and e_110 = e_110) impl (t = v)) and 
+((t = v and p = t and e_104 = e_106 and e_110 = e_111) impl (t = v)) and 
+((u = v and p = t and e_104 = e_106 and e_110 = e_112) impl (t = v)) and 
+((v = v and p = t and e_104 = e_106 and e_110 = e_113) impl (t = v)) and 
+((w = v and p = t and e_104 = e_106 and e_110 = e_114) impl (t = v)) and 
+((m1 = v and t = t and e_104 = e_106 and e_111 = e_108) impl (t = v)) and 
+((m2 = v and t = t and e_104 = e_106 and e_111 = e_109) impl (t = v)) and 
+((p = v and t = t and e_104 = e_106 and e_111 = e_110) impl (t = v)) and 
+((t = v and t = t and e_104 = e_106 and e_111 = e_111) impl (t = v)) and 
+((u = v and t = t and e_104 = e_106 and e_111 = e_112) impl (t = v)) and 
+((v = v and t = t and e_104 = e_106 and e_111 = e_113) impl (t = v)) and 
+((w = v and t = t and e_104 = e_106 and e_111 = e_114) impl (t = v)) and 
+((m1 = v and u = t and e_104 = e_106 and e_112 = e_108) impl (t = v)) and 
+((m2 = v and u = t and e_104 = e_106 and e_112 = e_109) impl (t = v)) and 
+((p = v and u = t and e_104 = e_106 and e_112 = e_110) impl (t = v)) and 
+((t = v and u = t and e_104 = e_106 and e_112 = e_111) impl (t = v)) and 
+((u = v and u = t and e_104 = e_106 and e_112 = e_112) impl (t = v)) and 
+((v = v and u = t and e_104 = e_106 and e_112 = e_113) impl (t = v)) and 
+((w = v and u = t and e_104 = e_106 and e_112 = e_114) impl (t = v)) and 
+((m1 = v and v = t and e_104 = e_106 and e_113 = e_108) impl (t = v)) and 
+((m2 = v and v = t and e_104 = e_106 and e_113 = e_109) impl (t = v)) and 
+((p = v and v = t and e_104 = e_106 and e_113 = e_110) impl (t = v)) and 
+((t = v and v = t and e_104 = e_106 and e_113 = e_111) impl (t = v)) and 
+((u = v and v = t and e_104 = e_106 and e_113 = e_112) impl (t = v)) and 
+((v = v and v = t and e_104 = e_106 and e_113 = e_113) impl (t = v)) and 
+((w = v and v = t and e_104 = e_106 and e_113 = e_114) impl (t = v)) and 
+((m1 = v and w = t and e_104 = e_106 and e_114 = e_108) impl (t = v)) and 
+((m2 = v and w = t and e_104 = e_106 and e_114 = e_109) impl (t = v)) and 
+((p = v and w = t and e_104 = e_106 and e_114 = e_110) impl (t = v)) and 
+((t = v and w = t and e_104 = e_106 and e_114 = e_111) impl (t = v)) and 
+((u = v and w = t and e_104 = e_106 and e_114 = e_112) impl (t = v)) and 
+((v = v and w = t and e_104 = e_106 and e_114 = e_113) impl (t = v)) and 
+((w = v and w = t and e_104 = e_106 and e_114 = e_114) impl (t = v)) and 
+((m1 = w and m1 = t and e_104 = e_107 and e_108 = e_108) impl (t = w)) and 
+((m2 = w and m1 = t and e_104 = e_107 and e_108 = e_109) impl (t = w)) and 
+((p = w and m1 = t and e_104 = e_107 and e_108 = e_110) impl (t = w)) and 
+((t = w and m1 = t and e_104 = e_107 and e_108 = e_111) impl (t = w)) and 
+((u = w and m1 = t and e_104 = e_107 and e_108 = e_112) impl (t = w)) and 
+((v = w and m1 = t and e_104 = e_107 and e_108 = e_113) impl (t = w)) and 
+((w = w and m1 = t and e_104 = e_107 and e_108 = e_114) impl (t = w)) and 
+((m1 = w and m2 = t and e_104 = e_107 and e_109 = e_108) impl (t = w)) and 
+((m2 = w and m2 = t and e_104 = e_107 and e_109 = e_109) impl (t = w)) and 
+((p = w and m2 = t and e_104 = e_107 and e_109 = e_110) impl (t = w)) and 
+((t = w and m2 = t and e_104 = e_107 and e_109 = e_111) impl (t = w)) and 
+((u = w and m2 = t and e_104 = e_107 and e_109 = e_112) impl (t = w)) and 
+((v = w and m2 = t and e_104 = e_107 and e_109 = e_113) impl (t = w)) and 
+((w = w and m2 = t and e_104 = e_107 and e_109 = e_114) impl (t = w)) and 
+((m1 = w and p = t and e_104 = e_107 and e_110 = e_108) impl (t = w)) and 
+((m2 = w and p = t and e_104 = e_107 and e_110 = e_109) impl (t = w)) and 
+((p = w and p = t and e_104 = e_107 and e_110 = e_110) impl (t = w)) and 
+((t = w and p = t and e_104 = e_107 and e_110 = e_111) impl (t = w)) and 
+((u = w and p = t and e_104 = e_107 and e_110 = e_112) impl (t = w)) and 
+((v = w and p = t and e_104 = e_107 and e_110 = e_113) impl (t = w)) and 
+((w = w and p = t and e_104 = e_107 and e_110 = e_114) impl (t = w)) and 
+((m1 = w and t = t and e_104 = e_107 and e_111 = e_108) impl (t = w)) and 
+((m2 = w and t = t and e_104 = e_107 and e_111 = e_109) impl (t = w)) and 
+((p = w and t = t and e_104 = e_107 and e_111 = e_110) impl (t = w)) and 
+((t = w and t = t and e_104 = e_107 and e_111 = e_111) impl (t = w)) and 
+((u = w and t = t and e_104 = e_107 and e_111 = e_112) impl (t = w)) and 
+((v = w and t = t and e_104 = e_107 and e_111 = e_113) impl (t = w)) and 
+((w = w and t = t and e_104 = e_107 and e_111 = e_114) impl (t = w)) and 
+((m1 = w and u = t and e_104 = e_107 and e_112 = e_108) impl (t = w)) and 
+((m2 = w and u = t and e_104 = e_107 and e_112 = e_109) impl (t = w)) and 
+((p = w and u = t and e_104 = e_107 and e_112 = e_110) impl (t = w)) and 
+((t = w and u = t and e_104 = e_107 and e_112 = e_111) impl (t = w)) and 
+((u = w and u = t and e_104 = e_107 and e_112 = e_112) impl (t = w)) and 
+((v = w and u = t and e_104 = e_107 and e_112 = e_113) impl (t = w)) and 
+((w = w and u = t and e_104 = e_107 and e_112 = e_114) impl (t = w)) and 
+((m1 = w and v = t and e_104 = e_107 and e_113 = e_108) impl (t = w)) and 
+((m2 = w and v = t and e_104 = e_107 and e_113 = e_109) impl (t = w)) and 
+((p = w and v = t and e_104 = e_107 and e_113 = e_110) impl (t = w)) and 
+((t = w and v = t and e_104 = e_107 and e_113 = e_111) impl (t = w)) and 
+((u = w and v = t and e_104 = e_107 and e_113 = e_112) impl (t = w)) and 
+((v = w and v = t and e_104 = e_107 and e_113 = e_113) impl (t = w)) and 
+((w = w and v = t and e_104 = e_107 and e_113 = e_114) impl (t = w)) and 
+((m1 = w and w = t and e_104 = e_107 and e_114 = e_108) impl (t = w)) and 
+((m2 = w and w = t and e_104 = e_107 and e_114 = e_109) impl (t = w)) and 
+((p = w and w = t and e_104 = e_107 and e_114 = e_110) impl (t = w)) and 
+((t = w and w = t and e_104 = e_107 and e_114 = e_111) impl (t = w)) and 
+((u = w and w = t and e_104 = e_107 and e_114 = e_112) impl (t = w)) and 
+((v = w and w = t and e_104 = e_107 and e_114 = e_113) impl (t = w)) and 
+((w = w and w = t and e_104 = e_107 and e_114 = e_114) impl (t = w)) and 
+((m1 = m1 and m1 = u and e_105 = e_101 and e_108 = e_108) impl (u = m1)) and 
+((m2 = m1 and m1 = u and e_105 = e_101 and e_108 = e_109) impl (u = m1)) and 
+((p = m1 and m1 = u and e_105 = e_101 and e_108 = e_110) impl (u = m1)) and 
+((t = m1 and m1 = u and e_105 = e_101 and e_108 = e_111) impl (u = m1)) and 
+((u = m1 and m1 = u and e_105 = e_101 and e_108 = e_112) impl (u = m1)) and 
+((v = m1 and m1 = u and e_105 = e_101 and e_108 = e_113) impl (u = m1)) and 
+((w = m1 and m1 = u and e_105 = e_101 and e_108 = e_114) impl (u = m1)) and 
+((m1 = m1 and m2 = u and e_105 = e_101 and e_109 = e_108) impl (u = m1)) and 
+((m2 = m1 and m2 = u and e_105 = e_101 and e_109 = e_109) impl (u = m1)) and 
+((p = m1 and m2 = u and e_105 = e_101 and e_109 = e_110) impl (u = m1)) and 
+((t = m1 and m2 = u and e_105 = e_101 and e_109 = e_111) impl (u = m1)) and 
+((u = m1 and m2 = u and e_105 = e_101 and e_109 = e_112) impl (u = m1)) and 
+((v = m1 and m2 = u and e_105 = e_101 and e_109 = e_113) impl (u = m1)) and 
+((w = m1 and m2 = u and e_105 = e_101 and e_109 = e_114) impl (u = m1)) and 
+((m1 = m1 and p = u and e_105 = e_101 and e_110 = e_108) impl (u = m1)) and 
+((m2 = m1 and p = u and e_105 = e_101 and e_110 = e_109) impl (u = m1)) and 
+((p = m1 and p = u and e_105 = e_101 and e_110 = e_110) impl (u = m1)) and 
+((t = m1 and p = u and e_105 = e_101 and e_110 = e_111) impl (u = m1)) and 
+((u = m1 and p = u and e_105 = e_101 and e_110 = e_112) impl (u = m1)) and 
+((v = m1 and p = u and e_105 = e_101 and e_110 = e_113) impl (u = m1)) and 
+((w = m1 and p = u and e_105 = e_101 and e_110 = e_114) impl (u = m1)) and 
+((m1 = m1 and t = u and e_105 = e_101 and e_111 = e_108) impl (u = m1)) and 
+((m2 = m1 and t = u and e_105 = e_101 and e_111 = e_109) impl (u = m1)) and 
+((p = m1 and t = u and e_105 = e_101 and e_111 = e_110) impl (u = m1)) and 
+((t = m1 and t = u and e_105 = e_101 and e_111 = e_111) impl (u = m1)) and 
+((u = m1 and t = u and e_105 = e_101 and e_111 = e_112) impl (u = m1)) and 
+((v = m1 and t = u and e_105 = e_101 and e_111 = e_113) impl (u = m1)) and 
+((w = m1 and t = u and e_105 = e_101 and e_111 = e_114) impl (u = m1)) and 
+((m1 = m1 and u = u and e_105 = e_101 and e_112 = e_108) impl (u = m1)) and 
+((m2 = m1 and u = u and e_105 = e_101 and e_112 = e_109) impl (u = m1)) and 
+((p = m1 and u = u and e_105 = e_101 and e_112 = e_110) impl (u = m1)) and 
+((t = m1 and u = u and e_105 = e_101 and e_112 = e_111) impl (u = m1)) and 
+((u = m1 and u = u and e_105 = e_101 and e_112 = e_112) impl (u = m1)) and 
+((v = m1 and u = u and e_105 = e_101 and e_112 = e_113) impl (u = m1)) and 
+((w = m1 and u = u and e_105 = e_101 and e_112 = e_114) impl (u = m1)) and 
+((m1 = m1 and v = u and e_105 = e_101 and e_113 = e_108) impl (u = m1)) and 
+((m2 = m1 and v = u and e_105 = e_101 and e_113 = e_109) impl (u = m1)) and 
+((p = m1 and v = u and e_105 = e_101 and e_113 = e_110) impl (u = m1)) and 
+((t = m1 and v = u and e_105 = e_101 and e_113 = e_111) impl (u = m1)) and 
+((u = m1 and v = u and e_105 = e_101 and e_113 = e_112) impl (u = m1)) and 
+((v = m1 and v = u and e_105 = e_101 and e_113 = e_113) impl (u = m1)) and 
+((w = m1 and v = u and e_105 = e_101 and e_113 = e_114) impl (u = m1)) and 
+((m1 = m1 and w = u and e_105 = e_101 and e_114 = e_108) impl (u = m1)) and 
+((m2 = m1 and w = u and e_105 = e_101 and e_114 = e_109) impl (u = m1)) and 
+((p = m1 and w = u and e_105 = e_101 and e_114 = e_110) impl (u = m1)) and 
+((t = m1 and w = u and e_105 = e_101 and e_114 = e_111) impl (u = m1)) and 
+((u = m1 and w = u and e_105 = e_101 and e_114 = e_112) impl (u = m1)) and 
+((v = m1 and w = u and e_105 = e_101 and e_114 = e_113) impl (u = m1)) and 
+((w = m1 and w = u and e_105 = e_101 and e_114 = e_114) impl (u = m1)) and 
+((m1 = m2 and m1 = u and e_105 = e_102 and e_108 = e_108) impl (u = m2)) and 
+((m2 = m2 and m1 = u and e_105 = e_102 and e_108 = e_109) impl (u = m2)) and 
+((p = m2 and m1 = u and e_105 = e_102 and e_108 = e_110) impl (u = m2)) and 
+((t = m2 and m1 = u and e_105 = e_102 and e_108 = e_111) impl (u = m2)) and 
+((u = m2 and m1 = u and e_105 = e_102 and e_108 = e_112) impl (u = m2)) and 
+((v = m2 and m1 = u and e_105 = e_102 and e_108 = e_113) impl (u = m2)) and 
+((w = m2 and m1 = u and e_105 = e_102 and e_108 = e_114) impl (u = m2)) and 
+((m1 = m2 and m2 = u and e_105 = e_102 and e_109 = e_108) impl (u = m2)) and 
+((m2 = m2 and m2 = u and e_105 = e_102 and e_109 = e_109) impl (u = m2)) and 
+((p = m2 and m2 = u and e_105 = e_102 and e_109 = e_110) impl (u = m2)) and 
+((t = m2 and m2 = u and e_105 = e_102 and e_109 = e_111) impl (u = m2)) and 
+((u = m2 and m2 = u and e_105 = e_102 and e_109 = e_112) impl (u = m2)) and 
+((v = m2 and m2 = u and e_105 = e_102 and e_109 = e_113) impl (u = m2)) and 
+((w = m2 and m2 = u and e_105 = e_102 and e_109 = e_114) impl (u = m2)) and 
+((m1 = m2 and p = u and e_105 = e_102 and e_110 = e_108) impl (u = m2)) and 
+((m2 = m2 and p = u and e_105 = e_102 and e_110 = e_109) impl (u = m2)) and 
+((p = m2 and p = u and e_105 = e_102 and e_110 = e_110) impl (u = m2)) and 
+((t = m2 and p = u and e_105 = e_102 and e_110 = e_111) impl (u = m2)) and 
+((u = m2 and p = u and e_105 = e_102 and e_110 = e_112) impl (u = m2)) and 
+((v = m2 and p = u and e_105 = e_102 and e_110 = e_113) impl (u = m2)) and 
+((w = m2 and p = u and e_105 = e_102 and e_110 = e_114) impl (u = m2)) and 
+((m1 = m2 and t = u and e_105 = e_102 and e_111 = e_108) impl (u = m2)) and 
+((m2 = m2 and t = u and e_105 = e_102 and e_111 = e_109) impl (u = m2)) and 
+((p = m2 and t = u and e_105 = e_102 and e_111 = e_110) impl (u = m2)) and 
+((t = m2 and t = u and e_105 = e_102 and e_111 = e_111) impl (u = m2)) and 
+((u = m2 and t = u and e_105 = e_102 and e_111 = e_112) impl (u = m2)) and 
+((v = m2 and t = u and e_105 = e_102 and e_111 = e_113) impl (u = m2)) and 
+((w = m2 and t = u and e_105 = e_102 and e_111 = e_114) impl (u = m2)) and 
+((m1 = m2 and u = u and e_105 = e_102 and e_112 = e_108) impl (u = m2)) and 
+((m2 = m2 and u = u and e_105 = e_102 and e_112 = e_109) impl (u = m2)) and 
+((p = m2 and u = u and e_105 = e_102 and e_112 = e_110) impl (u = m2)) and 
+((t = m2 and u = u and e_105 = e_102 and e_112 = e_111) impl (u = m2)) and 
+((u = m2 and u = u and e_105 = e_102 and e_112 = e_112) impl (u = m2)) and 
+((v = m2 and u = u and e_105 = e_102 and e_112 = e_113) impl (u = m2)) and 
+((w = m2 and u = u and e_105 = e_102 and e_112 = e_114) impl (u = m2)) and 
+((m1 = m2 and v = u and e_105 = e_102 and e_113 = e_108) impl (u = m2)) and 
+((m2 = m2 and v = u and e_105 = e_102 and e_113 = e_109) impl (u = m2)) and 
+((p = m2 and v = u and e_105 = e_102 and e_113 = e_110) impl (u = m2)) and 
+((t = m2 and v = u and e_105 = e_102 and e_113 = e_111) impl (u = m2)) and 
+((u = m2 and v = u and e_105 = e_102 and e_113 = e_112) impl (u = m2)) and 
+((v = m2 and v = u and e_105 = e_102 and e_113 = e_113) impl (u = m2)) and 
+((w = m2 and v = u and e_105 = e_102 and e_113 = e_114) impl (u = m2)) and 
+((m1 = m2 and w = u and e_105 = e_102 and e_114 = e_108) impl (u = m2)) and 
+((m2 = m2 and w = u and e_105 = e_102 and e_114 = e_109) impl (u = m2)) and 
+((p = m2 and w = u and e_105 = e_102 and e_114 = e_110) impl (u = m2)) and 
+((t = m2 and w = u and e_105 = e_102 and e_114 = e_111) impl (u = m2)) and 
+((u = m2 and w = u and e_105 = e_102 and e_114 = e_112) impl (u = m2)) and 
+((v = m2 and w = u and e_105 = e_102 and e_114 = e_113) impl (u = m2)) and 
+((w = m2 and w = u and e_105 = e_102 and e_114 = e_114) impl (u = m2)) and 
+((m1 = p and m1 = u and e_105 = e_103 and e_108 = e_108) impl (u = p)) and 
+((m2 = p and m1 = u and e_105 = e_103 and e_108 = e_109) impl (u = p)) and 
+((p = p and m1 = u and e_105 = e_103 and e_108 = e_110) impl (u = p)) and 
+((t = p and m1 = u and e_105 = e_103 and e_108 = e_111) impl (u = p)) and 
+((u = p and m1 = u and e_105 = e_103 and e_108 = e_112) impl (u = p)) and 
+((v = p and m1 = u and e_105 = e_103 and e_108 = e_113) impl (u = p)) and 
+((w = p and m1 = u and e_105 = e_103 and e_108 = e_114) impl (u = p)) and 
+((m1 = p and m2 = u and e_105 = e_103 and e_109 = e_108) impl (u = p)) and 
+((m2 = p and m2 = u and e_105 = e_103 and e_109 = e_109) impl (u = p)) and 
+((p = p and m2 = u and e_105 = e_103 and e_109 = e_110) impl (u = p)) and 
+((t = p and m2 = u and e_105 = e_103 and e_109 = e_111) impl (u = p)) and 
+((u = p and m2 = u and e_105 = e_103 and e_109 = e_112) impl (u = p)) and 
+((v = p and m2 = u and e_105 = e_103 and e_109 = e_113) impl (u = p)) and 
+((w = p and m2 = u and e_105 = e_103 and e_109 = e_114) impl (u = p)) and 
+((m1 = p and p = u and e_105 = e_103 and e_110 = e_108) impl (u = p)) and 
+((m2 = p and p = u and e_105 = e_103 and e_110 = e_109) impl (u = p)) and 
+((p = p and p = u and e_105 = e_103 and e_110 = e_110) impl (u = p)) and 
+((t = p and p = u and e_105 = e_103 and e_110 = e_111) impl (u = p)) and 
+((u = p and p = u and e_105 = e_103 and e_110 = e_112) impl (u = p)) and 
+((v = p and p = u and e_105 = e_103 and e_110 = e_113) impl (u = p)) and 
+((w = p and p = u and e_105 = e_103 and e_110 = e_114) impl (u = p)) and 
+((m1 = p and t = u and e_105 = e_103 and e_111 = e_108) impl (u = p)) and 
+((m2 = p and t = u and e_105 = e_103 and e_111 = e_109) impl (u = p)) and 
+((p = p and t = u and e_105 = e_103 and e_111 = e_110) impl (u = p)) and 
+((t = p and t = u and e_105 = e_103 and e_111 = e_111) impl (u = p)) and 
+((u = p and t = u and e_105 = e_103 and e_111 = e_112) impl (u = p)) and 
+((v = p and t = u and e_105 = e_103 and e_111 = e_113) impl (u = p)) and 
+((w = p and t = u and e_105 = e_103 and e_111 = e_114) impl (u = p)) and 
+((m1 = p and u = u and e_105 = e_103 and e_112 = e_108) impl (u = p)) and 
+((m2 = p and u = u and e_105 = e_103 and e_112 = e_109) impl (u = p)) and 
+((p = p and u = u and e_105 = e_103 and e_112 = e_110) impl (u = p)) and 
+((t = p and u = u and e_105 = e_103 and e_112 = e_111) impl (u = p)) and 
+((u = p and u = u and e_105 = e_103 and e_112 = e_112) impl (u = p)) and 
+((v = p and u = u and e_105 = e_103 and e_112 = e_113) impl (u = p)) and 
+((w = p and u = u and e_105 = e_103 and e_112 = e_114) impl (u = p)) and 
+((m1 = p and v = u and e_105 = e_103 and e_113 = e_108) impl (u = p)) and 
+((m2 = p and v = u and e_105 = e_103 and e_113 = e_109) impl (u = p)) and 
+((p = p and v = u and e_105 = e_103 and e_113 = e_110) impl (u = p)) and 
+((t = p and v = u and e_105 = e_103 and e_113 = e_111) impl (u = p)) and 
+((u = p and v = u and e_105 = e_103 and e_113 = e_112) impl (u = p)) and 
+((v = p and v = u and e_105 = e_103 and e_113 = e_113) impl (u = p)) and 
+((w = p and v = u and e_105 = e_103 and e_113 = e_114) impl (u = p)) and 
+((m1 = p and w = u and e_105 = e_103 and e_114 = e_108) impl (u = p)) and 
+((m2 = p and w = u and e_105 = e_103 and e_114 = e_109) impl (u = p)) and 
+((p = p and w = u and e_105 = e_103 and e_114 = e_110) impl (u = p)) and 
+((t = p and w = u and e_105 = e_103 and e_114 = e_111) impl (u = p)) and 
+((u = p and w = u and e_105 = e_103 and e_114 = e_112) impl (u = p)) and 
+((v = p and w = u and e_105 = e_103 and e_114 = e_113) impl (u = p)) and 
+((w = p and w = u and e_105 = e_103 and e_114 = e_114) impl (u = p)) and 
+((m1 = t and m1 = u and e_105 = e_104 and e_108 = e_108) impl (u = t)) and 
+((m2 = t and m1 = u and e_105 = e_104 and e_108 = e_109) impl (u = t)) and 
+((p = t and m1 = u and e_105 = e_104 and e_108 = e_110) impl (u = t)) and 
+((t = t and m1 = u and e_105 = e_104 and e_108 = e_111) impl (u = t)) and 
+((u = t and m1 = u and e_105 = e_104 and e_108 = e_112) impl (u = t)) and 
+((v = t and m1 = u and e_105 = e_104 and e_108 = e_113) impl (u = t)) and 
+((w = t and m1 = u and e_105 = e_104 and e_108 = e_114) impl (u = t)) and 
+((m1 = t and m2 = u and e_105 = e_104 and e_109 = e_108) impl (u = t)) and 
+((m2 = t and m2 = u and e_105 = e_104 and e_109 = e_109) impl (u = t)) and 
+((p = t and m2 = u and e_105 = e_104 and e_109 = e_110) impl (u = t)) and 
+((t = t and m2 = u and e_105 = e_104 and e_109 = e_111) impl (u = t)) and 
+((u = t and m2 = u and e_105 = e_104 and e_109 = e_112) impl (u = t)) and 
+((v = t and m2 = u and e_105 = e_104 and e_109 = e_113) impl (u = t)) and 
+((w = t and m2 = u and e_105 = e_104 and e_109 = e_114) impl (u = t)) and 
+((m1 = t and p = u and e_105 = e_104 and e_110 = e_108) impl (u = t)) and 
+((m2 = t and p = u and e_105 = e_104 and e_110 = e_109) impl (u = t)) and 
+((p = t and p = u and e_105 = e_104 and e_110 = e_110) impl (u = t)) and 
+((t = t and p = u and e_105 = e_104 and e_110 = e_111) impl (u = t)) and 
+((u = t and p = u and e_105 = e_104 and e_110 = e_112) impl (u = t)) and 
+((v = t and p = u and e_105 = e_104 and e_110 = e_113) impl (u = t)) and 
+((w = t and p = u and e_105 = e_104 and e_110 = e_114) impl (u = t)) and 
+((m1 = t and t = u and e_105 = e_104 and e_111 = e_108) impl (u = t)) and 
+((m2 = t and t = u and e_105 = e_104 and e_111 = e_109) impl (u = t)) and 
+((p = t and t = u and e_105 = e_104 and e_111 = e_110) impl (u = t)) and 
+((t = t and t = u and e_105 = e_104 and e_111 = e_111) impl (u = t)) and 
+((u = t and t = u and e_105 = e_104 and e_111 = e_112) impl (u = t)) and 
+((v = t and t = u and e_105 = e_104 and e_111 = e_113) impl (u = t)) and 
+((w = t and t = u and e_105 = e_104 and e_111 = e_114) impl (u = t)) and 
+((m1 = t and u = u and e_105 = e_104 and e_112 = e_108) impl (u = t)) and 
+((m2 = t and u = u and e_105 = e_104 and e_112 = e_109) impl (u = t)) and 
+((p = t and u = u and e_105 = e_104 and e_112 = e_110) impl (u = t)) and 
+((t = t and u = u and e_105 = e_104 and e_112 = e_111) impl (u = t)) and 
+((u = t and u = u and e_105 = e_104 and e_112 = e_112) impl (u = t)) and 
+((v = t and u = u and e_105 = e_104 and e_112 = e_113) impl (u = t)) and 
+((w = t and u = u and e_105 = e_104 and e_112 = e_114) impl (u = t)) and 
+((m1 = t and v = u and e_105 = e_104 and e_113 = e_108) impl (u = t)) and 
+((m2 = t and v = u and e_105 = e_104 and e_113 = e_109) impl (u = t)) and 
+((p = t and v = u and e_105 = e_104 and e_113 = e_110) impl (u = t)) and 
+((t = t and v = u and e_105 = e_104 and e_113 = e_111) impl (u = t)) and 
+((u = t and v = u and e_105 = e_104 and e_113 = e_112) impl (u = t)) and 
+((v = t and v = u and e_105 = e_104 and e_113 = e_113) impl (u = t)) and 
+((w = t and v = u and e_105 = e_104 and e_113 = e_114) impl (u = t)) and 
+((m1 = t and w = u and e_105 = e_104 and e_114 = e_108) impl (u = t)) and 
+((m2 = t and w = u and e_105 = e_104 and e_114 = e_109) impl (u = t)) and 
+((p = t and w = u and e_105 = e_104 and e_114 = e_110) impl (u = t)) and 
+((t = t and w = u and e_105 = e_104 and e_114 = e_111) impl (u = t)) and 
+((u = t and w = u and e_105 = e_104 and e_114 = e_112) impl (u = t)) and 
+((v = t and w = u and e_105 = e_104 and e_114 = e_113) impl (u = t)) and 
+((w = t and w = u and e_105 = e_104 and e_114 = e_114) impl (u = t)) and 
+((m1 = v and m1 = u and e_105 = e_106 and e_108 = e_108) impl (u = v)) and 
+((m2 = v and m1 = u and e_105 = e_106 and e_108 = e_109) impl (u = v)) and 
+((p = v and m1 = u and e_105 = e_106 and e_108 = e_110) impl (u = v)) and 
+((t = v and m1 = u and e_105 = e_106 and e_108 = e_111) impl (u = v)) and 
+((u = v and m1 = u and e_105 = e_106 and e_108 = e_112) impl (u = v)) and 
+((v = v and m1 = u and e_105 = e_106 and e_108 = e_113) impl (u = v)) and 
+((w = v and m1 = u and e_105 = e_106 and e_108 = e_114) impl (u = v)) and 
+((m1 = v and m2 = u and e_105 = e_106 and e_109 = e_108) impl (u = v)) and 
+((m2 = v and m2 = u and e_105 = e_106 and e_109 = e_109) impl (u = v)) and 
+((p = v and m2 = u and e_105 = e_106 and e_109 = e_110) impl (u = v)) and 
+((t = v and m2 = u and e_105 = e_106 and e_109 = e_111) impl (u = v)) and 
+((u = v and m2 = u and e_105 = e_106 and e_109 = e_112) impl (u = v)) and 
+((v = v and m2 = u and e_105 = e_106 and e_109 = e_113) impl (u = v)) and 
+((w = v and m2 = u and e_105 = e_106 and e_109 = e_114) impl (u = v)) and 
+((m1 = v and p = u and e_105 = e_106 and e_110 = e_108) impl (u = v)) and 
+((m2 = v and p = u and e_105 = e_106 and e_110 = e_109) impl (u = v)) and 
+((p = v and p = u and e_105 = e_106 and e_110 = e_110) impl (u = v)) and 
+((t = v and p = u and e_105 = e_106 and e_110 = e_111) impl (u = v)) and 
+((u = v and p = u and e_105 = e_106 and e_110 = e_112) impl (u = v)) and 
+((v = v and p = u and e_105 = e_106 and e_110 = e_113) impl (u = v)) and 
+((w = v and p = u and e_105 = e_106 and e_110 = e_114) impl (u = v)) and 
+((m1 = v and t = u and e_105 = e_106 and e_111 = e_108) impl (u = v)) and 
+((m2 = v and t = u and e_105 = e_106 and e_111 = e_109) impl (u = v)) and 
+((p = v and t = u and e_105 = e_106 and e_111 = e_110) impl (u = v)) and 
+((t = v and t = u and e_105 = e_106 and e_111 = e_111) impl (u = v)) and 
+((u = v and t = u and e_105 = e_106 and e_111 = e_112) impl (u = v)) and 
+((v = v and t = u and e_105 = e_106 and e_111 = e_113) impl (u = v)) and 
+((w = v and t = u and e_105 = e_106 and e_111 = e_114) impl (u = v)) and 
+((m1 = v and u = u and e_105 = e_106 and e_112 = e_108) impl (u = v)) and 
+((m2 = v and u = u and e_105 = e_106 and e_112 = e_109) impl (u = v)) and 
+((p = v and u = u and e_105 = e_106 and e_112 = e_110) impl (u = v)) and 
+((t = v and u = u and e_105 = e_106 and e_112 = e_111) impl (u = v)) and 
+((u = v and u = u and e_105 = e_106 and e_112 = e_112) impl (u = v)) and 
+((v = v and u = u and e_105 = e_106 and e_112 = e_113) impl (u = v)) and 
+((w = v and u = u and e_105 = e_106 and e_112 = e_114) impl (u = v)) and 
+((m1 = v and v = u and e_105 = e_106 and e_113 = e_108) impl (u = v)) and 
+((m2 = v and v = u and e_105 = e_106 and e_113 = e_109) impl (u = v)) and 
+((p = v and v = u and e_105 = e_106 and e_113 = e_110) impl (u = v)) and 
+((t = v and v = u and e_105 = e_106 and e_113 = e_111) impl (u = v)) and 
+((u = v and v = u and e_105 = e_106 and e_113 = e_112) impl (u = v)) and 
+((v = v and v = u and e_105 = e_106 and e_113 = e_113) impl (u = v)) and 
+((w = v and v = u and e_105 = e_106 and e_113 = e_114) impl (u = v)) and 
+((m1 = v and w = u and e_105 = e_106 and e_114 = e_108) impl (u = v)) and 
+((m2 = v and w = u and e_105 = e_106 and e_114 = e_109) impl (u = v)) and 
+((p = v and w = u and e_105 = e_106 and e_114 = e_110) impl (u = v)) and 
+((t = v and w = u and e_105 = e_106 and e_114 = e_111) impl (u = v)) and 
+((u = v and w = u and e_105 = e_106 and e_114 = e_112) impl (u = v)) and 
+((v = v and w = u and e_105 = e_106 and e_114 = e_113) impl (u = v)) and 
+((w = v and w = u and e_105 = e_106 and e_114 = e_114) impl (u = v)) and 
+((m1 = w and m1 = u and e_105 = e_107 and e_108 = e_108) impl (u = w)) and 
+((m2 = w and m1 = u and e_105 = e_107 and e_108 = e_109) impl (u = w)) and 
+((p = w and m1 = u and e_105 = e_107 and e_108 = e_110) impl (u = w)) and 
+((t = w and m1 = u and e_105 = e_107 and e_108 = e_111) impl (u = w)) and 
+((u = w and m1 = u and e_105 = e_107 and e_108 = e_112) impl (u = w)) and 
+((v = w and m1 = u and e_105 = e_107 and e_108 = e_113) impl (u = w)) and 
+((w = w and m1 = u and e_105 = e_107 and e_108 = e_114) impl (u = w)) and 
+((m1 = w and m2 = u and e_105 = e_107 and e_109 = e_108) impl (u = w)) and 
+((m2 = w and m2 = u and e_105 = e_107 and e_109 = e_109) impl (u = w)) and 
+((p = w and m2 = u and e_105 = e_107 and e_109 = e_110) impl (u = w)) and 
+((t = w and m2 = u and e_105 = e_107 and e_109 = e_111) impl (u = w)) and 
+((u = w and m2 = u and e_105 = e_107 and e_109 = e_112) impl (u = w)) and 
+((v = w and m2 = u and e_105 = e_107 and e_109 = e_113) impl (u = w)) and 
+((w = w and m2 = u and e_105 = e_107 and e_109 = e_114) impl (u = w)) and 
+((m1 = w and p = u and e_105 = e_107 and e_110 = e_108) impl (u = w)) and 
+((m2 = w and p = u and e_105 = e_107 and e_110 = e_109) impl (u = w)) and 
+((p = w and p = u and e_105 = e_107 and e_110 = e_110) impl (u = w)) and 
+((t = w and p = u and e_105 = e_107 and e_110 = e_111) impl (u = w)) and 
+((u = w and p = u and e_105 = e_107 and e_110 = e_112) impl (u = w)) and 
+((v = w and p = u and e_105 = e_107 and e_110 = e_113) impl (u = w)) and 
+((w = w and p = u and e_105 = e_107 and e_110 = e_114) impl (u = w)) and 
+((m1 = w and t = u and e_105 = e_107 and e_111 = e_108) impl (u = w)) and 
+((m2 = w and t = u and e_105 = e_107 and e_111 = e_109) impl (u = w)) and 
+((p = w and t = u and e_105 = e_107 and e_111 = e_110) impl (u = w)) and 
+((t = w and t = u and e_105 = e_107 and e_111 = e_111) impl (u = w)) and 
+((u = w and t = u and e_105 = e_107 and e_111 = e_112) impl (u = w)) and 
+((v = w and t = u and e_105 = e_107 and e_111 = e_113) impl (u = w)) and 
+((w = w and t = u and e_105 = e_107 and e_111 = e_114) impl (u = w)) and 
+((m1 = w and u = u and e_105 = e_107 and e_112 = e_108) impl (u = w)) and 
+((m2 = w and u = u and e_105 = e_107 and e_112 = e_109) impl (u = w)) and 
+((p = w and u = u and e_105 = e_107 and e_112 = e_110) impl (u = w)) and 
+((t = w and u = u and e_105 = e_107 and e_112 = e_111) impl (u = w)) and 
+((u = w and u = u and e_105 = e_107 and e_112 = e_112) impl (u = w)) and 
+((v = w and u = u and e_105 = e_107 and e_112 = e_113) impl (u = w)) and 
+((w = w and u = u and e_105 = e_107 and e_112 = e_114) impl (u = w)) and 
+((m1 = w and v = u and e_105 = e_107 and e_113 = e_108) impl (u = w)) and 
+((m2 = w and v = u and e_105 = e_107 and e_113 = e_109) impl (u = w)) and 
+((p = w and v = u and e_105 = e_107 and e_113 = e_110) impl (u = w)) and 
+((t = w and v = u and e_105 = e_107 and e_113 = e_111) impl (u = w)) and 
+((u = w and v = u and e_105 = e_107 and e_113 = e_112) impl (u = w)) and 
+((v = w and v = u and e_105 = e_107 and e_113 = e_113) impl (u = w)) and 
+((w = w and v = u and e_105 = e_107 and e_113 = e_114) impl (u = w)) and 
+((m1 = w and w = u and e_105 = e_107 and e_114 = e_108) impl (u = w)) and 
+((m2 = w and w = u and e_105 = e_107 and e_114 = e_109) impl (u = w)) and 
+((p = w and w = u and e_105 = e_107 and e_114 = e_110) impl (u = w)) and 
+((t = w and w = u and e_105 = e_107 and e_114 = e_111) impl (u = w)) and 
+((u = w and w = u and e_105 = e_107 and e_114 = e_112) impl (u = w)) and 
+((v = w and w = u and e_105 = e_107 and e_114 = e_113) impl (u = w)) and 
+((w = w and w = u and e_105 = e_107 and e_114 = e_114) impl (u = w)) and 
+((m1 = m1 and m1 = v and e_106 = e_101 and e_108 = e_108) impl (v = m1)) and 
+((m2 = m1 and m1 = v and e_106 = e_101 and e_108 = e_109) impl (v = m1)) and 
+((p = m1 and m1 = v and e_106 = e_101 and e_108 = e_110) impl (v = m1)) and 
+((t = m1 and m1 = v and e_106 = e_101 and e_108 = e_111) impl (v = m1)) and 
+((u = m1 and m1 = v and e_106 = e_101 and e_108 = e_112) impl (v = m1)) and 
+((v = m1 and m1 = v and e_106 = e_101 and e_108 = e_113) impl (v = m1)) and 
+((w = m1 and m1 = v and e_106 = e_101 and e_108 = e_114) impl (v = m1)) and 
+((m1 = m1 and m2 = v and e_106 = e_101 and e_109 = e_108) impl (v = m1)) and 
+((m2 = m1 and m2 = v and e_106 = e_101 and e_109 = e_109) impl (v = m1)) and 
+((p = m1 and m2 = v and e_106 = e_101 and e_109 = e_110) impl (v = m1)) and 
+((t = m1 and m2 = v and e_106 = e_101 and e_109 = e_111) impl (v = m1)) and 
+((u = m1 and m2 = v and e_106 = e_101 and e_109 = e_112) impl (v = m1)) and 
+((v = m1 and m2 = v and e_106 = e_101 and e_109 = e_113) impl (v = m1)) and 
+((w = m1 and m2 = v and e_106 = e_101 and e_109 = e_114) impl (v = m1)) and 
+((m1 = m1 and p = v and e_106 = e_101 and e_110 = e_108) impl (v = m1)) and 
+((m2 = m1 and p = v and e_106 = e_101 and e_110 = e_109) impl (v = m1)) and 
+((p = m1 and p = v and e_106 = e_101 and e_110 = e_110) impl (v = m1)) and 
+((t = m1 and p = v and e_106 = e_101 and e_110 = e_111) impl (v = m1)) and 
+((u = m1 and p = v and e_106 = e_101 and e_110 = e_112) impl (v = m1)) and 
+((v = m1 and p = v and e_106 = e_101 and e_110 = e_113) impl (v = m1)) and 
+((w = m1 and p = v and e_106 = e_101 and e_110 = e_114) impl (v = m1)) and 
+((m1 = m1 and t = v and e_106 = e_101 and e_111 = e_108) impl (v = m1)) and 
+((m2 = m1 and t = v and e_106 = e_101 and e_111 = e_109) impl (v = m1)) and 
+((p = m1 and t = v and e_106 = e_101 and e_111 = e_110) impl (v = m1)) and 
+((t = m1 and t = v and e_106 = e_101 and e_111 = e_111) impl (v = m1)) and 
+((u = m1 and t = v and e_106 = e_101 and e_111 = e_112) impl (v = m1)) and 
+((v = m1 and t = v and e_106 = e_101 and e_111 = e_113) impl (v = m1)) and 
+((w = m1 and t = v and e_106 = e_101 and e_111 = e_114) impl (v = m1)) and 
+((m1 = m1 and u = v and e_106 = e_101 and e_112 = e_108) impl (v = m1)) and 
+((m2 = m1 and u = v and e_106 = e_101 and e_112 = e_109) impl (v = m1)) and 
+((p = m1 and u = v and e_106 = e_101 and e_112 = e_110) impl (v = m1)) and 
+((t = m1 and u = v and e_106 = e_101 and e_112 = e_111) impl (v = m1)) and 
+((u = m1 and u = v and e_106 = e_101 and e_112 = e_112) impl (v = m1)) and 
+((v = m1 and u = v and e_106 = e_101 and e_112 = e_113) impl (v = m1)) and 
+((w = m1 and u = v and e_106 = e_101 and e_112 = e_114) impl (v = m1)) and 
+((m1 = m1 and v = v and e_106 = e_101 and e_113 = e_108) impl (v = m1)) and 
+((m2 = m1 and v = v and e_106 = e_101 and e_113 = e_109) impl (v = m1)) and 
+((p = m1 and v = v and e_106 = e_101 and e_113 = e_110) impl (v = m1)) and 
+((t = m1 and v = v and e_106 = e_101 and e_113 = e_111) impl (v = m1)) and 
+((u = m1 and v = v and e_106 = e_101 and e_113 = e_112) impl (v = m1)) and 
+((v = m1 and v = v and e_106 = e_101 and e_113 = e_113) impl (v = m1)) and 
+((w = m1 and v = v and e_106 = e_101 and e_113 = e_114) impl (v = m1)) and 
+((m1 = m1 and w = v and e_106 = e_101 and e_114 = e_108) impl (v = m1)) and 
+((m2 = m1 and w = v and e_106 = e_101 and e_114 = e_109) impl (v = m1)) and 
+((p = m1 and w = v and e_106 = e_101 and e_114 = e_110) impl (v = m1)) and 
+((t = m1 and w = v and e_106 = e_101 and e_114 = e_111) impl (v = m1)) and 
+((u = m1 and w = v and e_106 = e_101 and e_114 = e_112) impl (v = m1)) and 
+((v = m1 and w = v and e_106 = e_101 and e_114 = e_113) impl (v = m1)) and 
+((w = m1 and w = v and e_106 = e_101 and e_114 = e_114) impl (v = m1)) and 
+((m1 = m2 and m1 = v and e_106 = e_102 and e_108 = e_108) impl (v = m2)) and 
+((m2 = m2 and m1 = v and e_106 = e_102 and e_108 = e_109) impl (v = m2)) and 
+((p = m2 and m1 = v and e_106 = e_102 and e_108 = e_110) impl (v = m2)) and 
+((t = m2 and m1 = v and e_106 = e_102 and e_108 = e_111) impl (v = m2)) and 
+((u = m2 and m1 = v and e_106 = e_102 and e_108 = e_112) impl (v = m2)) and 
+((v = m2 and m1 = v and e_106 = e_102 and e_108 = e_113) impl (v = m2)) and 
+((w = m2 and m1 = v and e_106 = e_102 and e_108 = e_114) impl (v = m2)) and 
+((m1 = m2 and m2 = v and e_106 = e_102 and e_109 = e_108) impl (v = m2)) and 
+((m2 = m2 and m2 = v and e_106 = e_102 and e_109 = e_109) impl (v = m2)) and 
+((p = m2 and m2 = v and e_106 = e_102 and e_109 = e_110) impl (v = m2)) and 
+((t = m2 and m2 = v and e_106 = e_102 and e_109 = e_111) impl (v = m2)) and 
+((u = m2 and m2 = v and e_106 = e_102 and e_109 = e_112) impl (v = m2)) and 
+((v = m2 and m2 = v and e_106 = e_102 and e_109 = e_113) impl (v = m2)) and 
+((w = m2 and m2 = v and e_106 = e_102 and e_109 = e_114) impl (v = m2)) and 
+((m1 = m2 and p = v and e_106 = e_102 and e_110 = e_108) impl (v = m2)) and 
+((m2 = m2 and p = v and e_106 = e_102 and e_110 = e_109) impl (v = m2)) and 
+((p = m2 and p = v and e_106 = e_102 and e_110 = e_110) impl (v = m2)) and 
+((t = m2 and p = v and e_106 = e_102 and e_110 = e_111) impl (v = m2)) and 
+((u = m2 and p = v and e_106 = e_102 and e_110 = e_112) impl (v = m2)) and 
+((v = m2 and p = v and e_106 = e_102 and e_110 = e_113) impl (v = m2)) and 
+((w = m2 and p = v and e_106 = e_102 and e_110 = e_114) impl (v = m2)) and 
+((m1 = m2 and t = v and e_106 = e_102 and e_111 = e_108) impl (v = m2)) and 
+((m2 = m2 and t = v and e_106 = e_102 and e_111 = e_109) impl (v = m2)) and 
+((p = m2 and t = v and e_106 = e_102 and e_111 = e_110) impl (v = m2)) and 
+((t = m2 and t = v and e_106 = e_102 and e_111 = e_111) impl (v = m2)) and 
+((u = m2 and t = v and e_106 = e_102 and e_111 = e_112) impl (v = m2)) and 
+((v = m2 and t = v and e_106 = e_102 and e_111 = e_113) impl (v = m2)) and 
+((w = m2 and t = v and e_106 = e_102 and e_111 = e_114) impl (v = m2)) and 
+((m1 = m2 and u = v and e_106 = e_102 and e_112 = e_108) impl (v = m2)) and 
+((m2 = m2 and u = v and e_106 = e_102 and e_112 = e_109) impl (v = m2)) and 
+((p = m2 and u = v and e_106 = e_102 and e_112 = e_110) impl (v = m2)) and 
+((t = m2 and u = v and e_106 = e_102 and e_112 = e_111) impl (v = m2)) and 
+((u = m2 and u = v and e_106 = e_102 and e_112 = e_112) impl (v = m2)) and 
+((v = m2 and u = v and e_106 = e_102 and e_112 = e_113) impl (v = m2)) and 
+((w = m2 and u = v and e_106 = e_102 and e_112 = e_114) impl (v = m2)) and 
+((m1 = m2 and v = v and e_106 = e_102 and e_113 = e_108) impl (v = m2)) and 
+((m2 = m2 and v = v and e_106 = e_102 and e_113 = e_109) impl (v = m2)) and 
+((p = m2 and v = v and e_106 = e_102 and e_113 = e_110) impl (v = m2)) and 
+((t = m2 and v = v and e_106 = e_102 and e_113 = e_111) impl (v = m2)) and 
+((u = m2 and v = v and e_106 = e_102 and e_113 = e_112) impl (v = m2)) and 
+((v = m2 and v = v and e_106 = e_102 and e_113 = e_113) impl (v = m2)) and 
+((w = m2 and v = v and e_106 = e_102 and e_113 = e_114) impl (v = m2)) and 
+((m1 = m2 and w = v and e_106 = e_102 and e_114 = e_108) impl (v = m2)) and 
+((m2 = m2 and w = v and e_106 = e_102 and e_114 = e_109) impl (v = m2)) and 
+((p = m2 and w = v and e_106 = e_102 and e_114 = e_110) impl (v = m2)) and 
+((t = m2 and w = v and e_106 = e_102 and e_114 = e_111) impl (v = m2)) and 
+((u = m2 and w = v and e_106 = e_102 and e_114 = e_112) impl (v = m2)) and 
+((v = m2 and w = v and e_106 = e_102 and e_114 = e_113) impl (v = m2)) and 
+((w = m2 and w = v and e_106 = e_102 and e_114 = e_114) impl (v = m2)) and 
+((m1 = p and m1 = v and e_106 = e_103 and e_108 = e_108) impl (v = p)) and 
+((m2 = p and m1 = v and e_106 = e_103 and e_108 = e_109) impl (v = p)) and 
+((p = p and m1 = v and e_106 = e_103 and e_108 = e_110) impl (v = p)) and 
+((t = p and m1 = v and e_106 = e_103 and e_108 = e_111) impl (v = p)) and 
+((u = p and m1 = v and e_106 = e_103 and e_108 = e_112) impl (v = p)) and 
+((v = p and m1 = v and e_106 = e_103 and e_108 = e_113) impl (v = p)) and 
+((w = p and m1 = v and e_106 = e_103 and e_108 = e_114) impl (v = p)) and 
+((m1 = p and m2 = v and e_106 = e_103 and e_109 = e_108) impl (v = p)) and 
+((m2 = p and m2 = v and e_106 = e_103 and e_109 = e_109) impl (v = p)) and 
+((p = p and m2 = v and e_106 = e_103 and e_109 = e_110) impl (v = p)) and 
+((t = p and m2 = v and e_106 = e_103 and e_109 = e_111) impl (v = p)) and 
+((u = p and m2 = v and e_106 = e_103 and e_109 = e_112) impl (v = p)) and 
+((v = p and m2 = v and e_106 = e_103 and e_109 = e_113) impl (v = p)) and 
+((w = p and m2 = v and e_106 = e_103 and e_109 = e_114) impl (v = p)) and 
+((m1 = p and p = v and e_106 = e_103 and e_110 = e_108) impl (v = p)) and 
+((m2 = p and p = v and e_106 = e_103 and e_110 = e_109) impl (v = p)) and 
+((p = p and p = v and e_106 = e_103 and e_110 = e_110) impl (v = p)) and 
+((t = p and p = v and e_106 = e_103 and e_110 = e_111) impl (v = p)) and 
+((u = p and p = v and e_106 = e_103 and e_110 = e_112) impl (v = p)) and 
+((v = p and p = v and e_106 = e_103 and e_110 = e_113) impl (v = p)) and 
+((w = p and p = v and e_106 = e_103 and e_110 = e_114) impl (v = p)) and 
+((m1 = p and t = v and e_106 = e_103 and e_111 = e_108) impl (v = p)) and 
+((m2 = p and t = v and e_106 = e_103 and e_111 = e_109) impl (v = p)) and 
+((p = p and t = v and e_106 = e_103 and e_111 = e_110) impl (v = p)) and 
+((t = p and t = v and e_106 = e_103 and e_111 = e_111) impl (v = p)) and 
+((u = p and t = v and e_106 = e_103 and e_111 = e_112) impl (v = p)) and 
+((v = p and t = v and e_106 = e_103 and e_111 = e_113) impl (v = p)) and 
+((w = p and t = v and e_106 = e_103 and e_111 = e_114) impl (v = p)) and 
+((m1 = p and u = v and e_106 = e_103 and e_112 = e_108) impl (v = p)) and 
+((m2 = p and u = v and e_106 = e_103 and e_112 = e_109) impl (v = p)) and 
+((p = p and u = v and e_106 = e_103 and e_112 = e_110) impl (v = p)) and 
+((t = p and u = v and e_106 = e_103 and e_112 = e_111) impl (v = p)) and 
+((u = p and u = v and e_106 = e_103 and e_112 = e_112) impl (v = p)) and 
+((v = p and u = v and e_106 = e_103 and e_112 = e_113) impl (v = p)) and 
+((w = p and u = v and e_106 = e_103 and e_112 = e_114) impl (v = p)) and 
+((m1 = p and v = v and e_106 = e_103 and e_113 = e_108) impl (v = p)) and 
+((m2 = p and v = v and e_106 = e_103 and e_113 = e_109) impl (v = p)) and 
+((p = p and v = v and e_106 = e_103 and e_113 = e_110) impl (v = p)) and 
+((t = p and v = v and e_106 = e_103 and e_113 = e_111) impl (v = p)) and 
+((u = p and v = v and e_106 = e_103 and e_113 = e_112) impl (v = p)) and 
+((v = p and v = v and e_106 = e_103 and e_113 = e_113) impl (v = p)) and 
+((w = p and v = v and e_106 = e_103 and e_113 = e_114) impl (v = p)) and 
+((m1 = p and w = v and e_106 = e_103 and e_114 = e_108) impl (v = p)) and 
+((m2 = p and w = v and e_106 = e_103 and e_114 = e_109) impl (v = p)) and 
+((p = p and w = v and e_106 = e_103 and e_114 = e_110) impl (v = p)) and 
+((t = p and w = v and e_106 = e_103 and e_114 = e_111) impl (v = p)) and 
+((u = p and w = v and e_106 = e_103 and e_114 = e_112) impl (v = p)) and 
+((v = p and w = v and e_106 = e_103 and e_114 = e_113) impl (v = p)) and 
+((w = p and w = v and e_106 = e_103 and e_114 = e_114) impl (v = p)) and 
+((m1 = t and m1 = v and e_106 = e_104 and e_108 = e_108) impl (v = t)) and 
+((m2 = t and m1 = v and e_106 = e_104 and e_108 = e_109) impl (v = t)) and 
+((p = t and m1 = v and e_106 = e_104 and e_108 = e_110) impl (v = t)) and 
+((t = t and m1 = v and e_106 = e_104 and e_108 = e_111) impl (v = t)) and 
+((u = t and m1 = v and e_106 = e_104 and e_108 = e_112) impl (v = t)) and 
+((v = t and m1 = v and e_106 = e_104 and e_108 = e_113) impl (v = t)) and 
+((w = t and m1 = v and e_106 = e_104 and e_108 = e_114) impl (v = t)) and 
+((m1 = t and m2 = v and e_106 = e_104 and e_109 = e_108) impl (v = t)) and 
+((m2 = t and m2 = v and e_106 = e_104 and e_109 = e_109) impl (v = t)) and 
+((p = t and m2 = v and e_106 = e_104 and e_109 = e_110) impl (v = t)) and 
+((t = t and m2 = v and e_106 = e_104 and e_109 = e_111) impl (v = t)) and 
+((u = t and m2 = v and e_106 = e_104 and e_109 = e_112) impl (v = t)) and 
+((v = t and m2 = v and e_106 = e_104 and e_109 = e_113) impl (v = t)) and 
+((w = t and m2 = v and e_106 = e_104 and e_109 = e_114) impl (v = t)) and 
+((m1 = t and p = v and e_106 = e_104 and e_110 = e_108) impl (v = t)) and 
+((m2 = t and p = v and e_106 = e_104 and e_110 = e_109) impl (v = t)) and 
+((p = t and p = v and e_106 = e_104 and e_110 = e_110) impl (v = t)) and 
+((t = t and p = v and e_106 = e_104 and e_110 = e_111) impl (v = t)) and 
+((u = t and p = v and e_106 = e_104 and e_110 = e_112) impl (v = t)) and 
+((v = t and p = v and e_106 = e_104 and e_110 = e_113) impl (v = t)) and 
+((w = t and p = v and e_106 = e_104 and e_110 = e_114) impl (v = t)) and 
+((m1 = t and t = v and e_106 = e_104 and e_111 = e_108) impl (v = t)) and 
+((m2 = t and t = v and e_106 = e_104 and e_111 = e_109) impl (v = t)) and 
+((p = t and t = v and e_106 = e_104 and e_111 = e_110) impl (v = t)) and 
+((t = t and t = v and e_106 = e_104 and e_111 = e_111) impl (v = t)) and 
+((u = t and t = v and e_106 = e_104 and e_111 = e_112) impl (v = t)) and 
+((v = t and t = v and e_106 = e_104 and e_111 = e_113) impl (v = t)) and 
+((w = t and t = v and e_106 = e_104 and e_111 = e_114) impl (v = t)) and 
+((m1 = t and u = v and e_106 = e_104 and e_112 = e_108) impl (v = t)) and 
+((m2 = t and u = v and e_106 = e_104 and e_112 = e_109) impl (v = t)) and 
+((p = t and u = v and e_106 = e_104 and e_112 = e_110) impl (v = t)) and 
+((t = t and u = v and e_106 = e_104 and e_112 = e_111) impl (v = t)) and 
+((u = t and u = v and e_106 = e_104 and e_112 = e_112) impl (v = t)) and 
+((v = t and u = v and e_106 = e_104 and e_112 = e_113) impl (v = t)) and 
+((w = t and u = v and e_106 = e_104 and e_112 = e_114) impl (v = t)) and 
+((m1 = t and v = v and e_106 = e_104 and e_113 = e_108) impl (v = t)) and 
+((m2 = t and v = v and e_106 = e_104 and e_113 = e_109) impl (v = t)) and 
+((p = t and v = v and e_106 = e_104 and e_113 = e_110) impl (v = t)) and 
+((t = t and v = v and e_106 = e_104 and e_113 = e_111) impl (v = t)) and 
+((u = t and v = v and e_106 = e_104 and e_113 = e_112) impl (v = t)) and 
+((v = t and v = v and e_106 = e_104 and e_113 = e_113) impl (v = t)) and 
+((w = t and v = v and e_106 = e_104 and e_113 = e_114) impl (v = t)) and 
+((m1 = t and w = v and e_106 = e_104 and e_114 = e_108) impl (v = t)) and 
+((m2 = t and w = v and e_106 = e_104 and e_114 = e_109) impl (v = t)) and 
+((p = t and w = v and e_106 = e_104 and e_114 = e_110) impl (v = t)) and 
+((t = t and w = v and e_106 = e_104 and e_114 = e_111) impl (v = t)) and 
+((u = t and w = v and e_106 = e_104 and e_114 = e_112) impl (v = t)) and 
+((v = t and w = v and e_106 = e_104 and e_114 = e_113) impl (v = t)) and 
+((w = t and w = v and e_106 = e_104 and e_114 = e_114) impl (v = t)) and 
+((m1 = u and m1 = v and e_106 = e_105 and e_108 = e_108) impl (v = u)) and 
+((m2 = u and m1 = v and e_106 = e_105 and e_108 = e_109) impl (v = u)) and 
+((p = u and m1 = v and e_106 = e_105 and e_108 = e_110) impl (v = u)) and 
+((t = u and m1 = v and e_106 = e_105 and e_108 = e_111) impl (v = u)) and 
+((u = u and m1 = v and e_106 = e_105 and e_108 = e_112) impl (v = u)) and 
+((v = u and m1 = v and e_106 = e_105 and e_108 = e_113) impl (v = u)) and 
+((w = u and m1 = v and e_106 = e_105 and e_108 = e_114) impl (v = u)) and 
+((m1 = u and m2 = v and e_106 = e_105 and e_109 = e_108) impl (v = u)) and 
+((m2 = u and m2 = v and e_106 = e_105 and e_109 = e_109) impl (v = u)) and 
+((p = u and m2 = v and e_106 = e_105 and e_109 = e_110) impl (v = u)) and 
+((t = u and m2 = v and e_106 = e_105 and e_109 = e_111) impl (v = u)) and 
+((u = u and m2 = v and e_106 = e_105 and e_109 = e_112) impl (v = u)) and 
+((v = u and m2 = v and e_106 = e_105 and e_109 = e_113) impl (v = u)) and 
+((w = u and m2 = v and e_106 = e_105 and e_109 = e_114) impl (v = u)) and 
+((m1 = u and p = v and e_106 = e_105 and e_110 = e_108) impl (v = u)) and 
+((m2 = u and p = v and e_106 = e_105 and e_110 = e_109) impl (v = u)) and 
+((p = u and p = v and e_106 = e_105 and e_110 = e_110) impl (v = u)) and 
+((t = u and p = v and e_106 = e_105 and e_110 = e_111) impl (v = u)) and 
+((u = u and p = v and e_106 = e_105 and e_110 = e_112) impl (v = u)) and 
+((v = u and p = v and e_106 = e_105 and e_110 = e_113) impl (v = u)) and 
+((w = u and p = v and e_106 = e_105 and e_110 = e_114) impl (v = u)) and 
+((m1 = u and t = v and e_106 = e_105 and e_111 = e_108) impl (v = u)) and 
+((m2 = u and t = v and e_106 = e_105 and e_111 = e_109) impl (v = u)) and 
+((p = u and t = v and e_106 = e_105 and e_111 = e_110) impl (v = u)) and 
+((t = u and t = v and e_106 = e_105 and e_111 = e_111) impl (v = u)) and 
+((u = u and t = v and e_106 = e_105 and e_111 = e_112) impl (v = u)) and 
+((v = u and t = v and e_106 = e_105 and e_111 = e_113) impl (v = u)) and 
+((w = u and t = v and e_106 = e_105 and e_111 = e_114) impl (v = u)) and 
+((m1 = u and u = v and e_106 = e_105 and e_112 = e_108) impl (v = u)) and 
+((m2 = u and u = v and e_106 = e_105 and e_112 = e_109) impl (v = u)) and 
+((p = u and u = v and e_106 = e_105 and e_112 = e_110) impl (v = u)) and 
+((t = u and u = v and e_106 = e_105 and e_112 = e_111) impl (v = u)) and 
+((u = u and u = v and e_106 = e_105 and e_112 = e_112) impl (v = u)) and 
+((v = u and u = v and e_106 = e_105 and e_112 = e_113) impl (v = u)) and 
+((w = u and u = v and e_106 = e_105 and e_112 = e_114) impl (v = u)) and 
+((m1 = u and v = v and e_106 = e_105 and e_113 = e_108) impl (v = u)) and 
+((m2 = u and v = v and e_106 = e_105 and e_113 = e_109) impl (v = u)) and 
+((p = u and v = v and e_106 = e_105 and e_113 = e_110) impl (v = u)) and 
+((t = u and v = v and e_106 = e_105 and e_113 = e_111) impl (v = u)) and 
+((u = u and v = v and e_106 = e_105 and e_113 = e_112) impl (v = u)) and 
+((v = u and v = v and e_106 = e_105 and e_113 = e_113) impl (v = u)) and 
+((w = u and v = v and e_106 = e_105 and e_113 = e_114) impl (v = u)) and 
+((m1 = u and w = v and e_106 = e_105 and e_114 = e_108) impl (v = u)) and 
+((m2 = u and w = v and e_106 = e_105 and e_114 = e_109) impl (v = u)) and 
+((p = u and w = v and e_106 = e_105 and e_114 = e_110) impl (v = u)) and 
+((t = u and w = v and e_106 = e_105 and e_114 = e_111) impl (v = u)) and 
+((u = u and w = v and e_106 = e_105 and e_114 = e_112) impl (v = u)) and 
+((v = u and w = v and e_106 = e_105 and e_114 = e_113) impl (v = u)) and 
+((w = u and w = v and e_106 = e_105 and e_114 = e_114) impl (v = u)) and 
+((m1 = w and m1 = v and e_106 = e_107 and e_108 = e_108) impl (v = w)) and 
+((m2 = w and m1 = v and e_106 = e_107 and e_108 = e_109) impl (v = w)) and 
+((p = w and m1 = v and e_106 = e_107 and e_108 = e_110) impl (v = w)) and 
+((t = w and m1 = v and e_106 = e_107 and e_108 = e_111) impl (v = w)) and 
+((u = w and m1 = v and e_106 = e_107 and e_108 = e_112) impl (v = w)) and 
+((v = w and m1 = v and e_106 = e_107 and e_108 = e_113) impl (v = w)) and 
+((w = w and m1 = v and e_106 = e_107 and e_108 = e_114) impl (v = w)) and 
+((m1 = w and m2 = v and e_106 = e_107 and e_109 = e_108) impl (v = w)) and 
+((m2 = w and m2 = v and e_106 = e_107 and e_109 = e_109) impl (v = w)) and 
+((p = w and m2 = v and e_106 = e_107 and e_109 = e_110) impl (v = w)) and 
+((t = w and m2 = v and e_106 = e_107 and e_109 = e_111) impl (v = w)) and 
+((u = w and m2 = v and e_106 = e_107 and e_109 = e_112) impl (v = w)) and 
+((v = w and m2 = v and e_106 = e_107 and e_109 = e_113) impl (v = w)) and 
+((w = w and m2 = v and e_106 = e_107 and e_109 = e_114) impl (v = w)) and 
+((m1 = w and p = v and e_106 = e_107 and e_110 = e_108) impl (v = w)) and 
+((m2 = w and p = v and e_106 = e_107 and e_110 = e_109) impl (v = w)) and 
+((p = w and p = v and e_106 = e_107 and e_110 = e_110) impl (v = w)) and 
+((t = w and p = v and e_106 = e_107 and e_110 = e_111) impl (v = w)) and 
+((u = w and p = v and e_106 = e_107 and e_110 = e_112) impl (v = w)) and 
+((v = w and p = v and e_106 = e_107 and e_110 = e_113) impl (v = w)) and 
+((w = w and p = v and e_106 = e_107 and e_110 = e_114) impl (v = w)) and 
+((m1 = w and t = v and e_106 = e_107 and e_111 = e_108) impl (v = w)) and 
+((m2 = w and t = v and e_106 = e_107 and e_111 = e_109) impl (v = w)) and 
+((p = w and t = v and e_106 = e_107 and e_111 = e_110) impl (v = w)) and 
+((t = w and t = v and e_106 = e_107 and e_111 = e_111) impl (v = w)) and 
+((u = w and t = v and e_106 = e_107 and e_111 = e_112) impl (v = w)) and 
+((v = w and t = v and e_106 = e_107 and e_111 = e_113) impl (v = w)) and 
+((w = w and t = v and e_106 = e_107 and e_111 = e_114) impl (v = w)) and 
+((m1 = w and u = v and e_106 = e_107 and e_112 = e_108) impl (v = w)) and 
+((m2 = w and u = v and e_106 = e_107 and e_112 = e_109) impl (v = w)) and 
+((p = w and u = v and e_106 = e_107 and e_112 = e_110) impl (v = w)) and 
+((t = w and u = v and e_106 = e_107 and e_112 = e_111) impl (v = w)) and 
+((u = w and u = v and e_106 = e_107 and e_112 = e_112) impl (v = w)) and 
+((v = w and u = v and e_106 = e_107 and e_112 = e_113) impl (v = w)) and 
+((w = w and u = v and e_106 = e_107 and e_112 = e_114) impl (v = w)) and 
+((m1 = w and v = v and e_106 = e_107 and e_113 = e_108) impl (v = w)) and 
+((m2 = w and v = v and e_106 = e_107 and e_113 = e_109) impl (v = w)) and 
+((p = w and v = v and e_106 = e_107 and e_113 = e_110) impl (v = w)) and 
+((t = w and v = v and e_106 = e_107 and e_113 = e_111) impl (v = w)) and 
+((u = w and v = v and e_106 = e_107 and e_113 = e_112) impl (v = w)) and 
+((v = w and v = v and e_106 = e_107 and e_113 = e_113) impl (v = w)) and 
+((w = w and v = v and e_106 = e_107 and e_113 = e_114) impl (v = w)) and 
+((m1 = w and w = v and e_106 = e_107 and e_114 = e_108) impl (v = w)) and 
+((m2 = w and w = v and e_106 = e_107 and e_114 = e_109) impl (v = w)) and 
+((p = w and w = v and e_106 = e_107 and e_114 = e_110) impl (v = w)) and 
+((t = w and w = v and e_106 = e_107 and e_114 = e_111) impl (v = w)) and 
+((u = w and w = v and e_106 = e_107 and e_114 = e_112) impl (v = w)) and 
+((v = w and w = v and e_106 = e_107 and e_114 = e_113) impl (v = w)) and 
+((w = w and w = v and e_106 = e_107 and e_114 = e_114) impl (v = w)) and 
+((m1 = m1 and m1 = w and e_107 = e_101 and e_108 = e_108) impl (w = m1)) and 
+((m2 = m1 and m1 = w and e_107 = e_101 and e_108 = e_109) impl (w = m1)) and 
+((p = m1 and m1 = w and e_107 = e_101 and e_108 = e_110) impl (w = m1)) and 
+((t = m1 and m1 = w and e_107 = e_101 and e_108 = e_111) impl (w = m1)) and 
+((u = m1 and m1 = w and e_107 = e_101 and e_108 = e_112) impl (w = m1)) and 
+((v = m1 and m1 = w and e_107 = e_101 and e_108 = e_113) impl (w = m1)) and 
+((w = m1 and m1 = w and e_107 = e_101 and e_108 = e_114) impl (w = m1)) and 
+((m1 = m1 and m2 = w and e_107 = e_101 and e_109 = e_108) impl (w = m1)) and 
+((m2 = m1 and m2 = w and e_107 = e_101 and e_109 = e_109) impl (w = m1)) and 
+((p = m1 and m2 = w and e_107 = e_101 and e_109 = e_110) impl (w = m1)) and 
+((t = m1 and m2 = w and e_107 = e_101 and e_109 = e_111) impl (w = m1)) and 
+((u = m1 and m2 = w and e_107 = e_101 and e_109 = e_112) impl (w = m1)) and 
+((v = m1 and m2 = w and e_107 = e_101 and e_109 = e_113) impl (w = m1)) and 
+((w = m1 and m2 = w and e_107 = e_101 and e_109 = e_114) impl (w = m1)) and 
+((m1 = m1 and p = w and e_107 = e_101 and e_110 = e_108) impl (w = m1)) and 
+((m2 = m1 and p = w and e_107 = e_101 and e_110 = e_109) impl (w = m1)) and 
+((p = m1 and p = w and e_107 = e_101 and e_110 = e_110) impl (w = m1)) and 
+((t = m1 and p = w and e_107 = e_101 and e_110 = e_111) impl (w = m1)) and 
+((u = m1 and p = w and e_107 = e_101 and e_110 = e_112) impl (w = m1)) and 
+((v = m1 and p = w and e_107 = e_101 and e_110 = e_113) impl (w = m1)) and 
+((w = m1 and p = w and e_107 = e_101 and e_110 = e_114) impl (w = m1)) and 
+((m1 = m1 and t = w and e_107 = e_101 and e_111 = e_108) impl (w = m1)) and 
+((m2 = m1 and t = w and e_107 = e_101 and e_111 = e_109) impl (w = m1)) and 
+((p = m1 and t = w and e_107 = e_101 and e_111 = e_110) impl (w = m1)) and 
+((t = m1 and t = w and e_107 = e_101 and e_111 = e_111) impl (w = m1)) and 
+((u = m1 and t = w and e_107 = e_101 and e_111 = e_112) impl (w = m1)) and 
+((v = m1 and t = w and e_107 = e_101 and e_111 = e_113) impl (w = m1)) and 
+((w = m1 and t = w and e_107 = e_101 and e_111 = e_114) impl (w = m1)) and 
+((m1 = m1 and u = w and e_107 = e_101 and e_112 = e_108) impl (w = m1)) and 
+((m2 = m1 and u = w and e_107 = e_101 and e_112 = e_109) impl (w = m1)) and 
+((p = m1 and u = w and e_107 = e_101 and e_112 = e_110) impl (w = m1)) and 
+((t = m1 and u = w and e_107 = e_101 and e_112 = e_111) impl (w = m1)) and 
+((u = m1 and u = w and e_107 = e_101 and e_112 = e_112) impl (w = m1)) and 
+((v = m1 and u = w and e_107 = e_101 and e_112 = e_113) impl (w = m1)) and 
+((w = m1 and u = w and e_107 = e_101 and e_112 = e_114) impl (w = m1)) and 
+((m1 = m1 and v = w and e_107 = e_101 and e_113 = e_108) impl (w = m1)) and 
+((m2 = m1 and v = w and e_107 = e_101 and e_113 = e_109) impl (w = m1)) and 
+((p = m1 and v = w and e_107 = e_101 and e_113 = e_110) impl (w = m1)) and 
+((t = m1 and v = w and e_107 = e_101 and e_113 = e_111) impl (w = m1)) and 
+((u = m1 and v = w and e_107 = e_101 and e_113 = e_112) impl (w = m1)) and 
+((v = m1 and v = w and e_107 = e_101 and e_113 = e_113) impl (w = m1)) and 
+((w = m1 and v = w and e_107 = e_101 and e_113 = e_114) impl (w = m1)) and 
+((m1 = m1 and w = w and e_107 = e_101 and e_114 = e_108) impl (w = m1)) and 
+((m2 = m1 and w = w and e_107 = e_101 and e_114 = e_109) impl (w = m1)) and 
+((p = m1 and w = w and e_107 = e_101 and e_114 = e_110) impl (w = m1)) and 
+((t = m1 and w = w and e_107 = e_101 and e_114 = e_111) impl (w = m1)) and 
+((u = m1 and w = w and e_107 = e_101 and e_114 = e_112) impl (w = m1)) and 
+((v = m1 and w = w and e_107 = e_101 and e_114 = e_113) impl (w = m1)) and 
+((w = m1 and w = w and e_107 = e_101 and e_114 = e_114) impl (w = m1)) and 
+((m1 = m2 and m1 = w and e_107 = e_102 and e_108 = e_108) impl (w = m2)) and 
+((m2 = m2 and m1 = w and e_107 = e_102 and e_108 = e_109) impl (w = m2)) and 
+((p = m2 and m1 = w and e_107 = e_102 and e_108 = e_110) impl (w = m2)) and 
+((t = m2 and m1 = w and e_107 = e_102 and e_108 = e_111) impl (w = m2)) and 
+((u = m2 and m1 = w and e_107 = e_102 and e_108 = e_112) impl (w = m2)) and 
+((v = m2 and m1 = w and e_107 = e_102 and e_108 = e_113) impl (w = m2)) and 
+((w = m2 and m1 = w and e_107 = e_102 and e_108 = e_114) impl (w = m2)) and 
+((m1 = m2 and m2 = w and e_107 = e_102 and e_109 = e_108) impl (w = m2)) and 
+((m2 = m2 and m2 = w and e_107 = e_102 and e_109 = e_109) impl (w = m2)) and 
+((p = m2 and m2 = w and e_107 = e_102 and e_109 = e_110) impl (w = m2)) and 
+((t = m2 and m2 = w and e_107 = e_102 and e_109 = e_111) impl (w = m2)) and 
+((u = m2 and m2 = w and e_107 = e_102 and e_109 = e_112) impl (w = m2)) and 
+((v = m2 and m2 = w and e_107 = e_102 and e_109 = e_113) impl (w = m2)) and 
+((w = m2 and m2 = w and e_107 = e_102 and e_109 = e_114) impl (w = m2)) and 
+((m1 = m2 and p = w and e_107 = e_102 and e_110 = e_108) impl (w = m2)) and 
+((m2 = m2 and p = w and e_107 = e_102 and e_110 = e_109) impl (w = m2)) and 
+((p = m2 and p = w and e_107 = e_102 and e_110 = e_110) impl (w = m2)) and 
+((t = m2 and p = w and e_107 = e_102 and e_110 = e_111) impl (w = m2)) and 
+((u = m2 and p = w and e_107 = e_102 and e_110 = e_112) impl (w = m2)) and 
+((v = m2 and p = w and e_107 = e_102 and e_110 = e_113) impl (w = m2)) and 
+((w = m2 and p = w and e_107 = e_102 and e_110 = e_114) impl (w = m2)) and 
+((m1 = m2 and t = w and e_107 = e_102 and e_111 = e_108) impl (w = m2)) and 
+((m2 = m2 and t = w and e_107 = e_102 and e_111 = e_109) impl (w = m2)) and 
+((p = m2 and t = w and e_107 = e_102 and e_111 = e_110) impl (w = m2)) and 
+((t = m2 and t = w and e_107 = e_102 and e_111 = e_111) impl (w = m2)) and 
+((u = m2 and t = w and e_107 = e_102 and e_111 = e_112) impl (w = m2)) and 
+((v = m2 and t = w and e_107 = e_102 and e_111 = e_113) impl (w = m2)) and 
+((w = m2 and t = w and e_107 = e_102 and e_111 = e_114) impl (w = m2)) and 
+((m1 = m2 and u = w and e_107 = e_102 and e_112 = e_108) impl (w = m2)) and 
+((m2 = m2 and u = w and e_107 = e_102 and e_112 = e_109) impl (w = m2)) and 
+((p = m2 and u = w and e_107 = e_102 and e_112 = e_110) impl (w = m2)) and 
+((t = m2 and u = w and e_107 = e_102 and e_112 = e_111) impl (w = m2)) and 
+((u = m2 and u = w and e_107 = e_102 and e_112 = e_112) impl (w = m2)) and 
+((v = m2 and u = w and e_107 = e_102 and e_112 = e_113) impl (w = m2)) and 
+((w = m2 and u = w and e_107 = e_102 and e_112 = e_114) impl (w = m2)) and 
+((m1 = m2 and v = w and e_107 = e_102 and e_113 = e_108) impl (w = m2)) and 
+((m2 = m2 and v = w and e_107 = e_102 and e_113 = e_109) impl (w = m2)) and 
+((p = m2 and v = w and e_107 = e_102 and e_113 = e_110) impl (w = m2)) and 
+((t = m2 and v = w and e_107 = e_102 and e_113 = e_111) impl (w = m2)) and 
+((u = m2 and v = w and e_107 = e_102 and e_113 = e_112) impl (w = m2)) and 
+((v = m2 and v = w and e_107 = e_102 and e_113 = e_113) impl (w = m2)) and 
+((w = m2 and v = w and e_107 = e_102 and e_113 = e_114) impl (w = m2)) and 
+((m1 = m2 and w = w and e_107 = e_102 and e_114 = e_108) impl (w = m2)) and 
+((m2 = m2 and w = w and e_107 = e_102 and e_114 = e_109) impl (w = m2)) and 
+((p = m2 and w = w and e_107 = e_102 and e_114 = e_110) impl (w = m2)) and 
+((t = m2 and w = w and e_107 = e_102 and e_114 = e_111) impl (w = m2)) and 
+((u = m2 and w = w and e_107 = e_102 and e_114 = e_112) impl (w = m2)) and 
+((v = m2 and w = w and e_107 = e_102 and e_114 = e_113) impl (w = m2)) and 
+((w = m2 and w = w and e_107 = e_102 and e_114 = e_114) impl (w = m2)) and 
+((m1 = p and m1 = w and e_107 = e_103 and e_108 = e_108) impl (w = p)) and 
+((m2 = p and m1 = w and e_107 = e_103 and e_108 = e_109) impl (w = p)) and 
+((p = p and m1 = w and e_107 = e_103 and e_108 = e_110) impl (w = p)) and 
+((t = p and m1 = w and e_107 = e_103 and e_108 = e_111) impl (w = p)) and 
+((u = p and m1 = w and e_107 = e_103 and e_108 = e_112) impl (w = p)) and 
+((v = p and m1 = w and e_107 = e_103 and e_108 = e_113) impl (w = p)) and 
+((w = p and m1 = w and e_107 = e_103 and e_108 = e_114) impl (w = p)) and 
+((m1 = p and m2 = w and e_107 = e_103 and e_109 = e_108) impl (w = p)) and 
+((m2 = p and m2 = w and e_107 = e_103 and e_109 = e_109) impl (w = p)) and 
+((p = p and m2 = w and e_107 = e_103 and e_109 = e_110) impl (w = p)) and 
+((t = p and m2 = w and e_107 = e_103 and e_109 = e_111) impl (w = p)) and 
+((u = p and m2 = w and e_107 = e_103 and e_109 = e_112) impl (w = p)) and 
+((v = p and m2 = w and e_107 = e_103 and e_109 = e_113) impl (w = p)) and 
+((w = p and m2 = w and e_107 = e_103 and e_109 = e_114) impl (w = p)) and 
+((m1 = p and p = w and e_107 = e_103 and e_110 = e_108) impl (w = p)) and 
+((m2 = p and p = w and e_107 = e_103 and e_110 = e_109) impl (w = p)) and 
+((p = p and p = w and e_107 = e_103 and e_110 = e_110) impl (w = p)) and 
+((t = p and p = w and e_107 = e_103 and e_110 = e_111) impl (w = p)) and 
+((u = p and p = w and e_107 = e_103 and e_110 = e_112) impl (w = p)) and 
+((v = p and p = w and e_107 = e_103 and e_110 = e_113) impl (w = p)) and 
+((w = p and p = w and e_107 = e_103 and e_110 = e_114) impl (w = p)) and 
+((m1 = p and t = w and e_107 = e_103 and e_111 = e_108) impl (w = p)) and 
+((m2 = p and t = w and e_107 = e_103 and e_111 = e_109) impl (w = p)) and 
+((p = p and t = w and e_107 = e_103 and e_111 = e_110) impl (w = p)) and 
+((t = p and t = w and e_107 = e_103 and e_111 = e_111) impl (w = p)) and 
+((u = p and t = w and e_107 = e_103 and e_111 = e_112) impl (w = p)) and 
+((v = p and t = w and e_107 = e_103 and e_111 = e_113) impl (w = p)) and 
+((w = p and t = w and e_107 = e_103 and e_111 = e_114) impl (w = p)) and 
+((m1 = p and u = w and e_107 = e_103 and e_112 = e_108) impl (w = p)) and 
+((m2 = p and u = w and e_107 = e_103 and e_112 = e_109) impl (w = p)) and 
+((p = p and u = w and e_107 = e_103 and e_112 = e_110) impl (w = p)) and 
+((t = p and u = w and e_107 = e_103 and e_112 = e_111) impl (w = p)) and 
+((u = p and u = w and e_107 = e_103 and e_112 = e_112) impl (w = p)) and 
+((v = p and u = w and e_107 = e_103 and e_112 = e_113) impl (w = p)) and 
+((w = p and u = w and e_107 = e_103 and e_112 = e_114) impl (w = p)) and 
+((m1 = p and v = w and e_107 = e_103 and e_113 = e_108) impl (w = p)) and 
+((m2 = p and v = w and e_107 = e_103 and e_113 = e_109) impl (w = p)) and 
+((p = p and v = w and e_107 = e_103 and e_113 = e_110) impl (w = p)) and 
+((t = p and v = w and e_107 = e_103 and e_113 = e_111) impl (w = p)) and 
+((u = p and v = w and e_107 = e_103 and e_113 = e_112) impl (w = p)) and 
+((v = p and v = w and e_107 = e_103 and e_113 = e_113) impl (w = p)) and 
+((w = p and v = w and e_107 = e_103 and e_113 = e_114) impl (w = p)) and 
+((m1 = p and w = w and e_107 = e_103 and e_114 = e_108) impl (w = p)) and 
+((m2 = p and w = w and e_107 = e_103 and e_114 = e_109) impl (w = p)) and 
+((p = p and w = w and e_107 = e_103 and e_114 = e_110) impl (w = p)) and 
+((t = p and w = w and e_107 = e_103 and e_114 = e_111) impl (w = p)) and 
+((u = p and w = w and e_107 = e_103 and e_114 = e_112) impl (w = p)) and 
+((v = p and w = w and e_107 = e_103 and e_114 = e_113) impl (w = p)) and 
+((w = p and w = w and e_107 = e_103 and e_114 = e_114) impl (w = p)) and 
+((m1 = t and m1 = w and e_107 = e_104 and e_108 = e_108) impl (w = t)) and 
+((m2 = t and m1 = w and e_107 = e_104 and e_108 = e_109) impl (w = t)) and 
+((p = t and m1 = w and e_107 = e_104 and e_108 = e_110) impl (w = t)) and 
+((t = t and m1 = w and e_107 = e_104 and e_108 = e_111) impl (w = t)) and 
+((u = t and m1 = w and e_107 = e_104 and e_108 = e_112) impl (w = t)) and 
+((v = t and m1 = w and e_107 = e_104 and e_108 = e_113) impl (w = t)) and 
+((w = t and m1 = w and e_107 = e_104 and e_108 = e_114) impl (w = t)) and 
+((m1 = t and m2 = w and e_107 = e_104 and e_109 = e_108) impl (w = t)) and 
+((m2 = t and m2 = w and e_107 = e_104 and e_109 = e_109) impl (w = t)) and 
+((p = t and m2 = w and e_107 = e_104 and e_109 = e_110) impl (w = t)) and 
+((t = t and m2 = w and e_107 = e_104 and e_109 = e_111) impl (w = t)) and 
+((u = t and m2 = w and e_107 = e_104 and e_109 = e_112) impl (w = t)) and 
+((v = t and m2 = w and e_107 = e_104 and e_109 = e_113) impl (w = t)) and 
+((w = t and m2 = w and e_107 = e_104 and e_109 = e_114) impl (w = t)) and 
+((m1 = t and p = w and e_107 = e_104 and e_110 = e_108) impl (w = t)) and 
+((m2 = t and p = w and e_107 = e_104 and e_110 = e_109) impl (w = t)) and 
+((p = t and p = w and e_107 = e_104 and e_110 = e_110) impl (w = t)) and 
+((t = t and p = w and e_107 = e_104 and e_110 = e_111) impl (w = t)) and 
+((u = t and p = w and e_107 = e_104 and e_110 = e_112) impl (w = t)) and 
+((v = t and p = w and e_107 = e_104 and e_110 = e_113) impl (w = t)) and 
+((w = t and p = w and e_107 = e_104 and e_110 = e_114) impl (w = t)) and 
+((m1 = t and t = w and e_107 = e_104 and e_111 = e_108) impl (w = t)) and 
+((m2 = t and t = w and e_107 = e_104 and e_111 = e_109) impl (w = t)) and 
+((p = t and t = w and e_107 = e_104 and e_111 = e_110) impl (w = t)) and 
+((t = t and t = w and e_107 = e_104 and e_111 = e_111) impl (w = t)) and 
+((u = t and t = w and e_107 = e_104 and e_111 = e_112) impl (w = t)) and 
+((v = t and t = w and e_107 = e_104 and e_111 = e_113) impl (w = t)) and 
+((w = t and t = w and e_107 = e_104 and e_111 = e_114) impl (w = t)) and 
+((m1 = t and u = w and e_107 = e_104 and e_112 = e_108) impl (w = t)) and 
+((m2 = t and u = w and e_107 = e_104 and e_112 = e_109) impl (w = t)) and 
+((p = t and u = w and e_107 = e_104 and e_112 = e_110) impl (w = t)) and 
+((t = t and u = w and e_107 = e_104 and e_112 = e_111) impl (w = t)) and 
+((u = t and u = w and e_107 = e_104 and e_112 = e_112) impl (w = t)) and 
+((v = t and u = w and e_107 = e_104 and e_112 = e_113) impl (w = t)) and 
+((w = t and u = w and e_107 = e_104 and e_112 = e_114) impl (w = t)) and 
+((m1 = t and v = w and e_107 = e_104 and e_113 = e_108) impl (w = t)) and 
+((m2 = t and v = w and e_107 = e_104 and e_113 = e_109) impl (w = t)) and 
+((p = t and v = w and e_107 = e_104 and e_113 = e_110) impl (w = t)) and 
+((t = t and v = w and e_107 = e_104 and e_113 = e_111) impl (w = t)) and 
+((u = t and v = w and e_107 = e_104 and e_113 = e_112) impl (w = t)) and 
+((v = t and v = w and e_107 = e_104 and e_113 = e_113) impl (w = t)) and 
+((w = t and v = w and e_107 = e_104 and e_113 = e_114) impl (w = t)) and 
+((m1 = t and w = w and e_107 = e_104 and e_114 = e_108) impl (w = t)) and 
+((m2 = t and w = w and e_107 = e_104 and e_114 = e_109) impl (w = t)) and 
+((p = t and w = w and e_107 = e_104 and e_114 = e_110) impl (w = t)) and 
+((t = t and w = w and e_107 = e_104 and e_114 = e_111) impl (w = t)) and 
+((u = t and w = w and e_107 = e_104 and e_114 = e_112) impl (w = t)) and 
+((v = t and w = w and e_107 = e_104 and e_114 = e_113) impl (w = t)) and 
+((w = t and w = w and e_107 = e_104 and e_114 = e_114) impl (w = t)) and 
+((m1 = u and m1 = w and e_107 = e_105 and e_108 = e_108) impl (w = u)) and 
+((m2 = u and m1 = w and e_107 = e_105 and e_108 = e_109) impl (w = u)) and 
+((p = u and m1 = w and e_107 = e_105 and e_108 = e_110) impl (w = u)) and 
+((t = u and m1 = w and e_107 = e_105 and e_108 = e_111) impl (w = u)) and 
+((u = u and m1 = w and e_107 = e_105 and e_108 = e_112) impl (w = u)) and 
+((v = u and m1 = w and e_107 = e_105 and e_108 = e_113) impl (w = u)) and 
+((w = u and m1 = w and e_107 = e_105 and e_108 = e_114) impl (w = u)) and 
+((m1 = u and m2 = w and e_107 = e_105 and e_109 = e_108) impl (w = u)) and 
+((m2 = u and m2 = w and e_107 = e_105 and e_109 = e_109) impl (w = u)) and 
+((p = u and m2 = w and e_107 = e_105 and e_109 = e_110) impl (w = u)) and 
+((t = u and m2 = w and e_107 = e_105 and e_109 = e_111) impl (w = u)) and 
+((u = u and m2 = w and e_107 = e_105 and e_109 = e_112) impl (w = u)) and 
+((v = u and m2 = w and e_107 = e_105 and e_109 = e_113) impl (w = u)) and 
+((w = u and m2 = w and e_107 = e_105 and e_109 = e_114) impl (w = u)) and 
+((m1 = u and p = w and e_107 = e_105 and e_110 = e_108) impl (w = u)) and 
+((m2 = u and p = w and e_107 = e_105 and e_110 = e_109) impl (w = u)) and 
+((p = u and p = w and e_107 = e_105 and e_110 = e_110) impl (w = u)) and 
+((t = u and p = w and e_107 = e_105 and e_110 = e_111) impl (w = u)) and 
+((u = u and p = w and e_107 = e_105 and e_110 = e_112) impl (w = u)) and 
+((v = u and p = w and e_107 = e_105 and e_110 = e_113) impl (w = u)) and 
+((w = u and p = w and e_107 = e_105 and e_110 = e_114) impl (w = u)) and 
+((m1 = u and t = w and e_107 = e_105 and e_111 = e_108) impl (w = u)) and 
+((m2 = u and t = w and e_107 = e_105 and e_111 = e_109) impl (w = u)) and 
+((p = u and t = w and e_107 = e_105 and e_111 = e_110) impl (w = u)) and 
+((t = u and t = w and e_107 = e_105 and e_111 = e_111) impl (w = u)) and 
+((u = u and t = w and e_107 = e_105 and e_111 = e_112) impl (w = u)) and 
+((v = u and t = w and e_107 = e_105 and e_111 = e_113) impl (w = u)) and 
+((w = u and t = w and e_107 = e_105 and e_111 = e_114) impl (w = u)) and 
+((m1 = u and u = w and e_107 = e_105 and e_112 = e_108) impl (w = u)) and 
+((m2 = u and u = w and e_107 = e_105 and e_112 = e_109) impl (w = u)) and 
+((p = u and u = w and e_107 = e_105 and e_112 = e_110) impl (w = u)) and 
+((t = u and u = w and e_107 = e_105 and e_112 = e_111) impl (w = u)) and 
+((u = u and u = w and e_107 = e_105 and e_112 = e_112) impl (w = u)) and 
+((v = u and u = w and e_107 = e_105 and e_112 = e_113) impl (w = u)) and 
+((w = u and u = w and e_107 = e_105 and e_112 = e_114) impl (w = u)) and 
+((m1 = u and v = w and e_107 = e_105 and e_113 = e_108) impl (w = u)) and 
+((m2 = u and v = w and e_107 = e_105 and e_113 = e_109) impl (w = u)) and 
+((p = u and v = w and e_107 = e_105 and e_113 = e_110) impl (w = u)) and 
+((t = u and v = w and e_107 = e_105 and e_113 = e_111) impl (w = u)) and 
+((u = u and v = w and e_107 = e_105 and e_113 = e_112) impl (w = u)) and 
+((v = u and v = w and e_107 = e_105 and e_113 = e_113) impl (w = u)) and 
+((w = u and v = w and e_107 = e_105 and e_113 = e_114) impl (w = u)) and 
+((m1 = u and w = w and e_107 = e_105 and e_114 = e_108) impl (w = u)) and 
+((m2 = u and w = w and e_107 = e_105 and e_114 = e_109) impl (w = u)) and 
+((p = u and w = w and e_107 = e_105 and e_114 = e_110) impl (w = u)) and 
+((t = u and w = w and e_107 = e_105 and e_114 = e_111) impl (w = u)) and 
+((u = u and w = w and e_107 = e_105 and e_114 = e_112) impl (w = u)) and 
+((v = u and w = w and e_107 = e_105 and e_114 = e_113) impl (w = u)) and 
+((w = u and w = w and e_107 = e_105 and e_114 = e_114) impl (w = u)) and 
+((m1 = v and m1 = w and e_107 = e_106 and e_108 = e_108) impl (w = v)) and 
+((m2 = v and m1 = w and e_107 = e_106 and e_108 = e_109) impl (w = v)) and 
+((p = v and m1 = w and e_107 = e_106 and e_108 = e_110) impl (w = v)) and 
+((t = v and m1 = w and e_107 = e_106 and e_108 = e_111) impl (w = v)) and 
+((u = v and m1 = w and e_107 = e_106 and e_108 = e_112) impl (w = v)) and 
+((v = v and m1 = w and e_107 = e_106 and e_108 = e_113) impl (w = v)) and 
+((w = v and m1 = w and e_107 = e_106 and e_108 = e_114) impl (w = v)) and 
+((m1 = v and m2 = w and e_107 = e_106 and e_109 = e_108) impl (w = v)) and 
+((m2 = v and m2 = w and e_107 = e_106 and e_109 = e_109) impl (w = v)) and 
+((p = v and m2 = w and e_107 = e_106 and e_109 = e_110) impl (w = v)) and 
+((t = v and m2 = w and e_107 = e_106 and e_109 = e_111) impl (w = v)) and 
+((u = v and m2 = w and e_107 = e_106 and e_109 = e_112) impl (w = v)) and 
+((v = v and m2 = w and e_107 = e_106 and e_109 = e_113) impl (w = v)) and 
+((w = v and m2 = w and e_107 = e_106 and e_109 = e_114) impl (w = v)) and 
+((m1 = v and p = w and e_107 = e_106 and e_110 = e_108) impl (w = v)) and 
+((m2 = v and p = w and e_107 = e_106 and e_110 = e_109) impl (w = v)) and 
+((p = v and p = w and e_107 = e_106 and e_110 = e_110) impl (w = v)) and 
+((t = v and p = w and e_107 = e_106 and e_110 = e_111) impl (w = v)) and 
+((u = v and p = w and e_107 = e_106 and e_110 = e_112) impl (w = v)) and 
+((v = v and p = w and e_107 = e_106 and e_110 = e_113) impl (w = v)) and 
+((w = v and p = w and e_107 = e_106 and e_110 = e_114) impl (w = v)) and 
+((m1 = v and t = w and e_107 = e_106 and e_111 = e_108) impl (w = v)) and 
+((m2 = v and t = w and e_107 = e_106 and e_111 = e_109) impl (w = v)) and 
+((p = v and t = w and e_107 = e_106 and e_111 = e_110) impl (w = v)) and 
+((t = v and t = w and e_107 = e_106 and e_111 = e_111) impl (w = v)) and 
+((u = v and t = w and e_107 = e_106 and e_111 = e_112) impl (w = v)) and 
+((v = v and t = w and e_107 = e_106 and e_111 = e_113) impl (w = v)) and 
+((w = v and t = w and e_107 = e_106 and e_111 = e_114) impl (w = v)) and 
+((m1 = v and u = w and e_107 = e_106 and e_112 = e_108) impl (w = v)) and 
+((m2 = v and u = w and e_107 = e_106 and e_112 = e_109) impl (w = v)) and 
+((p = v and u = w and e_107 = e_106 and e_112 = e_110) impl (w = v)) and 
+((t = v and u = w and e_107 = e_106 and e_112 = e_111) impl (w = v)) and 
+((u = v and u = w and e_107 = e_106 and e_112 = e_112) impl (w = v)) and 
+((v = v and u = w and e_107 = e_106 and e_112 = e_113) impl (w = v)) and 
+((w = v and u = w and e_107 = e_106 and e_112 = e_114) impl (w = v)) and 
+((m1 = v and v = w and e_107 = e_106 and e_113 = e_108) impl (w = v)) and 
+((m2 = v and v = w and e_107 = e_106 and e_113 = e_109) impl (w = v)) and 
+((p = v and v = w and e_107 = e_106 and e_113 = e_110) impl (w = v)) and 
+((t = v and v = w and e_107 = e_106 and e_113 = e_111) impl (w = v)) and 
+((u = v and v = w and e_107 = e_106 and e_113 = e_112) impl (w = v)) and 
+((v = v and v = w and e_107 = e_106 and e_113 = e_113) impl (w = v)) and 
+((w = v and v = w and e_107 = e_106 and e_113 = e_114) impl (w = v)) and 
+((m1 = v and w = w and e_107 = e_106 and e_114 = e_108) impl (w = v)) and 
+((m2 = v and w = w and e_107 = e_106 and e_114 = e_109) impl (w = v)) and 
+((p = v and w = w and e_107 = e_106 and e_114 = e_110) impl (w = v)) and 
+((t = v and w = w and e_107 = e_106 and e_114 = e_111) impl (w = v)) and 
+((u = v and w = w and e_107 = e_106 and e_114 = e_112) impl (w = v)) and 
+((v = v and w = w and e_107 = e_106 and e_114 = e_113) impl (w = v)) and 
+((w = v and w = w and e_107 = e_106 and e_114 = e_114) impl (w = v)) and 
+((wp = wt and d_55 = d_38) impl (e_129 = e_130)) and 
+((vw = wp and d_28 = d_55) impl (e_128 = e_129)) and 
+((vw = wt and d_28 = d_38) impl (e_128 = e_130)) and 
+((vt = vw and d_33 = d_28) impl (e_127 = e_128)) and 
+((vt = wp and d_33 = d_55) impl (e_127 = e_129)) and 
+((vt = wt and d_33 = d_38) impl (e_127 = e_130)) and 
+((vp = vt and d_50 = d_33) impl (e_126 = e_127)) and 
+((vp = vw and d_50 = d_28) impl (e_126 = e_128)) and 
+((vp = wp and d_50 = d_55) impl (e_126 = e_129)) and 
+((vp = wt and d_50 = d_38) impl (e_126 = e_130)) and 
+((uw = vp and d_16 = d_50) impl (e_125 = e_126)) and 
+((uw = vt and d_16 = d_33) impl (e_125 = e_127)) and 
+((uw = vw and d_16 = d_28) impl (e_125 = e_128)) and 
+((uw = wp and d_16 = d_55) impl (e_125 = e_129)) and 
+((uw = wt and d_16 = d_38) impl (e_125 = e_130)) and 
+((uv = uw and d_9 = d_16) impl (e_124 = e_125)) and 
+((uv = vp and d_9 = d_50) impl (e_124 = e_126)) and 
+((uv = vt and d_9 = d_33) impl (e_124 = e_127)) and 
+((uv = vw and d_9 = d_28) impl (e_124 = e_128)) and 
+((uv = wp and d_9 = d_55) impl (e_124 = e_129)) and 
+((uv = wt and d_9 = d_38) impl (e_124 = e_130)) and 
+((ut = uv and d_23 = d_9) impl (e_123 = e_124)) and 
+((ut = uw and d_23 = d_16) impl (e_123 = e_125)) and 
+((ut = vp and d_23 = d_50) impl (e_123 = e_126)) and 
+((ut = vt and d_23 = d_33) impl (e_123 = e_127)) and 
+((ut = vw and d_23 = d_28) impl (e_123 = e_128)) and 
+((ut = wp and d_23 = d_55) impl (e_123 = e_129)) and 
+((ut = wt and d_23 = d_38) impl (e_123 = e_130)) and 
+((up = ut and d_45 = d_23) impl (e_122 = e_123)) and 
+((up = uv and d_45 = d_9) impl (e_122 = e_124)) and 
+((up = uw and d_45 = d_16) impl (e_122 = e_125)) and 
+((up = vp and d_45 = d_50) impl (e_122 = e_126)) and 
+((up = vt and d_45 = d_33) impl (e_122 = e_127)) and 
+((up = vw and d_45 = d_28) impl (e_122 = e_128)) and 
+((up = wp and d_45 = d_55) impl (e_122 = e_129)) and 
+((up = wt and d_45 = d_38) impl (e_122 = e_130)) and 
+((tp = up and d_60 = d_45) impl (e_121 = e_122)) and 
+((tp = ut and d_60 = d_23) impl (e_121 = e_123)) and 
+((tp = uv and d_60 = d_9) impl (e_121 = e_124)) and 
+((tp = uw and d_60 = d_16) impl (e_121 = e_125)) and 
+((tp = vp and d_60 = d_50) impl (e_121 = e_126)) and 
+((tp = vt and d_60 = d_33) impl (e_121 = e_127)) and 
+((tp = vw and d_60 = d_28) impl (e_121 = e_128)) and 
+((tp = wp and d_60 = d_55) impl (e_121 = e_129)) and 
+((tp = wt and d_60 = d_38) impl (e_121 = e_130)) and 
+((m2w = tp and d_74 = d_60) impl (e_120 = e_121)) and 
+((m2w = up and d_74 = d_45) impl (e_120 = e_122)) and 
+((m2w = ut and d_74 = d_23) impl (e_120 = e_123)) and 
+((m2w = uv and d_74 = d_9) impl (e_120 = e_124)) and 
+((m2w = uw and d_74 = d_16) impl (e_120 = e_125)) and 
+((m2w = vp and d_74 = d_50) impl (e_120 = e_126)) and 
+((m2w = vt and d_74 = d_33) impl (e_120 = e_127)) and 
+((m2w = vw and d_74 = d_28) impl (e_120 = e_128)) and 
+((m2w = wp and d_74 = d_55) impl (e_120 = e_129)) and 
+((m2w = wt and d_74 = d_38) impl (e_120 = e_130)) and 
+((m2v = m2w and d_94 = d_74) impl (e_119 = e_120)) and 
+((m2v = tp and d_94 = d_60) impl (e_119 = e_121)) and 
+((m2v = up and d_94 = d_45) impl (e_119 = e_122)) and 
+((m2v = ut and d_94 = d_23) impl (e_119 = e_123)) and 
+((m2v = uv and d_94 = d_9) impl (e_119 = e_124)) and 
+((m2v = uw and d_94 = d_16) impl (e_119 = e_125)) and 
+((m2v = vp and d_94 = d_50) impl (e_119 = e_126)) and 
+((m2v = vt and d_94 = d_33) impl (e_119 = e_127)) and 
+((m2v = vw and d_94 = d_28) impl (e_119 = e_128)) and 
+((m2v = wp and d_94 = d_55) impl (e_119 = e_129)) and 
+((m2v = wt and d_94 = d_38) impl (e_119 = e_130)) and 
+((m2u = m2v and d_89 = d_94) impl (e_118 = e_119)) and 
+((m2u = m2w and d_89 = d_74) impl (e_118 = e_120)) and 
+((m2u = tp and d_89 = d_60) impl (e_118 = e_121)) and 
+((m2u = up and d_89 = d_45) impl (e_118 = e_122)) and 
+((m2u = ut and d_89 = d_23) impl (e_118 = e_123)) and 
+((m2u = uv and d_89 = d_9) impl (e_118 = e_124)) and 
+((m2u = uw and d_89 = d_16) impl (e_118 = e_125)) and 
+((m2u = vp and d_89 = d_50) impl (e_118 = e_126)) and 
+((m2u = vt and d_89 = d_33) impl (e_118 = e_127)) and 
+((m2u = vw and d_89 = d_28) impl (e_118 = e_128)) and 
+((m2u = wp and d_89 = d_55) impl (e_118 = e_129)) and 
+((m2u = wt and d_89 = d_38) impl (e_118 = e_130)) and 
+((m1w = m2u and d_67 = d_89) impl (e_117 = e_118)) and 
+((m1w = m2v and d_67 = d_94) impl (e_117 = e_119)) and 
+((m1w = m2w and d_67 = d_74) impl (e_117 = e_120)) and 
+((m1w = tp and d_67 = d_60) impl (e_117 = e_121)) and 
+((m1w = up and d_67 = d_45) impl (e_117 = e_122)) and 
+((m1w = ut and d_67 = d_23) impl (e_117 = e_123)) and 
+((m1w = uv and d_67 = d_9) impl (e_117 = e_124)) and 
+((m1w = uw and d_67 = d_16) impl (e_117 = e_125)) and 
+((m1w = vp and d_67 = d_50) impl (e_117 = e_126)) and 
+((m1w = vt and d_67 = d_33) impl (e_117 = e_127)) and 
+((m1w = vw and d_67 = d_28) impl (e_117 = e_128)) and 
+((m1w = wp and d_67 = d_55) impl (e_117 = e_129)) and 
+((m1w = wt and d_67 = d_38) impl (e_117 = e_130)) and 
+((m1u = m1w and d_84 = d_67) impl (e_116 = e_117)) and 
+((m1u = m2u and d_84 = d_89) impl (e_116 = e_118)) and 
+((m1u = m2v and d_84 = d_94) impl (e_116 = e_119)) and 
+((m1u = m2w and d_84 = d_74) impl (e_116 = e_120)) and 
+((m1u = tp and d_84 = d_60) impl (e_116 = e_121)) and 
+((m1u = up and d_84 = d_45) impl (e_116 = e_122)) and 
+((m1u = ut and d_84 = d_23) impl (e_116 = e_123)) and 
+((m1u = uv and d_84 = d_9) impl (e_116 = e_124)) and 
+((m1u = uw and d_84 = d_16) impl (e_116 = e_125)) and 
+((m1u = vp and d_84 = d_50) impl (e_116 = e_126)) and 
+((m1u = vt and d_84 = d_33) impl (e_116 = e_127)) and 
+((m1u = vw and d_84 = d_28) impl (e_116 = e_128)) and 
+((m1u = wp and d_84 = d_55) impl (e_116 = e_129)) and 
+((m1u = wt and d_84 = d_38) impl (e_116 = e_130)) and 
+((m1t = m1u and d_79 = d_84) impl (e_115 = e_116)) and 
+((m1t = m1w and d_79 = d_67) impl (e_115 = e_117)) and 
+((m1t = m2u and d_79 = d_89) impl (e_115 = e_118)) and 
+((m1t = m2v and d_79 = d_94) impl (e_115 = e_119)) and 
+((m1t = m2w and d_79 = d_74) impl (e_115 = e_120)) and 
+((m1t = tp and d_79 = d_60) impl (e_115 = e_121)) and 
+((m1t = up and d_79 = d_45) impl (e_115 = e_122)) and 
+((m1t = ut and d_79 = d_23) impl (e_115 = e_123)) and 
+((m1t = uv and d_79 = d_9) impl (e_115 = e_124)) and 
+((m1t = uw and d_79 = d_16) impl (e_115 = e_125)) and 
+((m1t = vp and d_79 = d_50) impl (e_115 = e_126)) and 
+((m1t = vt and d_79 = d_33) impl (e_115 = e_127)) and 
+((m1t = vw and d_79 = d_28) impl (e_115 = e_128)) and 
+((m1t = wp and d_79 = d_55) impl (e_115 = e_129)) and 
+((m1t = wt and d_79 = d_38) impl (e_115 = e_130)) and 
+((v = w) impl (e_113 = e_114)) and 
+((u = v) impl (e_112 = e_113)) and 
+((u = w) impl (e_112 = e_114)) and 
+((t = u) impl (e_111 = e_112)) and 
+((t = v) impl (e_111 = e_113)) and 
+((t = w) impl (e_111 = e_114)) and 
+((p = t) impl (e_110 = e_111)) and 
+((p = u) impl (e_110 = e_112)) and 
+((p = v) impl (e_110 = e_113)) and 
+((p = w) impl (e_110 = e_114)) and 
+((m2 = p) impl (e_109 = e_110)) and 
+((m2 = t) impl (e_109 = e_111)) and 
+((m2 = u) impl (e_109 = e_112)) and 
+((m2 = v) impl (e_109 = e_113)) and 
+((m2 = w) impl (e_109 = e_114)) and 
+((m1 = m2) impl (e_108 = e_109)) and 
+((m1 = p) impl (e_108 = e_110)) and 
+((m1 = t) impl (e_108 = e_111)) and 
+((m1 = u) impl (e_108 = e_112)) and 
+((m1 = v) impl (e_108 = e_113)) and 
+((m1 = w) impl (e_108 = e_114)) and 
+((v = w) impl (e_106 = e_107)) and 
+((u = v) impl (e_105 = e_106)) and 
+((u = w) impl (e_105 = e_107)) and 
+((t = u) impl (e_104 = e_105)) and 
+((t = v) impl (e_104 = e_106)) and 
+((t = w) impl (e_104 = e_107)) and 
+((p = t) impl (e_103 = e_104)) and 
+((p = u) impl (e_103 = e_105)) and 
+((p = v) impl (e_103 = e_106)) and 
+((p = w) impl (e_103 = e_107)) and 
+((m2 = p) impl (e_102 = e_103)) and 
+((m2 = t) impl (e_102 = e_104)) and 
+((m2 = u) impl (e_102 = e_105)) and 
+((m2 = v) impl (e_102 = e_106)) and 
+((m2 = w) impl (e_102 = e_107)) and 
+((m1 = m2) impl (e_101 = e_102)) and 
+((m1 = p) impl (e_101 = e_103)) and 
+((m1 = t) impl (e_101 = e_104)) and 
+((m1 = u) impl (e_101 = e_105)) and 
+((m1 = v) impl (e_101 = e_106)) and 
+((m1 = w) impl (e_101 = e_107)) and 
+((v = w) impl (e_99 = e_100)) and 
+((u = v) impl (e_98 = e_99)) and 
+((u = w) impl (e_98 = e_100)) and 
+((t = u) impl (e_97 = e_98)) and 
+((t = v) impl (e_97 = e_99)) and 
+((t = w) impl (e_97 = e_100)) and 
+((u = w and v = t) impl (e_95 = e_96)) and 
+d_72 = d_71 - d_13 and 
+d_17 = e_104 and 
+d_24 = d_2 - d_10 and 
+d_53 = d_13 - d_42 and 
+d_62 = d_61 - d_10 and 
+d_12 = d_11 * d_11 and 
+d_19 = d_18 * d_18 and 
+d_82 = d_64 - d_5 and 
+d_11 = d_1 - d_10 and 
+d_8 = d_7 * d_7 and 
+d_74 = d_70 + d_73 and 
+d_48 = d_6 - d_42 and 
+d_64 = e_108 and 
+d_66 = d_65 * d_65 and 
+d_67 = d_63 + d_66 and 
+d_63 = d_62 * d_62 and 
+d_47 = d_46 * d_46 and 
+d_6 = e_113 and 
+d_16 = d_12 + d_15 and 
+d_37 = d_36 * d_36 and 
+d_28 = d_25 + d_27 and 
+d_40 = d_1 - d_39 and 
+d_92 = d_71 - d_6 and 
+d_35 = d_34 * d_34 and 
+d_50 = d_47 + d_49 and 
+d_44 = d_43 * d_43 and 
+d_36 = d_13 - d_20 and 
+d_93 = d_92 * d_92 and 
+d_27 = d_26 * d_26 and 
+d_2 = e_106 and 
+d_22 = d_21 * d_21 and 
+d_86 = d_85 * d_85 and 
+d_51 = d_10 - d_39 and 
+d_60 = d_57 + d_59 and 
+d_81 = d_80 * d_80 and 
+d_71 = e_109 and 
+d_78 = d_77 * d_77 and 
+d_20 = e_111 and 
+d_45 = d_41 + d_44 and 
+d_87 = d_71 - d_5 and 
+d_34 = d_10 - d_17 and 
+d_76 = d_75 * d_75 and 
+d_85 = d_68 - d_1 and 
+d_7 = d_5 - d_6 and 
+d_55 = d_52 + d_54 and 
+d_4 = d_3 * d_3 and 
+d_9 = d_4 + d_8 and 
+d_69 = d_68 - d_10 and 
+d_70 = d_69 * d_69 and 
+d_59 = d_58 * d_58 and 
+d_42 = e_110 and 
+d_80 = d_61 - d_1 and 
+d_56 = d_17 - d_39 and 
+d_77 = d_64 - d_20 and 
+d_68 = e_102 and 
+d_39 = e_103 and 
+d_5 = e_112 and 
+d_49 = d_48 * d_48 and 
+d_33 = d_30 + d_32 and 
+d_52 = d_51 * d_51 and 
+d_90 = d_68 - d_2 and 
+d_14 = d_5 - d_13 and 
+d_26 = d_6 - d_13 and 
+d_30 = d_29 * d_29 and 
+d_58 = d_20 - d_42 and 
+d_65 = d_64 - d_13 and 
+d_10 = e_107 and 
+d_38 = d_35 + d_37 and 
+d_73 = d_72 * d_72 and 
+d_94 = d_91 + d_93 and 
+d_18 = d_1 - d_17 and 
+d_46 = d_2 - d_39 and 
+d_79 = d_76 + d_78 and 
+d_89 = d_86 + d_88 and 
+d_43 = d_5 - d_42 and 
+d_57 = d_56 * d_56 and 
+d_41 = d_40 * d_40 and 
+d_91 = d_90 * d_90 and 
+d_32 = d_31 * d_31 and 
+d_88 = d_87 * d_87 and 
+d_25 = d_24 * d_24 and 
+d_61 = e_101 and 
+d_31 = d_6 - d_20 and 
+d_1 = e_105 and 
+d_23 = d_19 + d_22 and 
+d_75 = d_61 - d_17 and 
+d_3 = d_1 - d_2 and 
+d_13 = e_114 and 
+d_29 = d_2 - d_17 and 
+d_83 = d_82 * d_82 and 
+d_15 = d_14 * d_14 and 
+d_21 = d_5 - d_20 and 
+d_54 = d_53 * d_53 and 
+d_84 = d_81 + d_83 and 
+2 * e_101 = e_105 + e_106 and 
+2 * e_108 = e_112 + e_113 and 
+2 * e_102 = e_107 + e_104 and 
+2 * e_109 = e_114 + e_111 and 
+not( u = v) and 
+not( u = w) and 
+not( v = w) and 
+not( w = t) and 
+not( t = v) and 
+not( t = u) and 
+(e_95 = 0 or e_100 = 0 or m1w > m1u) and 
+(e_95 = 0 or e_97 = 0 or m1t > m1u) and 
+(e_96 = 0 or e_98 = 0 or m2u > m2w) and 
+(e_96 = 0 or e_99 = 0 or m2v > m2w) and 
+e_95 = 1 and 
+e_96 = 1 and 
+up + vp = uv and 
+wp + tp = wt and 
+e_124 = 1 and 
+e_125 = 1 and 
+e_123 = 1 and 
+e_128 = 1 and 
+e_127 = 1 and 
+e_130 = 1 and 
+e_122 = 1 and 
+e_126 = 1 and 
+e_129 = 1 and 
+e_121 = 1 and 
+e_117 = 1 and 
+e_120 = 1 and 
+e_115 = 1 and 
+e_116 = 1 and 
+e_118 = 1 and 
+e_119 = 1
+ ); 
+
+query :=  (rlqe ex(vars, formula)); 
+
+end; 

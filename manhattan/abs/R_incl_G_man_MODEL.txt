@@ -1,0 +1,56 @@
+Reduced problem written to R_incl_G_man.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+um = 9
+mw = 16
+uw = 17
+vw = 15
+uv = 18
+d_15 = 0
+d_4 = 4
+d_18 = (- 4)
+d_5 = (- 4)
+d_9 = 11
+d_10 = (- 15)
+d_1 = 10
+d_2 = 0
+d_3 = 10
+d_13 = 5
+d_17 = (- 5)
+d_7 = 0
+d_14 = 5
+d_12 = (- 7)
+d_16 = (- 11)
+d_6 = 8
+d_11 = 10
+d_8 = 0
+v = (- 2)
+m = (- 1)
+u = 0
+w = 1
+Y(_0) = 4
+X(_0) = 10
+amnt(_5) = 5
+amnt(_(- 7)) = 7
+X(_1) = 0
+amnt(_10) = 10
+amnt(_(- 4)) = 4
+V(_1) = 1
+Y(_(- 1)) = 0
+Y(_(- 2)) = (- 4)
+Y(_1) = 11
+amnt(_(- 5)) = 5
+amnt(_0) = 0
+X(_(- 2)) = 0
+amnt(_(- 15)) = 15
+amnt(_(- 11)) = 11
+amnt(_8) = 8
+X(_(- 1)) = 5
+E(_0, _(- 2)) = 0
+
+H-PILoT spent                0.107667s on the problem.
+The prover needed            0.008551s for the problem.
+Total running time:          0.116218s.

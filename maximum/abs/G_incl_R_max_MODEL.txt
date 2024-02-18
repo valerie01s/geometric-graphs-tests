@@ -1,0 +1,75 @@
+Reduced problem written to G_incl_R_max.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+vm = 9
+um = 5
+mw = 12
+uw = 7
+vw = 17
+uv = 18
+d_22 = 5
+d_5 = 10
+d_25 = (- 5)
+d_24 = 12
+d_30 = 5
+d_12 = 17
+d_1 = 18
+d_2 = 0
+d_3 = 18
+d_4 = 18
+d_19 = 9
+d_9 = 12
+d_20 = (- 3)
+d_11 = 12
+d_14 = 17
+d_17 = (- 7)
+d_6 = 0
+d_13 = (- 17)
+d_21 = 3
+d_18 = 7
+d_7 = 10
+d_27 = (- 9)
+d_10 = (- 12)
+d_15 = 6
+d_28 = 9
+d_23 = (- 12)
+d_29 = (- 5)
+d_26 = 5
+d_16 = 6
+d_8 = 10
+v = 0
+m = 1
+u = 2
+w = 3
+Y(_2) = 10
+X(_2) = 18
+amnt(_(- 5)) = 5
+V(_3) = 1
+amnt(_6) = 6
+amnt(_(- 12)) = 12
+Y(_0) = 0
+X(_0) = 0
+max(_18, _10) = 18
+X(_3) = 12
+amnt(_18) = 18
+amnt(_(- 17)) = 17
+X(_1) = 9
+max(_3, _5) = 5
+Y(_3) = 17
+max(_3, _12) = 12
+max(_12, _17) = 17
+amnt(_(- 9)) = 9
+E(_2, _0) = 1
+amnt(_(- 3)) = 3
+amnt(_10) = 10
+max(_9, _5) = 9
+amnt(_(- 7)) = 7
+Y(_1) = 5
+max(_6, _7) = 7
+
+H-PILoT spent                0.147515s on the problem.
+The prover needed            0.012579s for the problem.
+Total running time:          0.160094s.

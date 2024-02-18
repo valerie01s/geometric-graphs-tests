@@ -1,0 +1,82 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (sqrt, 2, 1), (X, 1, 1), (Y, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Frage: kann die Klasse N1-> mit gerichteten Kanten eine Subklasse einer symmetrischen Klasse sein?
+% dazu: E(u,v) -> pi_N1(u,v) und NOT(E(u,v) -> E(v,u)) (Symmetrieeigenschaft aus K_0)
+% liefert sat
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten 
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(y)=_1;
+
+% Axiome für Wurzel (x*x = y)
+(FORALL x,y).	sqrt(x,y)=_1 --> x*x=y;
+(FORALL x,y).	x*x=y, x>=_0 -->  sqrt(x,y)=_1;
+(FORALL x,y).	sqrt(x,y)=_1 --> x>=_0;
+(FORALL x,y).	x<_0 --> sqrt(x,y)=_0;
+(FORALL x,y).	--> sqrt(x,y)=_0, sqrt(x,y)=_1;
+
+% Punkte sind gleich wenn ihre Koordinaten gleich sind
+(FORALL x,y). 	x=y --> X(x)=X(y);
+(FORALL x,y). 	x=y --> Y(x)=Y(y);
+(FORALL x,y).	X(x)=X(y), Y(x)=Y(y) --> x=y;
+
+Query :=
+
+% Instanzierung E(u,v) <-> pi_N1(u,v)
+OR(E(u,v)=_0, V(w)=_0, uw >= uv);
+OR(E(u,v)=_1, V(w)=_1);
+OR(E(u,v)=_1, uw < uv);
+
+% Instanzierung E(v,u) <-> pi_N1(v,u)
+OR(E(v,u)=_0, V(w)=_0, vw >= uv);
+OR(E(v,u)=_1, V(w)=_1);
+OR(E(v,u)=_1, vw < uv);
+
+% Instanzierung E(u,w) <-> pi_N1(u,w)
+OR(E(u,w)=_0, V(v)=_0, uv >= uw);
+OR(E(u,w)=_1, V(v)=_1);
+OR(E(u,w)=_1, uv < uw);
+
+% Instanzierung E(w,u) <-> pi_N1(w,u)
+OR(E(w,u)=_0, V(v)=_0, vw >= uw);
+OR(E(w,u)=_1, V(v)=_1);
+OR(E(w,u)=_1, vw < uw);
+
+% Instanzierung E(v,w) <-> pi_N1(v,w)
+OR(E(v,w)=_0, V(u)=_0, uv >= vw);
+OR(E(v,w)=_1, V(u)=_1);
+OR(E(v,w)=_1, uv < vw);
+
+% Instanzierung E(w,v) <-> pi_N1(w,v)
+OR(E(w,v)=_0, V(u)=_0, uw >= vw);
+OR(E(w,v)=_1, V(u)=_1);
+OR(E(w,v)=_1, uw < vw);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+
+% Knoten existieren
+V(u)=_1;
+V(v)=_1;
+V(w)=_1;
+
+% Negation Teil von K_0 (Symmetrieeigenschaft)
+% NOT(E(u,v) -> E(v,u)) = E(u,v) \land NOT E(v,u)
+E(u,v)=_1;
+E(v,u)=_0;
+
+% Distanzen eucl
+sqrt(uv, ((X(u)-X(v))*(X(u)-X(v))) + ((Y(u)-Y(v))*(Y(u)-Y(v))))=_1;
+sqrt(uw, ((X(u)-X(w))*(X(u)-X(w))) + ((Y(u)-Y(w))*(Y(u)-Y(w))))=_1;
+sqrt(vw, ((X(v)-X(w))*(X(v)-X(w))) + ((Y(v)-Y(w))*(Y(v)-Y(w))))=_1;
+

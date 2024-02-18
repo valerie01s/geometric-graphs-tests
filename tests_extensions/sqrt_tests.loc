@@ -1,0 +1,48 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(sqrt, 2, 1), (X, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+Clauses := 
+
+% x ist die Wurzel von y (x*x = y)
+(FORALL x,y).	sqrt(x,y)=_1 --> x*x=y;
+(FORALL x,y).	x*x=y, x>=_0 -->  sqrt(x,y)=_1;
+
+% x ist nichtnegativ (x >= 0)
+(FORALL x,y).	sqrt(x,y)=_1 --> x>=_0;
+(FORALL x,y).	x<_0 --> sqrt(x,y)=_0;
+
+% Wurzelbeziehung gilt (1) oder gilt nicht (0)
+(FORALL x,y).	--> sqrt(x,y)=_0, sqrt(x,y)=_1;
+
+Query :=
+
+% Test I Wurzel, unsat
+%u=_3;
+%v=_9;
+%sqrt(u,v)=_0;
+
+% Test II Wurzel, sat
+%X(u)=_3;
+%X(v)=_9;
+%sqrt(X(u), X(v))=_1;
+
+% Test III Wurzel, unsat
+%X(u)=_2;
+%X(v)=_9;
+%sqrt(X(u), X(v))=_1;
+
+% Test IV Wurzel, sat
+%X(u)=_9;
+%X(v)=_3;
+%sqrt(X(u),X(v))=_0;
+
+% Test IV Wurzel, unsat
+%sqrt(X(v),X(u))=_1;
+%sqrt(X(u),X(v))=_1;
+%NOT(X(u)=X(v));
+
+% Test V Wurzel, unsat
+sqrt(u,v)=_1;
+v=_9;
+u<_0;

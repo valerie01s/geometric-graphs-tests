@@ -1,0 +1,32 @@
+Reduced problem written to R_incl_G-r_arb.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+u = (- 3)
+v = (- 1)
+w = 0
+m = (- 2)
+d(_(- 2), _0) = 3
+d(_(- 2), _(- 1)) = 3
+d(_0, _(- 1)) = 6
+d(_(- 2), _(- 3)) = 3
+d(_0, _(- 3)) = 1
+d(_(- 1), _(- 3)) = 6
+d(_(- 2), _(- 2)) = 0
+d(_0, _0) = 0
+d(_(- 1), _(- 1)) = 0
+d(_(- 3), _(- 3)) = 0
+V(_0) = 1
+E(_(- 3), _(- 1)) = 1
+d(_(- 3), _(- 1)) = 6
+d(_(- 1), _(- 2)) = 3
+d(_(- 3), _(- 2)) = 3
+d(_(- 1), _0) = 6
+d(_0, _(- 2)) = 3
+d(_(- 3), _0) = 1
+
+H-PILoT spent                2.326055s on the problem.
+The prover needed            0.022305s for the problem.
+Total running time:          2.34836 s.

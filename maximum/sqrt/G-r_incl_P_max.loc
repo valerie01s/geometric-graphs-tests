@@ -1,0 +1,119 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (sqrt, 2, 1), (max, 2, 1), (X, 1, 1), (Y, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt G-> in P? Metrik: maximum, Instanzierung Pi_G
+% E(u,v) -> Pi_G(u,v) und NOT(E(w,t) und Pi_P(u,v,w,t) -> NOT E(u,v)) ist unerf¸llbar
+% timeout Z3, REDLOG
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten und ist symmetrisch
+(FORALL x,y).	E(x,y)=_1 --> E(y,x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+
+% Axiome f¸r Wurzel (x*x = y)
+(FORALL x,y).	sqrt(x,y)=_1 --> x*x=y;
+(FORALL x,y).	x*x=y, x>=_0 -->  sqrt(x,y)=_1;
+(FORALL x,y).	sqrt(x,y)=_1 --> x>=_0;
+(FORALL x,y).	x<_0 --> sqrt(x,y)=_0;
+(FORALL x,y).	--> sqrt(x,y)=_0, sqrt(x,y)=_1;
+
+% Axiome f¸r das Maximum zweier Zahlen 
+(FORALL x,y).	x>=y --> max(x,y)=x;
+(FORALL x,y).	x<y --> max(x,y)=y;
+(FORALL x,y).	max(x,y)=x --> x>=y;
+(FORALL x,y).	max(x,y)=y --> x<y;
+(FORALL x,y).	--> max(x,y)=x, max(x,y)=y;
+
+% Punkte sind gleich wenn ihre Koordinaten gleich sind
+(FORALL x,y). 	x=y --> X(x)=X(y);
+(FORALL x,y). 	x=y --> Y(x)=Y(y);
+(FORALL x,y).	X(x)=X(y), Y(x)=Y(y) --> x=y;
+
+Query :=
+
+% m1 ist Mittelpunkt des Segments uv
+_2*X(m1) = X(u)+X(v);
+_2*Y(m1) = Y(u)+Y(v);
+
+% m2 ist Mittelpunkt des Segments wt
+_2*X(m2) = X(w)+X(t);
+_2*Y(m2) = Y(w)+Y(t);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(u=w);
+NOT(v=w);
+NOT(w=t);
+NOT(t=v);
+NOT(t=u);
+
+% Instanzierung E(u,v) -> Pi_G(u,v)
+OR(E(u,v)=_0, V(w)=_0, m1w > m1u);
+OR(E(u,v)=_0, V(t)=_0, m1t > m1u);
+OR(E(w,t)=_0, V(u)=_0, m2u > m2w);
+OR(E(w,t)=_0, V(v)=_0, m2v > m2w);
+
+% NOT(E(w,t) und Pi_P(u,v,w,t) -> NOT E(u,v))
+% heiﬂt E(w,t) und Pi_P(u,v,w,t) und E(u,v)
+E(u,v)=_1;
+E(w,t)=_1;
+up + vp = uv;
+wp + tp = wt; 
+
+% Distanzen manhattan
+sqrt(xuv, (X(u)-X(v))*(X(u)-X(v)))=_1;
+sqrt(yuv, (Y(u)-Y(v))*(Y(u)-Y(v)))=_1;
+sqrt(xuw, (X(u)-X(w))*(X(u)-X(w)))=_1;
+sqrt(yuw, (Y(u)-Y(w))*(Y(u)-Y(w)))=_1;
+sqrt(xvw, (X(v)-X(w))*(X(v)-X(w)))=_1;
+sqrt(yvw, (Y(v)-Y(w))*(Y(v)-Y(w)))=_1;
+sqrt(xut, (X(u)-X(t))*(X(u)-X(t)))=_1;
+sqrt(yut, (Y(u)-Y(t))*(Y(u)-Y(t)))=_1;
+sqrt(xvt, (X(v)-X(t))*(X(v)-X(t)))=_1;
+sqrt(yvt, (Y(v)-Y(t))*(Y(v)-Y(t)))=_1;
+sqrt(xwt, (X(w)-X(t))*(X(w)-X(t)))=_1;
+sqrt(ywt, (Y(w)-Y(t))*(Y(w)-Y(t)))=_1;
+sqrt(xup, (X(u)-X(p))*(X(u)-X(p)))=_1;
+sqrt(yup, (Y(u)-Y(p))*(Y(u)-Y(p)))=_1;
+sqrt(xvp, (X(v)-X(p))*(X(v)-X(p)))=_1;
+sqrt(yvp, (Y(v)-Y(p))*(Y(v)-Y(p)))=_1;
+sqrt(xwp, (X(w)-X(p))*(X(w)-X(p)))=_1;
+sqrt(ywp, (Y(w)-Y(p))*(Y(w)-Y(p)))=_1;
+sqrt(xtp, (X(t)-X(p))*(X(t)-X(p)))=_1;
+sqrt(ytp, (Y(t)-Y(p))*(Y(t)-Y(p)))=_1;
+
+sqrt(xm1w, (X(m1)-X(w))*(X(m1)-X(w)))=_1;
+sqrt(ym1w, (Y(m1)-Y(w))*(Y(m1)-Y(w)))=_1;
+sqrt(xm2w, (X(m2)-X(w))*(X(m2)-X(w)))=_1;
+sqrt(ym2w, (Y(m2)-Y(w))*(Y(m2)-Y(w)))=_1;
+sqrt(xm1u, (X(m1)-X(u))*(X(m1)-X(u)))=_1;
+sqrt(ym1u, (Y(m1)-Y(u))*(Y(m1)-Y(u)))=_1;
+sqrt(xm2u, (X(m2)-X(u))*(X(m2)-X(u)))=_1;
+sqrt(ym2u, (Y(m2)-Y(u))*(Y(m2)-Y(u)))=_1;
+sqrt(xm1t, (X(m1)-X(t))*(X(m1)-X(t)))=_1;
+sqrt(ym1t, (Y(m1)-Y(t))*(Y(m1)-Y(t)))=_1;
+sqrt(xm2v, (X(m2)-X(v))*(X(m2)-X(v)))=_1;
+sqrt(ym2v, (Y(m2)-Y(v))*(Y(m2)-Y(v)))=_1;
+
+uv = max(xuv, yuv);
+vw = max(xvw, yvw);
+uw = max(xuw, yuw);
+ut = max(xut, yut);
+vt = max(xvt, yvt);
+wt = max(xwt, ywt);
+up = max(xup, yup);
+vp = max(xvp, yvp);
+wp = max(xwp, ywp);
+tp = max(xtp, ytp);
+m1w = max(xm1w, ym1w);
+m2w = max(xm2w, ym2w);
+m1u = max(xm1u, ym1u);
+m2u = max(xm2u, ym2u);
+m1t = max(xm1t, ym1t);
+m2v = max(xm2v, ym2v);

@@ -1,0 +1,79 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (sqrt, 2, 1), (X, 1, 1), (Y, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt N2-> in N1->? Metrik: euklidisch, Instanzierung Pi_N2
+% E(u,v) -> Pi_N2(u,v) und NOT(E(u,v) -> Pi_N1(u,v)) ist unerfüllbar
+% Problematik: N1 hat gerichtete Kanten
+% liefert sat mit Z3
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(y)=_1;
+
+% Axiome für Wurzel (x*x = y)
+(FORALL x,y).	sqrt(x,y)=_1 --> x*x=y;
+(FORALL x,y).	x*x=y, x>=_0 -->  sqrt(x,y)=_1;
+(FORALL x,y).	sqrt(x,y)=_1 --> x>=_0;
+(FORALL x,y).	x<_0 --> sqrt(x,y)=_0;
+(FORALL x,y).	--> sqrt(x,y)=_0, sqrt(x,y)=_1;
+
+% Punkte sind gleich wenn ihre Koordinaten gleich sind
+(FORALL x,y). 	x=y --> X(x)=X(y);
+(FORALL x,y). 	x=y --> Y(x)=Y(y);
+(FORALL x,y).	X(x)=X(y), Y(x)=Y(y) --> x=y;
+
+Query :=
+
+% Knoten existieren
+V(u)=_1;
+V(v)=_1;
+V(w)=_1;
+
+% Instanzierung E(u,v) -> Pi_N2(u,v) (auch für vu)
+OR(E(u,v)=_0, V(w)=_0, uw >= uv);
+OR(E(u,v)=_0, V(w)=_0, vw >= uv);
+OR(E(v,u)=_0, V(w)=_0, uw >= uv);
+OR(E(v,u)=_0, V(w)=_0, vw >= uv);
+
+% Instanzierung Pi_N2(u,v) -> E(u,v) (auch für vu)
+OR(V(w)=_1, E(u,v)=_1);
+OR(uw < uv, E(u,v)=_1, V(w)=_1);
+OR(vw < uv, E(u,v)=_1, V(w)=_1);
+OR(uw < uv, E(u,v)=_1, vw < uv);
+OR(V(w)=_1, E(v,u)=_1);
+OR(uw < uv, E(v,u)=_1, V(w)=_1);
+OR(vw < uv, E(v,u)=_1, V(w)=_1);
+OR(uw < uv, E(v,u)=_1, vw < uv);
+
+% Repräsentation Symmetrie der Kante für Pi_N2
+OR(E(u,v)=_0, E(v,u)=_1);
+OR(E(v,u)=_0, E(u,v)=_1);
+
+% NOT(E(u,v) <-> Pi_N1(u,v))
+% heißt (E(u,v)=1 oder Pi_N1(u,v)) und (E(u,v)=0 oder NOT(Pi_N1(u,v))) 
+OR(E(u,v)=_1, V(w)=_0, uw >= uv);
+OR(E(u,v)=_0, V(w)=_1);
+OR(E(u,v)=_0, uw < uv);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+
+% Distanzen manhattan
+sqrt(xuv, (X(u)-X(v))*(X(u)-X(v)))=_1;
+sqrt(yuv, (Y(u)-Y(v))*(Y(u)-Y(v)))=_1;
+sqrt(xuw, (X(u)-X(w))*(X(u)-X(w)))=_1;
+sqrt(yuw, (Y(u)-Y(w))*(Y(u)-Y(w)))=_1;
+sqrt(xvw, (X(v)-X(w))*(X(v)-X(w)))=_1;
+sqrt(yvw, (Y(v)-Y(w))*(Y(v)-Y(w)))=_1;
+uv = xuv + yuv;
+vw = xvw + yvw;
+uw = xuw + yuw;

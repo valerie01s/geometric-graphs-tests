@@ -1,0 +1,385 @@
+load_package redlog;
+rlset OFSF;
+off rlverbose;
+on rlnzden;
+vars := {d_1, d_10, d_11, d_12, d_13, d_14, d_15, d_16, d_17, d_18, d_19, d_2, d_20, d_21, d_22, d_23, d_24, d_25, d_26, d_3, d_4, d_5, d_6, d_7, d_8, d_9, e_27, e_28, e_29, e_30, e_31, e_32, e_33, e_34, e_35, e_36, e_37, e_38, e_39, e_40, e_41, e_42, e_43, e_44, e_45, e_46, e_47, e_48, e_49, e_50, m, mw, u, um, uv, uw, v, vw, w};
+
+formula := ( 
+(e_28 = 1 or e_28 = 0) and 
+(e_27 = 1 or e_27 = 0) and 
+((u = v and v = u and e_27 = 1) impl (e_27 = 1)) and 
+((w = u and e_27 = 1) impl (e_28 = 1)) and 
+e_37 >= 0 and 
+e_38 >= 0 and 
+e_39 >= 0 and 
+e_40 >= 0 and 
+e_41 >= 0 and 
+e_42 >= 0 and 
+e_43 >= 0 and 
+e_44 >= 0 and 
+e_45 >= 0 and 
+((d_10 >= 0) impl (e_37 = d_10)) and 
+((d_13 >= 0) impl (e_38 = d_13)) and 
+((d_15 >= 0) impl (e_39 = d_15)) and 
+((d_17 >= 0) impl (e_40 = d_17)) and 
+((d_20 >= 0) impl (e_41 = d_20)) and 
+((d_23 >= 0) impl (e_42 = d_23)) and 
+((d_25 >= 0) impl (e_43 = d_25)) and 
+((d_3 >= 0) impl (e_44 = d_3)) and 
+((d_7 >= 0) impl (e_45 = d_7)) and 
+((d_10 < 0) impl (e_37 = 0 - d_10)) and 
+((d_13 < 0) impl (e_38 = 0 - d_13)) and 
+((d_15 < 0) impl (e_39 = 0 - d_15)) and 
+((d_17 < 0) impl (e_40 = 0 - d_17)) and 
+((d_20 < 0) impl (e_41 = 0 - d_20)) and 
+((d_23 < 0) impl (e_42 = 0 - d_23)) and 
+((d_25 < 0) impl (e_43 = 0 - d_25)) and 
+((d_3 < 0) impl (e_44 = 0 - d_3)) and 
+((d_7 < 0) impl (e_45 = 0 - d_7)) and 
+((d_11 >= d_14) impl (e_46 = d_11)) and 
+((d_16 >= d_18) impl (e_47 = d_16)) and 
+((d_21 >= d_24) impl (e_48 = d_21)) and 
+((d_21 >= d_26) impl (e_49 = d_21)) and 
+((d_4 >= d_8) impl (e_50 = d_4)) and 
+((d_11 < d_14) impl (e_46 = d_14)) and 
+((d_16 < d_18) impl (e_47 = d_18)) and 
+((d_21 < d_24) impl (e_48 = d_24)) and 
+((d_21 < d_26) impl (e_49 = d_26)) and 
+((d_4 < d_8) impl (e_50 = d_8)) and 
+((e_46 = d_11) impl (d_11 >= d_14)) and 
+((e_47 = d_16) impl (d_16 >= d_18)) and 
+((e_48 = d_21) impl (d_21 >= d_24)) and 
+((e_49 = d_21) impl (d_21 >= d_26)) and 
+((e_50 = d_4) impl (d_4 >= d_8)) and 
+((e_46 = d_14) impl (d_11 < d_14)) and 
+((e_47 = d_18) impl (d_16 < d_18)) and 
+((e_48 = d_24) impl (d_21 < d_24)) and 
+((e_49 = d_26) impl (d_21 < d_26)) and 
+((e_50 = d_8) impl (d_4 < d_8)) and 
+(e_46 = d_11 or e_46 = d_14) and 
+(e_47 = d_16 or e_47 = d_18) and 
+(e_48 = d_21 or e_48 = d_24) and 
+(e_49 = d_21 or e_49 = d_26) and 
+(e_50 = d_4 or e_50 = d_8) and 
+((m = u) impl (e_29 = e_30)) and 
+((m = v) impl (e_29 = e_31)) and 
+((m = w) impl (e_29 = e_32)) and 
+((u = m) impl (e_30 = e_29)) and 
+((u = v) impl (e_30 = e_31)) and 
+((u = w) impl (e_30 = e_32)) and 
+((v = m) impl (e_31 = e_29)) and 
+((v = u) impl (e_31 = e_30)) and 
+((v = w) impl (e_31 = e_32)) and 
+((w = m) impl (e_32 = e_29)) and 
+((w = u) impl (e_32 = e_30)) and 
+((w = v) impl (e_32 = e_31)) and 
+((m = u) impl (e_33 = e_34)) and 
+((m = v) impl (e_33 = e_35)) and 
+((m = w) impl (e_33 = e_36)) and 
+((u = m) impl (e_34 = e_33)) and 
+((u = v) impl (e_34 = e_35)) and 
+((u = w) impl (e_34 = e_36)) and 
+((v = m) impl (e_35 = e_33)) and 
+((v = u) impl (e_35 = e_34)) and 
+((v = w) impl (e_35 = e_36)) and 
+((w = m) impl (e_36 = e_33)) and 
+((w = u) impl (e_36 = e_34)) and 
+((w = v) impl (e_36 = e_35)) and 
+((m = u and m = m and e_29 = e_30 and e_33 = e_33) impl (m = u)) and 
+((u = u and m = m and e_29 = e_30 and e_33 = e_34) impl (m = u)) and 
+((v = u and m = m and e_29 = e_30 and e_33 = e_35) impl (m = u)) and 
+((w = u and m = m and e_29 = e_30 and e_33 = e_36) impl (m = u)) and 
+((m = u and u = m and e_29 = e_30 and e_34 = e_33) impl (m = u)) and 
+((u = u and u = m and e_29 = e_30 and e_34 = e_34) impl (m = u)) and 
+((v = u and u = m and e_29 = e_30 and e_34 = e_35) impl (m = u)) and 
+((w = u and u = m and e_29 = e_30 and e_34 = e_36) impl (m = u)) and 
+((m = u and v = m and e_29 = e_30 and e_35 = e_33) impl (m = u)) and 
+((u = u and v = m and e_29 = e_30 and e_35 = e_34) impl (m = u)) and 
+((v = u and v = m and e_29 = e_30 and e_35 = e_35) impl (m = u)) and 
+((w = u and v = m and e_29 = e_30 and e_35 = e_36) impl (m = u)) and 
+((m = u and w = m and e_29 = e_30 and e_36 = e_33) impl (m = u)) and 
+((u = u and w = m and e_29 = e_30 and e_36 = e_34) impl (m = u)) and 
+((v = u and w = m and e_29 = e_30 and e_36 = e_35) impl (m = u)) and 
+((w = u and w = m and e_29 = e_30 and e_36 = e_36) impl (m = u)) and 
+((m = v and m = m and e_29 = e_31 and e_33 = e_33) impl (m = v)) and 
+((u = v and m = m and e_29 = e_31 and e_33 = e_34) impl (m = v)) and 
+((v = v and m = m and e_29 = e_31 and e_33 = e_35) impl (m = v)) and 
+((w = v and m = m and e_29 = e_31 and e_33 = e_36) impl (m = v)) and 
+((m = v and u = m and e_29 = e_31 and e_34 = e_33) impl (m = v)) and 
+((u = v and u = m and e_29 = e_31 and e_34 = e_34) impl (m = v)) and 
+((v = v and u = m and e_29 = e_31 and e_34 = e_35) impl (m = v)) and 
+((w = v and u = m and e_29 = e_31 and e_34 = e_36) impl (m = v)) and 
+((m = v and v = m and e_29 = e_31 and e_35 = e_33) impl (m = v)) and 
+((u = v and v = m and e_29 = e_31 and e_35 = e_34) impl (m = v)) and 
+((v = v and v = m and e_29 = e_31 and e_35 = e_35) impl (m = v)) and 
+((w = v and v = m and e_29 = e_31 and e_35 = e_36) impl (m = v)) and 
+((m = v and w = m and e_29 = e_31 and e_36 = e_33) impl (m = v)) and 
+((u = v and w = m and e_29 = e_31 and e_36 = e_34) impl (m = v)) and 
+((v = v and w = m and e_29 = e_31 and e_36 = e_35) impl (m = v)) and 
+((w = v and w = m and e_29 = e_31 and e_36 = e_36) impl (m = v)) and 
+((m = w and m = m and e_29 = e_32 and e_33 = e_33) impl (m = w)) and 
+((u = w and m = m and e_29 = e_32 and e_33 = e_34) impl (m = w)) and 
+((v = w and m = m and e_29 = e_32 and e_33 = e_35) impl (m = w)) and 
+((w = w and m = m and e_29 = e_32 and e_33 = e_36) impl (m = w)) and 
+((m = w and u = m and e_29 = e_32 and e_34 = e_33) impl (m = w)) and 
+((u = w and u = m and e_29 = e_32 and e_34 = e_34) impl (m = w)) and 
+((v = w and u = m and e_29 = e_32 and e_34 = e_35) impl (m = w)) and 
+((w = w and u = m and e_29 = e_32 and e_34 = e_36) impl (m = w)) and 
+((m = w and v = m and e_29 = e_32 and e_35 = e_33) impl (m = w)) and 
+((u = w and v = m and e_29 = e_32 and e_35 = e_34) impl (m = w)) and 
+((v = w and v = m and e_29 = e_32 and e_35 = e_35) impl (m = w)) and 
+((w = w and v = m and e_29 = e_32 and e_35 = e_36) impl (m = w)) and 
+((m = w and w = m and e_29 = e_32 and e_36 = e_33) impl (m = w)) and 
+((u = w and w = m and e_29 = e_32 and e_36 = e_34) impl (m = w)) and 
+((v = w and w = m and e_29 = e_32 and e_36 = e_35) impl (m = w)) and 
+((w = w and w = m and e_29 = e_32 and e_36 = e_36) impl (m = w)) and 
+((m = m and m = u and e_30 = e_29 and e_33 = e_33) impl (u = m)) and 
+((u = m and m = u and e_30 = e_29 and e_33 = e_34) impl (u = m)) and 
+((v = m and m = u and e_30 = e_29 and e_33 = e_35) impl (u = m)) and 
+((w = m and m = u and e_30 = e_29 and e_33 = e_36) impl (u = m)) and 
+((m = m and u = u and e_30 = e_29 and e_34 = e_33) impl (u = m)) and 
+((u = m and u = u and e_30 = e_29 and e_34 = e_34) impl (u = m)) and 
+((v = m and u = u and e_30 = e_29 and e_34 = e_35) impl (u = m)) and 
+((w = m and u = u and e_30 = e_29 and e_34 = e_36) impl (u = m)) and 
+((m = m and v = u and e_30 = e_29 and e_35 = e_33) impl (u = m)) and 
+((u = m and v = u and e_30 = e_29 and e_35 = e_34) impl (u = m)) and 
+((v = m and v = u and e_30 = e_29 and e_35 = e_35) impl (u = m)) and 
+((w = m and v = u and e_30 = e_29 and e_35 = e_36) impl (u = m)) and 
+((m = m and w = u and e_30 = e_29 and e_36 = e_33) impl (u = m)) and 
+((u = m and w = u and e_30 = e_29 and e_36 = e_34) impl (u = m)) and 
+((v = m and w = u and e_30 = e_29 and e_36 = e_35) impl (u = m)) and 
+((w = m and w = u and e_30 = e_29 and e_36 = e_36) impl (u = m)) and 
+((m = v and m = u and e_30 = e_31 and e_33 = e_33) impl (u = v)) and 
+((u = v and m = u and e_30 = e_31 and e_33 = e_34) impl (u = v)) and 
+((v = v and m = u and e_30 = e_31 and e_33 = e_35) impl (u = v)) and 
+((w = v and m = u and e_30 = e_31 and e_33 = e_36) impl (u = v)) and 
+((m = v and u = u and e_30 = e_31 and e_34 = e_33) impl (u = v)) and 
+((u = v and u = u and e_30 = e_31 and e_34 = e_34) impl (u = v)) and 
+((v = v and u = u and e_30 = e_31 and e_34 = e_35) impl (u = v)) and 
+((w = v and u = u and e_30 = e_31 and e_34 = e_36) impl (u = v)) and 
+((m = v and v = u and e_30 = e_31 and e_35 = e_33) impl (u = v)) and 
+((u = v and v = u and e_30 = e_31 and e_35 = e_34) impl (u = v)) and 
+((v = v and v = u and e_30 = e_31 and e_35 = e_35) impl (u = v)) and 
+((w = v and v = u and e_30 = e_31 and e_35 = e_36) impl (u = v)) and 
+((m = v and w = u and e_30 = e_31 and e_36 = e_33) impl (u = v)) and 
+((u = v and w = u and e_30 = e_31 and e_36 = e_34) impl (u = v)) and 
+((v = v and w = u and e_30 = e_31 and e_36 = e_35) impl (u = v)) and 
+((w = v and w = u and e_30 = e_31 and e_36 = e_36) impl (u = v)) and 
+((m = w and m = u and e_30 = e_32 and e_33 = e_33) impl (u = w)) and 
+((u = w and m = u and e_30 = e_32 and e_33 = e_34) impl (u = w)) and 
+((v = w and m = u and e_30 = e_32 and e_33 = e_35) impl (u = w)) and 
+((w = w and m = u and e_30 = e_32 and e_33 = e_36) impl (u = w)) and 
+((m = w and u = u and e_30 = e_32 and e_34 = e_33) impl (u = w)) and 
+((u = w and u = u and e_30 = e_32 and e_34 = e_34) impl (u = w)) and 
+((v = w and u = u and e_30 = e_32 and e_34 = e_35) impl (u = w)) and 
+((w = w and u = u and e_30 = e_32 and e_34 = e_36) impl (u = w)) and 
+((m = w and v = u and e_30 = e_32 and e_35 = e_33) impl (u = w)) and 
+((u = w and v = u and e_30 = e_32 and e_35 = e_34) impl (u = w)) and 
+((v = w and v = u and e_30 = e_32 and e_35 = e_35) impl (u = w)) and 
+((w = w and v = u and e_30 = e_32 and e_35 = e_36) impl (u = w)) and 
+((m = w and w = u and e_30 = e_32 and e_36 = e_33) impl (u = w)) and 
+((u = w and w = u and e_30 = e_32 and e_36 = e_34) impl (u = w)) and 
+((v = w and w = u and e_30 = e_32 and e_36 = e_35) impl (u = w)) and 
+((w = w and w = u and e_30 = e_32 and e_36 = e_36) impl (u = w)) and 
+((m = m and m = v and e_31 = e_29 and e_33 = e_33) impl (v = m)) and 
+((u = m and m = v and e_31 = e_29 and e_33 = e_34) impl (v = m)) and 
+((v = m and m = v and e_31 = e_29 and e_33 = e_35) impl (v = m)) and 
+((w = m and m = v and e_31 = e_29 and e_33 = e_36) impl (v = m)) and 
+((m = m and u = v and e_31 = e_29 and e_34 = e_33) impl (v = m)) and 
+((u = m and u = v and e_31 = e_29 and e_34 = e_34) impl (v = m)) and 
+((v = m and u = v and e_31 = e_29 and e_34 = e_35) impl (v = m)) and 
+((w = m and u = v and e_31 = e_29 and e_34 = e_36) impl (v = m)) and 
+((m = m and v = v and e_31 = e_29 and e_35 = e_33) impl (v = m)) and 
+((u = m and v = v and e_31 = e_29 and e_35 = e_34) impl (v = m)) and 
+((v = m and v = v and e_31 = e_29 and e_35 = e_35) impl (v = m)) and 
+((w = m and v = v and e_31 = e_29 and e_35 = e_36) impl (v = m)) and 
+((m = m and w = v and e_31 = e_29 and e_36 = e_33) impl (v = m)) and 
+((u = m and w = v and e_31 = e_29 and e_36 = e_34) impl (v = m)) and 
+((v = m and w = v and e_31 = e_29 and e_36 = e_35) impl (v = m)) and 
+((w = m and w = v and e_31 = e_29 and e_36 = e_36) impl (v = m)) and 
+((m = u and m = v and e_31 = e_30 and e_33 = e_33) impl (v = u)) and 
+((u = u and m = v and e_31 = e_30 and e_33 = e_34) impl (v = u)) and 
+((v = u and m = v and e_31 = e_30 and e_33 = e_35) impl (v = u)) and 
+((w = u and m = v and e_31 = e_30 and e_33 = e_36) impl (v = u)) and 
+((m = u and u = v and e_31 = e_30 and e_34 = e_33) impl (v = u)) and 
+((u = u and u = v and e_31 = e_30 and e_34 = e_34) impl (v = u)) and 
+((v = u and u = v and e_31 = e_30 and e_34 = e_35) impl (v = u)) and 
+((w = u and u = v and e_31 = e_30 and e_34 = e_36) impl (v = u)) and 
+((m = u and v = v and e_31 = e_30 and e_35 = e_33) impl (v = u)) and 
+((u = u and v = v and e_31 = e_30 and e_35 = e_34) impl (v = u)) and 
+((v = u and v = v and e_31 = e_30 and e_35 = e_35) impl (v = u)) and 
+((w = u and v = v and e_31 = e_30 and e_35 = e_36) impl (v = u)) and 
+((m = u and w = v and e_31 = e_30 and e_36 = e_33) impl (v = u)) and 
+((u = u and w = v and e_31 = e_30 and e_36 = e_34) impl (v = u)) and 
+((v = u and w = v and e_31 = e_30 and e_36 = e_35) impl (v = u)) and 
+((w = u and w = v and e_31 = e_30 and e_36 = e_36) impl (v = u)) and 
+((m = w and m = v and e_31 = e_32 and e_33 = e_33) impl (v = w)) and 
+((u = w and m = v and e_31 = e_32 and e_33 = e_34) impl (v = w)) and 
+((v = w and m = v and e_31 = e_32 and e_33 = e_35) impl (v = w)) and 
+((w = w and m = v and e_31 = e_32 and e_33 = e_36) impl (v = w)) and 
+((m = w and u = v and e_31 = e_32 and e_34 = e_33) impl (v = w)) and 
+((u = w and u = v and e_31 = e_32 and e_34 = e_34) impl (v = w)) and 
+((v = w and u = v and e_31 = e_32 and e_34 = e_35) impl (v = w)) and 
+((w = w and u = v and e_31 = e_32 and e_34 = e_36) impl (v = w)) and 
+((m = w and v = v and e_31 = e_32 and e_35 = e_33) impl (v = w)) and 
+((u = w and v = v and e_31 = e_32 and e_35 = e_34) impl (v = w)) and 
+((v = w and v = v and e_31 = e_32 and e_35 = e_35) impl (v = w)) and 
+((w = w and v = v and e_31 = e_32 and e_35 = e_36) impl (v = w)) and 
+((m = w and w = v and e_31 = e_32 and e_36 = e_33) impl (v = w)) and 
+((u = w and w = v and e_31 = e_32 and e_36 = e_34) impl (v = w)) and 
+((v = w and w = v and e_31 = e_32 and e_36 = e_35) impl (v = w)) and 
+((w = w and w = v and e_31 = e_32 and e_36 = e_36) impl (v = w)) and 
+((m = m and m = w and e_32 = e_29 and e_33 = e_33) impl (w = m)) and 
+((u = m and m = w and e_32 = e_29 and e_33 = e_34) impl (w = m)) and 
+((v = m and m = w and e_32 = e_29 and e_33 = e_35) impl (w = m)) and 
+((w = m and m = w and e_32 = e_29 and e_33 = e_36) impl (w = m)) and 
+((m = m and u = w and e_32 = e_29 and e_34 = e_33) impl (w = m)) and 
+((u = m and u = w and e_32 = e_29 and e_34 = e_34) impl (w = m)) and 
+((v = m and u = w and e_32 = e_29 and e_34 = e_35) impl (w = m)) and 
+((w = m and u = w and e_32 = e_29 and e_34 = e_36) impl (w = m)) and 
+((m = m and v = w and e_32 = e_29 and e_35 = e_33) impl (w = m)) and 
+((u = m and v = w and e_32 = e_29 and e_35 = e_34) impl (w = m)) and 
+((v = m and v = w and e_32 = e_29 and e_35 = e_35) impl (w = m)) and 
+((w = m and v = w and e_32 = e_29 and e_35 = e_36) impl (w = m)) and 
+((m = m and w = w and e_32 = e_29 and e_36 = e_33) impl (w = m)) and 
+((u = m and w = w and e_32 = e_29 and e_36 = e_34) impl (w = m)) and 
+((v = m and w = w and e_32 = e_29 and e_36 = e_35) impl (w = m)) and 
+((w = m and w = w and e_32 = e_29 and e_36 = e_36) impl (w = m)) and 
+((m = u and m = w and e_32 = e_30 and e_33 = e_33) impl (w = u)) and 
+((u = u and m = w and e_32 = e_30 and e_33 = e_34) impl (w = u)) and 
+((v = u and m = w and e_32 = e_30 and e_33 = e_35) impl (w = u)) and 
+((w = u and m = w and e_32 = e_30 and e_33 = e_36) impl (w = u)) and 
+((m = u and u = w and e_32 = e_30 and e_34 = e_33) impl (w = u)) and 
+((u = u and u = w and e_32 = e_30 and e_34 = e_34) impl (w = u)) and 
+((v = u and u = w and e_32 = e_30 and e_34 = e_35) impl (w = u)) and 
+((w = u and u = w and e_32 = e_30 and e_34 = e_36) impl (w = u)) and 
+((m = u and v = w and e_32 = e_30 and e_35 = e_33) impl (w = u)) and 
+((u = u and v = w and e_32 = e_30 and e_35 = e_34) impl (w = u)) and 
+((v = u and v = w and e_32 = e_30 and e_35 = e_35) impl (w = u)) and 
+((w = u and v = w and e_32 = e_30 and e_35 = e_36) impl (w = u)) and 
+((m = u and w = w and e_32 = e_30 and e_36 = e_33) impl (w = u)) and 
+((u = u and w = w and e_32 = e_30 and e_36 = e_34) impl (w = u)) and 
+((v = u and w = w and e_32 = e_30 and e_36 = e_35) impl (w = u)) and 
+((w = u and w = w and e_32 = e_30 and e_36 = e_36) impl (w = u)) and 
+((m = v and m = w and e_32 = e_31 and e_33 = e_33) impl (w = v)) and 
+((u = v and m = w and e_32 = e_31 and e_33 = e_34) impl (w = v)) and 
+((v = v and m = w and e_32 = e_31 and e_33 = e_35) impl (w = v)) and 
+((w = v and m = w and e_32 = e_31 and e_33 = e_36) impl (w = v)) and 
+((m = v and u = w and e_32 = e_31 and e_34 = e_33) impl (w = v)) and 
+((u = v and u = w and e_32 = e_31 and e_34 = e_34) impl (w = v)) and 
+((v = v and u = w and e_32 = e_31 and e_34 = e_35) impl (w = v)) and 
+((w = v and u = w and e_32 = e_31 and e_34 = e_36) impl (w = v)) and 
+((m = v and v = w and e_32 = e_31 and e_35 = e_33) impl (w = v)) and 
+((u = v and v = w and e_32 = e_31 and e_35 = e_34) impl (w = v)) and 
+((v = v and v = w and e_32 = e_31 and e_35 = e_35) impl (w = v)) and 
+((w = v and v = w and e_32 = e_31 and e_35 = e_36) impl (w = v)) and 
+((m = v and w = w and e_32 = e_31 and e_36 = e_33) impl (w = v)) and 
+((u = v and w = w and e_32 = e_31 and e_36 = e_34) impl (w = v)) and 
+((v = v and w = w and e_32 = e_31 and e_36 = e_35) impl (w = v)) and 
+((w = v and w = w and e_32 = e_31 and e_36 = e_36) impl (w = v)) and 
+((d_21 = d_4 and d_26 = d_8) impl (e_49 = e_50)) and 
+((d_21 = d_21 and d_24 = d_26) impl (e_48 = e_49)) and 
+((d_21 = d_4 and d_24 = d_8) impl (e_48 = e_50)) and 
+((d_16 = d_21 and d_18 = d_24) impl (e_47 = e_48)) and 
+((d_16 = d_21 and d_18 = d_26) impl (e_47 = e_49)) and 
+((d_16 = d_4 and d_18 = d_8) impl (e_47 = e_50)) and 
+((d_11 = d_16 and d_14 = d_18) impl (e_46 = e_47)) and 
+((d_11 = d_21 and d_14 = d_24) impl (e_46 = e_48)) and 
+((d_11 = d_21 and d_14 = d_26) impl (e_46 = e_49)) and 
+((d_11 = d_4 and d_14 = d_8) impl (e_46 = e_50)) and 
+((d_3 = d_7) impl (e_44 = e_45)) and 
+((d_25 = d_3) impl (e_43 = e_44)) and 
+((d_25 = d_7) impl (e_43 = e_45)) and 
+((d_23 = d_25) impl (e_42 = e_43)) and 
+((d_23 = d_3) impl (e_42 = e_44)) and 
+((d_23 = d_7) impl (e_42 = e_45)) and 
+((d_20 = d_23) impl (e_41 = e_42)) and 
+((d_20 = d_25) impl (e_41 = e_43)) and 
+((d_20 = d_3) impl (e_41 = e_44)) and 
+((d_20 = d_7) impl (e_41 = e_45)) and 
+((d_17 = d_20) impl (e_40 = e_41)) and 
+((d_17 = d_23) impl (e_40 = e_42)) and 
+((d_17 = d_25) impl (e_40 = e_43)) and 
+((d_17 = d_3) impl (e_40 = e_44)) and 
+((d_17 = d_7) impl (e_40 = e_45)) and 
+((d_15 = d_17) impl (e_39 = e_40)) and 
+((d_15 = d_20) impl (e_39 = e_41)) and 
+((d_15 = d_23) impl (e_39 = e_42)) and 
+((d_15 = d_25) impl (e_39 = e_43)) and 
+((d_15 = d_3) impl (e_39 = e_44)) and 
+((d_15 = d_7) impl (e_39 = e_45)) and 
+((d_13 = d_15) impl (e_38 = e_39)) and 
+((d_13 = d_17) impl (e_38 = e_40)) and 
+((d_13 = d_20) impl (e_38 = e_41)) and 
+((d_13 = d_23) impl (e_38 = e_42)) and 
+((d_13 = d_25) impl (e_38 = e_43)) and 
+((d_13 = d_3) impl (e_38 = e_44)) and 
+((d_13 = d_7) impl (e_38 = e_45)) and 
+((d_10 = d_13) impl (e_37 = e_38)) and 
+((d_10 = d_15) impl (e_37 = e_39)) and 
+((d_10 = d_17) impl (e_37 = e_40)) and 
+((d_10 = d_20) impl (e_37 = e_41)) and 
+((d_10 = d_23) impl (e_37 = e_42)) and 
+((d_10 = d_25) impl (e_37 = e_43)) and 
+((d_10 = d_3) impl (e_37 = e_44)) and 
+((d_10 = d_7) impl (e_37 = e_45)) and 
+((v = w) impl (e_35 = e_36)) and 
+((u = v) impl (e_34 = e_35)) and 
+((u = w) impl (e_34 = e_36)) and 
+((m = u) impl (e_33 = e_34)) and 
+((m = v) impl (e_33 = e_35)) and 
+((m = w) impl (e_33 = e_36)) and 
+((v = w) impl (e_31 = e_32)) and 
+((u = v) impl (e_30 = e_31)) and 
+((u = w) impl (e_30 = e_32)) and 
+((m = u) impl (e_29 = e_30)) and 
+((m = v) impl (e_29 = e_31)) and 
+((m = w) impl (e_29 = e_32)) and 
+d_19 = e_29 and 
+d_8 = e_45 and 
+d_16 = e_39 and 
+d_26 = e_43 and 
+d_6 = e_35 and 
+d_23 = d_22 - d_12 and 
+d_2 = e_31 and 
+d_15 = d_1 - d_9 and 
+d_10 = d_2 - d_9 and 
+d_7 = d_5 - d_6 and 
+d_18 = e_40 and 
+d_21 = e_41 and 
+d_22 = e_33 and 
+d_13 = d_6 - d_12 and 
+d_17 = d_5 - d_12 and 
+d_5 = e_34 and 
+d_9 = e_32 and 
+d_14 = e_38 and 
+d_11 = e_37 and 
+d_20 = d_19 - d_9 and 
+d_1 = e_30 and 
+d_4 = e_44 and 
+d_3 = d_1 - d_2 and 
+d_12 = e_36 and 
+d_24 = e_42 and 
+d_25 = d_22 - d_5 and 
+2 * e_29 = e_30 + e_31 and 
+2 * e_33 = e_34 + e_35 and 
+not( u = v) and 
+not( u = w) and 
+not( u = m) and 
+not( v = w) and 
+not( w = m) and 
+not( v = m) and 
+(e_27 = 0 or e_28 = 0 or uw >= uv or vw >= uv) and 
+e_27 = 1 and 
+e_28 = 1 and 
+mw <= um and 
+uv = e_50 and 
+vw = e_46 and 
+uw = e_47 and 
+mw = e_48 and 
+um = e_49
+ ); 
+
+query :=  (rlqe ex(vars, formula)); 
+
+end; 

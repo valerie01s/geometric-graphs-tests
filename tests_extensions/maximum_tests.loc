@@ -1,0 +1,29 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(sqrt, 2, 1), (max, 2, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+Clauses :=
+
+% Axiome für das Maximum zweier Zahlen 
+% max(x,y)=1 wenn x>=y	(x ist Maximum)
+% max(x,y)=0 wenn x<y	(y ist Maximum)
+(FORALL x,y).	x>=y --> max(x,y)=x;
+(FORALL x,y).	x<y --> max(x,y)=y;
+(FORALL x,y).	max(x,y)=x --> x>=y;
+(FORALL x,y).	max(x,y)=y --> x<y;
+(FORALL x,y).	--> max(x,y)=x, max(x,y)=y;
+
+Query :=
+
+u = _3;
+v = _1;
+
+% unsat
+%max(u,v) < max(v,u);
+
+% unsat
+%max(u,v) > max(v,u);
+
+% sat
+% model: max(_1, _3) = 3, max(_3, _1) = 3
+max(u,v) = max(v,u);

@@ -1,0 +1,53 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (d, 2, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt N1-> in R->? Metrik: arb
+% E(u,v) -> Pi_N1(u,v) und NOT(E(u,v) -> Pi_R(u,v)) ist unerf¸llbar
+% Problematik: N1 hat gerichtete Kanten
+% liefert unsat
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten 
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(y)=_1;
+
+% Axiome der arbitr‰ren Metrik d
+(FORALL x,y). 	d(x,y) >= _0;
+(FORALL x,y). 	d(x,y) = _0 --> x = y;
+(FORALL x,y). 	x = y --> d(x,y) = _0;
+(FORALL x,y). 	d(x,y) = d(y,x);
+(FORALL x,y,z). 	d(x,y) <= d(x,z) + d(z,y);
+
+Query :=
+
+% Instanziierung E(u,v) -> Pi_N1(u,v)
+OR(E(u,v)=_0, V(w)=_0, d(u,w) >= d(u,v));
+
+% NOT(E(u,v) -> Pi_R(u,v))
+% heiﬂt E(u,v)=1 und NOT(Pi_R(u,v))
+V(w)=_1;
+d(u,w) < d(u,v);
+d(v,w) < d(u,v);
+
+% symmetrische Kante uv existiert
+E(v,u)=_1;
+E(u,v)=_1;
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+
+% Instanzierung
+d(u,u)=_0;
+d(v,v)=_0;
+d(w,w)=_0;
+d(u,v)=d(v,u);
+d(u,w)=d(w,u);
+d(v,w)=d(w,v);

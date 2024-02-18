@@ -1,0 +1,48 @@
+Reduced problem written to N2-r_incl_R_max.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+uw = 2
+vw = 2
+uv = 1
+d_12 = 0
+d_1 = (- 1)
+d_2 = 0
+d_3 = (- 1)
+d_4 = 1
+d_11 = 0
+d_14 = 2
+d_9 = 0
+d_5 = 2
+d_17 = 2
+d_6 = 2
+d_13 = 2
+d_18 = 2
+d_7 = 0
+d_10 = 0
+d_15 = (- 1)
+d_16 = 1
+d_8 = 0
+v = (- 2)
+u = (- 1)
+w = 0
+amnt(_0) = 0
+amnt(_(- 1)) = 1
+amnt(_2) = 2
+Y(_(- 1)) = 2
+V(_0) = 1
+max(_1, _0) = 1
+Y(_(- 2)) = 2
+max(_1, _2) = 2
+X(_0) = 0
+max(_0, _2) = 2
+Y(_0) = 0
+X(_(- 1)) = (- 1)
+E(_(- 1), _(- 2)) = 0
+X(_(- 2)) = 0
+
+H-PILoT spent                0.03497s on the problem.
+The prover needed            0.00670s for the problem.
+Total running time:          0.04167s.

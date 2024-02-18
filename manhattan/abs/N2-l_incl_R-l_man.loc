@@ -1,0 +1,50 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (amnt, 1, 1), (X, 1, 1), (Y, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt N2 in R<-? Metrik: manhattan, Instanzierung Pi_N2
+% E(u,v) <- Pi_N2(u,v) und NOT(E(u,v) <- Pi_R(u,v)) ist unerfüllbar
+% liefert sat 
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten und ist symmetrisch
+(FORALL x,y).	E(x,y)=_1 --> E(y,x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+
+% Axiome für den Betrag einer Zahl
+(FORALL x).	--> amnt(x) >= _0;
+(FORALL x).	x >= _0 --> amnt(x) = x;
+(FORALL x).	x < _0 --> amnt(x) = _0 - x;
+
+% Punkte sind gleich wenn ihre Koordinaten gleich sind
+(FORALL x,y). 	x=y --> X(x)=X(y);
+(FORALL x,y). 	x=y --> Y(x)=Y(y);
+(FORALL x,y).	X(x)=X(y), Y(x)=Y(y) --> x=y;
+
+Query :=
+
+% Instanzierung Pi_N2(u,v) -> E(u,v)
+OR(V(w)=_1, E(u,v)=_1);
+OR(uw < uv, E(u,v)=_1, V(w)=_1);
+OR(vw < uv, E(u,v)=_1, V(w)=_1);
+OR(uw < uv, E(u,v)=_1, vw < uv);
+
+% NOT(Pi_R(u,v) -> E(u,v))
+% heißt Pi_R(u,v) und E(u,v)=0 
+E(u,v)=_0;
+OR(V(w)=_0, uw >= uv, vw >= uv);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+
+% Distanzen manhattan
+uv = amnt(X(u)-X(v)) + amnt(Y(u)-Y(v));
+vw = amnt(X(v)-X(w)) + amnt(Y(v)-Y(w));
+uw = amnt(X(u)-X(w)) + amnt(Y(u)-Y(w));

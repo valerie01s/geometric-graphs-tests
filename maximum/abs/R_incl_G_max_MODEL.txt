@@ -1,0 +1,69 @@
+Reduced problem written to R_incl_G_max.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+um = 3
+mw = 6
+uw = 18
+vw = 12
+uv = 30
+d_22 = 0
+d_5 = 2
+d_25 = (- 2)
+d_24 = 6
+d_12 = 6
+d_1 = 18
+d_2 = (- 12)
+d_3 = 30
+d_4 = 30
+d_19 = 3
+d_9 = 0
+d_20 = 3
+d_11 = 12
+d_14 = 8
+d_17 = (- 4)
+d_6 = (- 2)
+d_13 = (- 8)
+d_21 = 3
+d_18 = 4
+d_7 = 4
+d_10 = (- 12)
+d_15 = 18
+d_23 = (- 6)
+d_26 = 2
+d_16 = 18
+d_8 = 4
+v = 0
+m = 1
+u = 3
+w = 2
+Y(_3) = 2
+X(_3) = 18
+X(_2) = 0
+amnt(_(- 2)) = 2
+amnt(_3) = 3
+amnt(_18) = 18
+Y(_0) = (- 2)
+max(_12, _8) = 12
+max(_3, _2) = 3
+amnt(_(- 8)) = 8
+Y(_2) = 6
+max(_30, _4) = 30
+amnt(_(- 6)) = 6
+Y(_1) = 0
+amnt(_(- 4)) = 4
+X(_0) = (- 12)
+max(_3, _6) = 6
+amnt(_4) = 4
+max(_18, _4) = 18
+V(_2) = 1
+E(_3, _0) = 0
+amnt(_30) = 30
+X(_1) = 3
+amnt(_(- 12)) = 12
+
+H-PILoT spent                0.12761s on the problem.
+The prover needed            0.0093 s for the problem.
+Total running time:          0.13691s.

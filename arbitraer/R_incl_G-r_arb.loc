@@ -1,0 +1,62 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (d, 2, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt R in G->? Metrik: arbitr‰r
+% E(u,v) <-> Pi_R(u,v) und NOT(E(u,v) -> Pi_G(u,v)) ist unerf¸llbar
+% liefert sat
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten und ist symmetrisch
+(FORALL x,y).	E(x,y)=_1 --> E(y,x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+
+% Axiome der arbitr‰ren Metrik d
+(FORALL x,y). 	d(x,y) >= _0;
+(FORALL x,y). 	d(x,y) = _0 --> x = y;
+(FORALL x,y). 	x = y --> d(x,y) = _0;
+(FORALL x,y). 	d(x,y) = d(y,x);
+(FORALL x,y,z). 	d(x,y) <= d(x,z) + d(z,y);
+
+Query :=
+
+% Instanziierung E(u,v) -> Pi_R(u,v)
+OR(E(u,v)=_0, V(w)=_0, d(u,w) >= d(u,v), d(v,w) >= d(u,v));
+
+% Instanziierung Pi_R(u,v) -> E(u,v)
+OR(d(u,w) < d(u,v), E(u,v)=_1);
+OR(d(v,w) < d(u,v), E(u,v)=_1);
+OR(V(w)=_1, E(u,v)=_1);
+
+% m ist Mittelpunkt des Segments uv
+_2*d(u,m)=d(u,v);
+_2*d(v,m)=d(u,v);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+NOT(u=m);
+
+% NOT(E(u,v) -> Pi_G(u,v))
+% heiﬂt E(u,v)=1 und NOT(Pi_G(u,v))
+E(u,v)=_1;
+V(w)=_1;
+d(m,w) <= d(m,u);
+
+% Instanzierung
+d(u,u)=_0;
+d(v,v)=_0;
+d(w,w)=_0;
+d(m,m)=_0;
+d(u,v)=d(v,u);
+d(u,w)=d(w,u);
+d(u,m)=d(m,u);
+d(v,w)=d(w,v);
+d(v,m)=d(m,v);
+d(w,m)=d(m,w);

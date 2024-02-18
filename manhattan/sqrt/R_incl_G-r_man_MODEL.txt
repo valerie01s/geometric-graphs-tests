@@ -1,0 +1,70 @@
+Reduced problem written to R_incl_G-r_man.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+mu = 1
+xmu = 0
+ymu = 1
+mw = 1
+xmw = 1
+ymw = 0
+uw = 2
+xuw = 1
+yuw = 1
+vw = 2
+xvw = 1
+yvw = 1
+uv = 2
+xuv = 0
+yuv = 2
+v = (- 8)
+m = (- 7)
+w = (- 4)
+u = (- 6)
+d_14 = 1
+d_13 = (- 1)
+d_27 = 1
+d_22 = 1
+d_5 = 0
+d_28 = 1
+d_12 = 1
+d_3 = 0
+d_1 = (- 4)
+d_2 = (- 4)
+d_20 = (- 1)
+d_19 = (- 4)
+d_9 = (- 3)
+d_26 = 0
+d_25 = 0
+d_24 = 0
+d_23 = 0
+d_16 = 1
+d_15 = (- 1)
+d_17 = 1
+d_6 = 2
+d_4 = 0
+d_7 = (- 2)
+d_18 = 1
+d_10 = (- 1)
+d_21 = 1
+d_8 = 4
+d_11 = 1
+sqrt(_1, _1) = 1
+sqrt(_0, _0) = 1
+sqrt(_2, _4) = 1
+V(_(- 4)) = 1
+E(_(- 6), _(- 8)) = 1
+Y(_(- 7)) = 1
+Y(_(- 6)) = 0
+Y(_(- 8)) = 2
+X(_(- 7)) = (- 4)
+X(_(- 6)) = (- 4)
+X(_(- 8)) = (- 4)
+Y(_(- 4)) = 1
+X(_(- 4)) = (- 3)
+
+H-PILoT spent                0.120479s on the problem.
+The prover needed            0.027197s for the problem.
+Total running time:          0.147676s.

@@ -1,0 +1,108 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (d, 2, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt N1 in N2? Metrik: arb, Instanzierung Pi_N2
+% E(u,v) <-> Pi_N1(u,v) und NOT(E(u,v) <-> Pi_N2(u,v)) ist unerfüllbar
+% Problematik: N1 hat gerichtete Kanten
+% liefert unsat
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten 
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(y)=_1;
+
+% Axiome der arbiträren Metrik d
+(FORALL x,y). 	d(x,y) >= _0;
+(FORALL x,y). 	d(x,y) = _0 --> x = y;
+(FORALL x,y). 	x = y --> d(x,y) = _0;
+(FORALL x,y). 	d(x,y) = d(y,x);
+(FORALL x,y,z). 	d(x,y) <= d(x,z) + d(z,y);
+
+Query :=
+
+% Instanzierung E(u,v) -> Pi_N1(u,v) und E(v,u), E(w,u), E(u,w), E(w,v), E(v,w)
+OR(E(u,v)=_0, V(w)=_0, d(u,w) >= d(u,v));
+OR(E(v,u)=_0, V(w)=_0, d(v,w) >= d(u,v));
+OR(E(u,w)=_0, V(v)=_0, d(u,v) >= d(u,w));
+OR(E(w,u)=_0, V(v)=_0, d(v,w) >= d(u,w));
+OR(E(v,w)=_0, V(u)=_0, d(u,v) >= d(v,w));
+OR(E(w,v)=_0, V(u)=_0, d(u,w) >= d(v,w));
+
+% Instanzierung Pi_N1(u,v) -> E(u,v) und E(v,u), E(w,u), E(u,w), E(w,v), E(v,w)
+OR(V(w)=_1, E(u,v)=_1);
+OR(d(u,w) < d(u,v), E(u,v)=_1);
+OR(V(w)=_1, E(v,u)=_1);
+OR(d(v,w) < d(u,v), E(v,u)=_1);
+
+OR(V(v)=_1, E(u,w)=_1);
+OR(d(u,v) < d(u,w), E(u,w)=_1);
+OR(V(v)=_1, E(w,u)=_1);
+OR(d(v,w) < d(u,w), E(w,u)=_1);
+
+OR(V(u)=_1, E(w,v)=_1);
+OR(d(u,w) < d(v,w), E(w,v)=_1);
+OR(V(u)=_1, E(v,w)=_1);
+OR(d(u,v) < d(v,w), E(v,w)=_1);
+
+
+% NOT(E(u,v) <-> Pi_N2(u,v))
+% heißt (E(u,v)=1 oder Pi_N2(u,v)) und (E(u,v)=0 oder NOT(Pi_N2(u,v))) 
+% wichtig: auch für E(v,u) da Kante symmetrisch
+OR(E(u,v)=_1, V(w)=_0, d(u,w) >= d(u,v));
+OR(E(u,v)=_1, V(w)=_0, d(v,w) >= d(u,v));
+OR(E(u,v)=_0, V(w)=_1);
+OR(E(u,v)=_0, d(u,w) < d(u,v), d(v,w) < d(u,v));
+OR(E(v,u)=_1, V(w)=_0, d(u,w) >= d(u,v));
+OR(E(v,u)=_1, V(w)=_0, d(v,w) >= d(u,v));
+OR(E(v,u)=_0, V(w)=_1);
+OR(E(v,u)=_0, d(u,w) < d(u,v), d(v,w) < d(u,v));
+
+% für E(u,w)
+OR(E(u,w)=_1, V(v)=_0, d(u,v) >= d(u,w));
+OR(E(u,w)=_1, V(v)=_0, d(v,w) >= d(u,w));
+OR(E(u,w)=_0, V(v)=_1);
+OR(E(u,w)=_0, d(u,v) < d(u,w), d(v,w) < d(u,w));
+OR(E(w,u)=_1, V(v)=_0, d(u,v) >= d(u,w));
+OR(E(w,u)=_1, V(v)=_0, d(v,w) >= d(u,w));
+OR(E(w,u)=_0, V(v)=_1);
+OR(E(w,u)=_0, d(u,v) < d(u,w), d(v,w) < d(u,w));
+
+% für E(v,w)
+OR(E(v,w)=_1, V(u)=_0, d(u,v) >= d(v,w));
+OR(E(v,w)=_1, V(u)=_0, d(v,w) >= d(v,w));
+OR(E(v,w)=_0, V(u)=_1);
+OR(E(v,w)=_0, d(u,v) < d(v,w), d(u,w) < d(v,w));
+OR(E(w,v)=_1, V(u)=_0, d(u,v) >= d(v,w));
+OR(E(w,v)=_1, V(u)=_0, d(u,w) >= d(v,w));
+OR(E(w,v)=_0, V(u)=_1);
+OR(E(w,v)=_0, d(u,v) < d(v,w), d(u,w) < d(v,w));
+
+
+% Repräsentation Symmetrie der Kante für Pi_N2
+OR(E(u,v)=_0, E(v,u)=_1);
+OR(E(v,u)=_0, E(u,v)=_1);
+
+OR(E(u,w)=_0, E(w,u)=_1);
+OR(E(w,u)=_0, E(u,w)=_1);
+
+OR(E(w,v)=_0, E(v,w)=_1);
+OR(E(v,w)=_0, E(w,v)=_1);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+
+% Instanzierung
+d(u,u)=_0;
+d(v,v)=_0;
+d(w,w)=_0;
+d(u,v)=d(v,u);
+d(u,w)=d(w,u);
+d(v,w)=d(w,v);

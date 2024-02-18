@@ -1,0 +1,78 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (sqrt, 2, 1), (X, 1, 1), (Y, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt G-> in P? Metrik: euklidisch
+% E(u,v) -> Pi_G(u,v) und NOT(E(w,t) und Pi_P(u,v,w,t) -> NOT E(u,v)) ist unerf¸llbar
+% timeout Z3 und REDLOG
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten und ist symmetrisch
+(FORALL x,y).	E(x,y)=_1 --> E(y,x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+
+% Axiome f¸r Wurzel (x*x = y)
+(FORALL x,y).	sqrt(x,y)=_1 --> x*x=y;
+(FORALL x,y).	x*x=y, x>=_0 -->  sqrt(x,y)=_1;
+(FORALL x,y).	sqrt(x,y)=_1 --> x>=_0;
+(FORALL x,y).	x<_0 --> sqrt(x,y)=_0;
+(FORALL x,y).	--> sqrt(x,y)=_0, sqrt(x,y)=_1;
+
+% Punkte sind gleich wenn ihre Koordinaten gleich sind
+(FORALL x,y). 	x=y --> X(x)=X(y);
+(FORALL x,y). 	x=y --> Y(x)=Y(y);
+(FORALL x,y).	X(x)=X(y), Y(x)=Y(y) --> x=y;
+
+Query :=
+
+% m1 ist Mittelpunkt des Segments uv
+_2*X(m1) = X(u)+X(v);
+_2*Y(m1) = Y(u)+Y(v);
+
+% m2 ist Mittelpunkt des Segments wt
+_2*X(m2) = X(w)+X(t);
+_2*Y(m2) = Y(w)+Y(t);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(u=w);
+NOT(v=w);
+NOT(w=t);
+NOT(t=v);
+NOT(t=u);
+
+% Instanzierung E(u,v) -> Pi_G(u,v)
+OR(E(u,v)=_0, V(w)=_0, m1w > m1u);
+OR(E(u,v)=_0, V(t)=_0, m1t > m1u);
+OR(E(w,t)=_0, V(u)=_0, m2u > m2w);
+OR(E(w,t)=_0, V(v)=_0, m2v > m2w);
+
+% NOT(E(w,t) und Pi_P(u,v,w,t) -> NOT E(u,v))
+% heiﬂt E(w,t) und Pi_P(u,v,w,t) und E(u,v)
+E(u,v)=_1;
+E(w,t)=_1;
+up + vp = uv;
+wp + tp = wt; 
+
+% Distanzen euklidisch
+sqrt(uv, ((X(u)-X(v))*(X(u)-X(v))) + ((Y(u)-Y(v))*(Y(u)-Y(v))))=_1;
+sqrt(uw, ((X(u)-X(w))*(X(u)-X(w))) + ((Y(u)-Y(w))*(Y(u)-Y(w))))=_1;
+sqrt(ut, ((X(u)-X(t))*(X(u)-X(t))) + ((Y(u)-Y(t))*(Y(u)-Y(t))))=_1;
+sqrt(vw, ((X(v)-X(w))*(X(v)-X(w))) + ((Y(v)-Y(w))*(Y(v)-Y(w))))=_1;
+sqrt(vt, ((X(v)-X(t))*(X(v)-X(t))) + ((Y(v)-Y(t))*(Y(v)-Y(t))))=_1;
+sqrt(wt, ((X(w)-X(t))*(X(w)-X(t))) + ((Y(w)-Y(t))*(Y(w)-Y(t))))=_1;
+sqrt(up, ((X(u)-X(p))*(X(u)-X(p))) + ((Y(u)-Y(p))*(Y(u)-Y(p))))=_1;
+sqrt(vp, ((X(v)-X(p))*(X(v)-X(p))) + ((Y(v)-Y(p))*(Y(v)-Y(p))))=_1;
+sqrt(wp, ((X(w)-X(p))*(X(w)-X(p))) + ((Y(w)-Y(p))*(Y(w)-Y(p))))=_1;
+sqrt(tp, ((X(t)-X(p))*(X(t)-X(p))) + ((Y(t)-Y(p))*(Y(t)-Y(p))))=_1;
+sqrt(m1w, ((X(m1)-X(w))*(X(m1)-X(w))) + ((Y(m1)-Y(w))*(Y(m1)-Y(w))))=_1;
+sqrt(m2w, ((X(m2)-X(w))*(X(m2)-X(w))) + ((Y(m2)-Y(w))*(Y(m2)-Y(w))))=_1;
+sqrt(m1t, ((X(m1)-X(t))*(X(m1)-X(t))) + ((Y(m1)-Y(t))*(Y(m1)-Y(t))))=_1;
+sqrt(m1u, ((X(m1)-X(u))*(X(m1)-X(u))) + ((Y(m1)-Y(u))*(Y(m1)-Y(u))))=_1;
+sqrt(m2u, ((X(m2)-X(u))*(X(m2)-X(u))) + ((Y(m2)-Y(u))*(Y(m2)-Y(u))))=_1;
+sqrt(m2v, ((X(m2)-X(v))*(X(m2)-X(v))) + ((Y(m2)-Y(v))*(Y(m2)-Y(v))))=_1;

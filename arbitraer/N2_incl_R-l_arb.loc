@@ -1,0 +1,54 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (d, 2, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt N2 in R<-? Metrik: arbiträr
+% E(u,v) <-> Pi_N2(u,v) und NOT(E(u,v) <- Pi_R(u,v)) ist unerfüllbar
+% liefert sat
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten und ist symmetrisch
+(FORALL x,y).	E(x,y)=_1 --> E(y,x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+
+% Axiome der arbiträren Metrik d
+(FORALL x,y). 	d(x,y) >= _0;
+(FORALL x,y). 	d(x,y) = _0 --> x = y;
+(FORALL x,y). 	x = y --> d(x,y) = _0;
+(FORALL x,y). 	d(x,y) = d(y,x);
+(FORALL x,y,z). 	d(x,y) <= d(x,z) + d(z,y);
+
+Query :=
+
+% Instanziierung E(u,v) -> Pi_N2(u,v)
+OR(E(u,v)=_0, V(w)=_0, d(u,w) >= d(u,v));
+OR(E(u,v)=_0, V(w)=_0, d(v,w) >= d(u,v));
+
+% Instanziierung Pi_N2(u,v) -> E(u,v)
+OR(V(w)=_1, E(u,v)=_1);
+OR(d(u,w) < d(u,v), E(u,v)=_1, V(w)=_1);
+OR(d(v,w) < d(u,v), E(u,v)=_1, V(w)=_1);
+OR(d(u,w) < d(u,v), E(u,v)=_1, d(v,w) < d(u,v));
+
+% NOT(Pi_R(u,v) -> E(u,v))
+% heißt Pi_R(u,v) und E(u,v)=0 
+E(u,v)=_0;
+OR(V(w)=_0, d(u,w) >= d(u,v), d(v,w) >= d(u,v));
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(v=w);
+NOT(u=w);
+
+% Instanzierung
+d(u,u)=_0;
+d(v,v)=_0;
+d(w,w)=_0;
+d(u,v)=d(v,u);
+d(u,w)=d(w,u);
+d(v,w)=d(w,v);

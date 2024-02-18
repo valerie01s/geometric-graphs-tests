@@ -1,0 +1,39 @@
+Reduced problem written to N2_incl_R-l_man.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+uw = 3
+vw = 1
+uv = 2
+d_5 = 0
+d_9 = 0
+d_10 = 0
+d_1 = 0
+d_2 = 0
+d_3 = 0
+d_7 = (- 1)
+d_4 = (- 2)
+d_12 = (- 2)
+d_6 = (- 2)
+d_11 = 1
+d_8 = 1
+v = 0
+u = (- 2)
+w = (- 1)
+E(_(- 2), _0) = 0
+V(_(- 1)) = 1
+X(_(- 1)) = (- 1)
+amnt(_0) = 0
+Y(_(- 1)) = 0
+amnt(_(- 2)) = 2
+Y(_(- 2)) = (- 2)
+X(_0) = 0
+X(_(- 2)) = 0
+amnt(_1) = 1
+Y(_0) = 0
+
+H-PILoT spent                0.030624s on the problem.
+The prover needed            0.00411 s for the problem.
+Total running time:          0.034734s.

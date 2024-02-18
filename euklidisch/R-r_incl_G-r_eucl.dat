@@ -1,0 +1,345 @@
+load_package redlog;
+rlset OFSF;
+off rlverbose;
+on rlnzden;
+vars := {d_1, d_10, d_11, d_12, d_13, d_14, d_15, d_16, d_17, d_18, d_19, d_2, d_20, d_21, d_22, d_23, d_24, d_25, d_26, d_27, d_28, d_29, d_3, d_30, d_31, d_32, d_33, d_34, d_35, d_36, d_37, d_38, d_4, d_5, d_6, d_7, d_8, d_9, e_39, e_40, e_41, e_42, e_43, e_44, e_45, e_46, e_47, e_48, e_49, e_50, e_51, e_52, e_53, e_54, m, mw, u, um, uv, uw, v, vm, vw, w};
+
+formula := ( 
+(e_40 = 1 or e_40 = 0) and 
+(e_39 = 1 or e_39 = 0) and 
+((u = v and v = u and e_39 = 1) impl (e_39 = 1)) and 
+((w = u and e_39 = 1) impl (e_40 = 1)) and 
+((e_49 = 1) impl (mw * mw = d_38)) and 
+((e_50 = 1) impl (um * um = d_23)) and 
+((e_51 = 1) impl (uv * uv = d_9)) and 
+((e_52 = 1) impl (uw * uw = d_16)) and 
+((e_53 = 1) impl (vm * vm = d_33)) and 
+((e_54 = 1) impl (vw * vw = d_28)) and 
+((mw * mw = d_38 and mw >= 0) impl (e_49 = 1)) and 
+((um * um = d_23 and um >= 0) impl (e_50 = 1)) and 
+((uv * uv = d_9 and uv >= 0) impl (e_51 = 1)) and 
+((uw * uw = d_16 and uw >= 0) impl (e_52 = 1)) and 
+((vm * vm = d_33 and vm >= 0) impl (e_53 = 1)) and 
+((vw * vw = d_28 and vw >= 0) impl (e_54 = 1)) and 
+((e_49 = 1) impl (mw >= 0)) and 
+((e_50 = 1) impl (um >= 0)) and 
+((e_51 = 1) impl (uv >= 0)) and 
+((e_52 = 1) impl (uw >= 0)) and 
+((e_53 = 1) impl (vm >= 0)) and 
+((e_54 = 1) impl (vw >= 0)) and 
+((mw < 0) impl (e_49 = 0)) and 
+((um < 0) impl (e_50 = 0)) and 
+((uv < 0) impl (e_51 = 0)) and 
+((uw < 0) impl (e_52 = 0)) and 
+((vm < 0) impl (e_53 = 0)) and 
+((vw < 0) impl (e_54 = 0)) and 
+(e_49 = 0 or e_49 = 1) and 
+(e_50 = 0 or e_50 = 1) and 
+(e_51 = 0 or e_51 = 1) and 
+(e_52 = 0 or e_52 = 1) and 
+(e_53 = 0 or e_53 = 1) and 
+(e_54 = 0 or e_54 = 1) and 
+((m = u) impl (e_41 = e_42)) and 
+((m = v) impl (e_41 = e_43)) and 
+((m = w) impl (e_41 = e_44)) and 
+((u = m) impl (e_42 = e_41)) and 
+((u = v) impl (e_42 = e_43)) and 
+((u = w) impl (e_42 = e_44)) and 
+((v = m) impl (e_43 = e_41)) and 
+((v = u) impl (e_43 = e_42)) and 
+((v = w) impl (e_43 = e_44)) and 
+((w = m) impl (e_44 = e_41)) and 
+((w = u) impl (e_44 = e_42)) and 
+((w = v) impl (e_44 = e_43)) and 
+((m = u) impl (e_45 = e_46)) and 
+((m = v) impl (e_45 = e_47)) and 
+((m = w) impl (e_45 = e_48)) and 
+((u = m) impl (e_46 = e_45)) and 
+((u = v) impl (e_46 = e_47)) and 
+((u = w) impl (e_46 = e_48)) and 
+((v = m) impl (e_47 = e_45)) and 
+((v = u) impl (e_47 = e_46)) and 
+((v = w) impl (e_47 = e_48)) and 
+((w = m) impl (e_48 = e_45)) and 
+((w = u) impl (e_48 = e_46)) and 
+((w = v) impl (e_48 = e_47)) and 
+((m = u and m = m and e_41 = e_42 and e_45 = e_45) impl (m = u)) and 
+((u = u and m = m and e_41 = e_42 and e_45 = e_46) impl (m = u)) and 
+((v = u and m = m and e_41 = e_42 and e_45 = e_47) impl (m = u)) and 
+((w = u and m = m and e_41 = e_42 and e_45 = e_48) impl (m = u)) and 
+((m = u and u = m and e_41 = e_42 and e_46 = e_45) impl (m = u)) and 
+((u = u and u = m and e_41 = e_42 and e_46 = e_46) impl (m = u)) and 
+((v = u and u = m and e_41 = e_42 and e_46 = e_47) impl (m = u)) and 
+((w = u and u = m and e_41 = e_42 and e_46 = e_48) impl (m = u)) and 
+((m = u and v = m and e_41 = e_42 and e_47 = e_45) impl (m = u)) and 
+((u = u and v = m and e_41 = e_42 and e_47 = e_46) impl (m = u)) and 
+((v = u and v = m and e_41 = e_42 and e_47 = e_47) impl (m = u)) and 
+((w = u and v = m and e_41 = e_42 and e_47 = e_48) impl (m = u)) and 
+((m = u and w = m and e_41 = e_42 and e_48 = e_45) impl (m = u)) and 
+((u = u and w = m and e_41 = e_42 and e_48 = e_46) impl (m = u)) and 
+((v = u and w = m and e_41 = e_42 and e_48 = e_47) impl (m = u)) and 
+((w = u and w = m and e_41 = e_42 and e_48 = e_48) impl (m = u)) and 
+((m = v and m = m and e_41 = e_43 and e_45 = e_45) impl (m = v)) and 
+((u = v and m = m and e_41 = e_43 and e_45 = e_46) impl (m = v)) and 
+((v = v and m = m and e_41 = e_43 and e_45 = e_47) impl (m = v)) and 
+((w = v and m = m and e_41 = e_43 and e_45 = e_48) impl (m = v)) and 
+((m = v and u = m and e_41 = e_43 and e_46 = e_45) impl (m = v)) and 
+((u = v and u = m and e_41 = e_43 and e_46 = e_46) impl (m = v)) and 
+((v = v and u = m and e_41 = e_43 and e_46 = e_47) impl (m = v)) and 
+((w = v and u = m and e_41 = e_43 and e_46 = e_48) impl (m = v)) and 
+((m = v and v = m and e_41 = e_43 and e_47 = e_45) impl (m = v)) and 
+((u = v and v = m and e_41 = e_43 and e_47 = e_46) impl (m = v)) and 
+((v = v and v = m and e_41 = e_43 and e_47 = e_47) impl (m = v)) and 
+((w = v and v = m and e_41 = e_43 and e_47 = e_48) impl (m = v)) and 
+((m = v and w = m and e_41 = e_43 and e_48 = e_45) impl (m = v)) and 
+((u = v and w = m and e_41 = e_43 and e_48 = e_46) impl (m = v)) and 
+((v = v and w = m and e_41 = e_43 and e_48 = e_47) impl (m = v)) and 
+((w = v and w = m and e_41 = e_43 and e_48 = e_48) impl (m = v)) and 
+((m = w and m = m and e_41 = e_44 and e_45 = e_45) impl (m = w)) and 
+((u = w and m = m and e_41 = e_44 and e_45 = e_46) impl (m = w)) and 
+((v = w and m = m and e_41 = e_44 and e_45 = e_47) impl (m = w)) and 
+((w = w and m = m and e_41 = e_44 and e_45 = e_48) impl (m = w)) and 
+((m = w and u = m and e_41 = e_44 and e_46 = e_45) impl (m = w)) and 
+((u = w and u = m and e_41 = e_44 and e_46 = e_46) impl (m = w)) and 
+((v = w and u = m and e_41 = e_44 and e_46 = e_47) impl (m = w)) and 
+((w = w and u = m and e_41 = e_44 and e_46 = e_48) impl (m = w)) and 
+((m = w and v = m and e_41 = e_44 and e_47 = e_45) impl (m = w)) and 
+((u = w and v = m and e_41 = e_44 and e_47 = e_46) impl (m = w)) and 
+((v = w and v = m and e_41 = e_44 and e_47 = e_47) impl (m = w)) and 
+((w = w and v = m and e_41 = e_44 and e_47 = e_48) impl (m = w)) and 
+((m = w and w = m and e_41 = e_44 and e_48 = e_45) impl (m = w)) and 
+((u = w and w = m and e_41 = e_44 and e_48 = e_46) impl (m = w)) and 
+((v = w and w = m and e_41 = e_44 and e_48 = e_47) impl (m = w)) and 
+((w = w and w = m and e_41 = e_44 and e_48 = e_48) impl (m = w)) and 
+((m = m and m = u and e_42 = e_41 and e_45 = e_45) impl (u = m)) and 
+((u = m and m = u and e_42 = e_41 and e_45 = e_46) impl (u = m)) and 
+((v = m and m = u and e_42 = e_41 and e_45 = e_47) impl (u = m)) and 
+((w = m and m = u and e_42 = e_41 and e_45 = e_48) impl (u = m)) and 
+((m = m and u = u and e_42 = e_41 and e_46 = e_45) impl (u = m)) and 
+((u = m and u = u and e_42 = e_41 and e_46 = e_46) impl (u = m)) and 
+((v = m and u = u and e_42 = e_41 and e_46 = e_47) impl (u = m)) and 
+((w = m and u = u and e_42 = e_41 and e_46 = e_48) impl (u = m)) and 
+((m = m and v = u and e_42 = e_41 and e_47 = e_45) impl (u = m)) and 
+((u = m and v = u and e_42 = e_41 and e_47 = e_46) impl (u = m)) and 
+((v = m and v = u and e_42 = e_41 and e_47 = e_47) impl (u = m)) and 
+((w = m and v = u and e_42 = e_41 and e_47 = e_48) impl (u = m)) and 
+((m = m and w = u and e_42 = e_41 and e_48 = e_45) impl (u = m)) and 
+((u = m and w = u and e_42 = e_41 and e_48 = e_46) impl (u = m)) and 
+((v = m and w = u and e_42 = e_41 and e_48 = e_47) impl (u = m)) and 
+((w = m and w = u and e_42 = e_41 and e_48 = e_48) impl (u = m)) and 
+((m = v and m = u and e_42 = e_43 and e_45 = e_45) impl (u = v)) and 
+((u = v and m = u and e_42 = e_43 and e_45 = e_46) impl (u = v)) and 
+((v = v and m = u and e_42 = e_43 and e_45 = e_47) impl (u = v)) and 
+((w = v and m = u and e_42 = e_43 and e_45 = e_48) impl (u = v)) and 
+((m = v and u = u and e_42 = e_43 and e_46 = e_45) impl (u = v)) and 
+((u = v and u = u and e_42 = e_43 and e_46 = e_46) impl (u = v)) and 
+((v = v and u = u and e_42 = e_43 and e_46 = e_47) impl (u = v)) and 
+((w = v and u = u and e_42 = e_43 and e_46 = e_48) impl (u = v)) and 
+((m = v and v = u and e_42 = e_43 and e_47 = e_45) impl (u = v)) and 
+((u = v and v = u and e_42 = e_43 and e_47 = e_46) impl (u = v)) and 
+((v = v and v = u and e_42 = e_43 and e_47 = e_47) impl (u = v)) and 
+((w = v and v = u and e_42 = e_43 and e_47 = e_48) impl (u = v)) and 
+((m = v and w = u and e_42 = e_43 and e_48 = e_45) impl (u = v)) and 
+((u = v and w = u and e_42 = e_43 and e_48 = e_46) impl (u = v)) and 
+((v = v and w = u and e_42 = e_43 and e_48 = e_47) impl (u = v)) and 
+((w = v and w = u and e_42 = e_43 and e_48 = e_48) impl (u = v)) and 
+((m = w and m = u and e_42 = e_44 and e_45 = e_45) impl (u = w)) and 
+((u = w and m = u and e_42 = e_44 and e_45 = e_46) impl (u = w)) and 
+((v = w and m = u and e_42 = e_44 and e_45 = e_47) impl (u = w)) and 
+((w = w and m = u and e_42 = e_44 and e_45 = e_48) impl (u = w)) and 
+((m = w and u = u and e_42 = e_44 and e_46 = e_45) impl (u = w)) and 
+((u = w and u = u and e_42 = e_44 and e_46 = e_46) impl (u = w)) and 
+((v = w and u = u and e_42 = e_44 and e_46 = e_47) impl (u = w)) and 
+((w = w and u = u and e_42 = e_44 and e_46 = e_48) impl (u = w)) and 
+((m = w and v = u and e_42 = e_44 and e_47 = e_45) impl (u = w)) and 
+((u = w and v = u and e_42 = e_44 and e_47 = e_46) impl (u = w)) and 
+((v = w and v = u and e_42 = e_44 and e_47 = e_47) impl (u = w)) and 
+((w = w and v = u and e_42 = e_44 and e_47 = e_48) impl (u = w)) and 
+((m = w and w = u and e_42 = e_44 and e_48 = e_45) impl (u = w)) and 
+((u = w and w = u and e_42 = e_44 and e_48 = e_46) impl (u = w)) and 
+((v = w and w = u and e_42 = e_44 and e_48 = e_47) impl (u = w)) and 
+((w = w and w = u and e_42 = e_44 and e_48 = e_48) impl (u = w)) and 
+((m = m and m = v and e_43 = e_41 and e_45 = e_45) impl (v = m)) and 
+((u = m and m = v and e_43 = e_41 and e_45 = e_46) impl (v = m)) and 
+((v = m and m = v and e_43 = e_41 and e_45 = e_47) impl (v = m)) and 
+((w = m and m = v and e_43 = e_41 and e_45 = e_48) impl (v = m)) and 
+((m = m and u = v and e_43 = e_41 and e_46 = e_45) impl (v = m)) and 
+((u = m and u = v and e_43 = e_41 and e_46 = e_46) impl (v = m)) and 
+((v = m and u = v and e_43 = e_41 and e_46 = e_47) impl (v = m)) and 
+((w = m and u = v and e_43 = e_41 and e_46 = e_48) impl (v = m)) and 
+((m = m and v = v and e_43 = e_41 and e_47 = e_45) impl (v = m)) and 
+((u = m and v = v and e_43 = e_41 and e_47 = e_46) impl (v = m)) and 
+((v = m and v = v and e_43 = e_41 and e_47 = e_47) impl (v = m)) and 
+((w = m and v = v and e_43 = e_41 and e_47 = e_48) impl (v = m)) and 
+((m = m and w = v and e_43 = e_41 and e_48 = e_45) impl (v = m)) and 
+((u = m and w = v and e_43 = e_41 and e_48 = e_46) impl (v = m)) and 
+((v = m and w = v and e_43 = e_41 and e_48 = e_47) impl (v = m)) and 
+((w = m and w = v and e_43 = e_41 and e_48 = e_48) impl (v = m)) and 
+((m = u and m = v and e_43 = e_42 and e_45 = e_45) impl (v = u)) and 
+((u = u and m = v and e_43 = e_42 and e_45 = e_46) impl (v = u)) and 
+((v = u and m = v and e_43 = e_42 and e_45 = e_47) impl (v = u)) and 
+((w = u and m = v and e_43 = e_42 and e_45 = e_48) impl (v = u)) and 
+((m = u and u = v and e_43 = e_42 and e_46 = e_45) impl (v = u)) and 
+((u = u and u = v and e_43 = e_42 and e_46 = e_46) impl (v = u)) and 
+((v = u and u = v and e_43 = e_42 and e_46 = e_47) impl (v = u)) and 
+((w = u and u = v and e_43 = e_42 and e_46 = e_48) impl (v = u)) and 
+((m = u and v = v and e_43 = e_42 and e_47 = e_45) impl (v = u)) and 
+((u = u and v = v and e_43 = e_42 and e_47 = e_46) impl (v = u)) and 
+((v = u and v = v and e_43 = e_42 and e_47 = e_47) impl (v = u)) and 
+((w = u and v = v and e_43 = e_42 and e_47 = e_48) impl (v = u)) and 
+((m = u and w = v and e_43 = e_42 and e_48 = e_45) impl (v = u)) and 
+((u = u and w = v and e_43 = e_42 and e_48 = e_46) impl (v = u)) and 
+((v = u and w = v and e_43 = e_42 and e_48 = e_47) impl (v = u)) and 
+((w = u and w = v and e_43 = e_42 and e_48 = e_48) impl (v = u)) and 
+((m = w and m = v and e_43 = e_44 and e_45 = e_45) impl (v = w)) and 
+((u = w and m = v and e_43 = e_44 and e_45 = e_46) impl (v = w)) and 
+((v = w and m = v and e_43 = e_44 and e_45 = e_47) impl (v = w)) and 
+((w = w and m = v and e_43 = e_44 and e_45 = e_48) impl (v = w)) and 
+((m = w and u = v and e_43 = e_44 and e_46 = e_45) impl (v = w)) and 
+((u = w and u = v and e_43 = e_44 and e_46 = e_46) impl (v = w)) and 
+((v = w and u = v and e_43 = e_44 and e_46 = e_47) impl (v = w)) and 
+((w = w and u = v and e_43 = e_44 and e_46 = e_48) impl (v = w)) and 
+((m = w and v = v and e_43 = e_44 and e_47 = e_45) impl (v = w)) and 
+((u = w and v = v and e_43 = e_44 and e_47 = e_46) impl (v = w)) and 
+((v = w and v = v and e_43 = e_44 and e_47 = e_47) impl (v = w)) and 
+((w = w and v = v and e_43 = e_44 and e_47 = e_48) impl (v = w)) and 
+((m = w and w = v and e_43 = e_44 and e_48 = e_45) impl (v = w)) and 
+((u = w and w = v and e_43 = e_44 and e_48 = e_46) impl (v = w)) and 
+((v = w and w = v and e_43 = e_44 and e_48 = e_47) impl (v = w)) and 
+((w = w and w = v and e_43 = e_44 and e_48 = e_48) impl (v = w)) and 
+((m = m and m = w and e_44 = e_41 and e_45 = e_45) impl (w = m)) and 
+((u = m and m = w and e_44 = e_41 and e_45 = e_46) impl (w = m)) and 
+((v = m and m = w and e_44 = e_41 and e_45 = e_47) impl (w = m)) and 
+((w = m and m = w and e_44 = e_41 and e_45 = e_48) impl (w = m)) and 
+((m = m and u = w and e_44 = e_41 and e_46 = e_45) impl (w = m)) and 
+((u = m and u = w and e_44 = e_41 and e_46 = e_46) impl (w = m)) and 
+((v = m and u = w and e_44 = e_41 and e_46 = e_47) impl (w = m)) and 
+((w = m and u = w and e_44 = e_41 and e_46 = e_48) impl (w = m)) and 
+((m = m and v = w and e_44 = e_41 and e_47 = e_45) impl (w = m)) and 
+((u = m and v = w and e_44 = e_41 and e_47 = e_46) impl (w = m)) and 
+((v = m and v = w and e_44 = e_41 and e_47 = e_47) impl (w = m)) and 
+((w = m and v = w and e_44 = e_41 and e_47 = e_48) impl (w = m)) and 
+((m = m and w = w and e_44 = e_41 and e_48 = e_45) impl (w = m)) and 
+((u = m and w = w and e_44 = e_41 and e_48 = e_46) impl (w = m)) and 
+((v = m and w = w and e_44 = e_41 and e_48 = e_47) impl (w = m)) and 
+((w = m and w = w and e_44 = e_41 and e_48 = e_48) impl (w = m)) and 
+((m = u and m = w and e_44 = e_42 and e_45 = e_45) impl (w = u)) and 
+((u = u and m = w and e_44 = e_42 and e_45 = e_46) impl (w = u)) and 
+((v = u and m = w and e_44 = e_42 and e_45 = e_47) impl (w = u)) and 
+((w = u and m = w and e_44 = e_42 and e_45 = e_48) impl (w = u)) and 
+((m = u and u = w and e_44 = e_42 and e_46 = e_45) impl (w = u)) and 
+((u = u and u = w and e_44 = e_42 and e_46 = e_46) impl (w = u)) and 
+((v = u and u = w and e_44 = e_42 and e_46 = e_47) impl (w = u)) and 
+((w = u and u = w and e_44 = e_42 and e_46 = e_48) impl (w = u)) and 
+((m = u and v = w and e_44 = e_42 and e_47 = e_45) impl (w = u)) and 
+((u = u and v = w and e_44 = e_42 and e_47 = e_46) impl (w = u)) and 
+((v = u and v = w and e_44 = e_42 and e_47 = e_47) impl (w = u)) and 
+((w = u and v = w and e_44 = e_42 and e_47 = e_48) impl (w = u)) and 
+((m = u and w = w and e_44 = e_42 and e_48 = e_45) impl (w = u)) and 
+((u = u and w = w and e_44 = e_42 and e_48 = e_46) impl (w = u)) and 
+((v = u and w = w and e_44 = e_42 and e_48 = e_47) impl (w = u)) and 
+((w = u and w = w and e_44 = e_42 and e_48 = e_48) impl (w = u)) and 
+((m = v and m = w and e_44 = e_43 and e_45 = e_45) impl (w = v)) and 
+((u = v and m = w and e_44 = e_43 and e_45 = e_46) impl (w = v)) and 
+((v = v and m = w and e_44 = e_43 and e_45 = e_47) impl (w = v)) and 
+((w = v and m = w and e_44 = e_43 and e_45 = e_48) impl (w = v)) and 
+((m = v and u = w and e_44 = e_43 and e_46 = e_45) impl (w = v)) and 
+((u = v and u = w and e_44 = e_43 and e_46 = e_46) impl (w = v)) and 
+((v = v and u = w and e_44 = e_43 and e_46 = e_47) impl (w = v)) and 
+((w = v and u = w and e_44 = e_43 and e_46 = e_48) impl (w = v)) and 
+((m = v and v = w and e_44 = e_43 and e_47 = e_45) impl (w = v)) and 
+((u = v and v = w and e_44 = e_43 and e_47 = e_46) impl (w = v)) and 
+((v = v and v = w and e_44 = e_43 and e_47 = e_47) impl (w = v)) and 
+((w = v and v = w and e_44 = e_43 and e_47 = e_48) impl (w = v)) and 
+((m = v and w = w and e_44 = e_43 and e_48 = e_45) impl (w = v)) and 
+((u = v and w = w and e_44 = e_43 and e_48 = e_46) impl (w = v)) and 
+((v = v and w = w and e_44 = e_43 and e_48 = e_47) impl (w = v)) and 
+((w = v and w = w and e_44 = e_43 and e_48 = e_48) impl (w = v)) and 
+((vm = vw and d_33 = d_28) impl (e_53 = e_54)) and 
+((uw = vm and d_16 = d_33) impl (e_52 = e_53)) and 
+((uw = vw and d_16 = d_28) impl (e_52 = e_54)) and 
+((uv = uw and d_9 = d_16) impl (e_51 = e_52)) and 
+((uv = vm and d_9 = d_33) impl (e_51 = e_53)) and 
+((uv = vw and d_9 = d_28) impl (e_51 = e_54)) and 
+((um = uv and d_23 = d_9) impl (e_50 = e_51)) and 
+((um = uw and d_23 = d_16) impl (e_50 = e_52)) and 
+((um = vm and d_23 = d_33) impl (e_50 = e_53)) and 
+((um = vw and d_23 = d_28) impl (e_50 = e_54)) and 
+((mw = um and d_38 = d_23) impl (e_49 = e_50)) and 
+((mw = uv and d_38 = d_9) impl (e_49 = e_51)) and 
+((mw = uw and d_38 = d_16) impl (e_49 = e_52)) and 
+((mw = vm and d_38 = d_33) impl (e_49 = e_53)) and 
+((mw = vw and d_38 = d_28) impl (e_49 = e_54)) and 
+((v = w) impl (e_47 = e_48)) and 
+((u = v) impl (e_46 = e_47)) and 
+((u = w) impl (e_46 = e_48)) and 
+((m = u) impl (e_45 = e_46)) and 
+((m = v) impl (e_45 = e_47)) and 
+((m = w) impl (e_45 = e_48)) and 
+((v = w) impl (e_43 = e_44)) and 
+((u = v) impl (e_42 = e_43)) and 
+((u = w) impl (e_42 = e_44)) and 
+((m = u) impl (e_41 = e_42)) and 
+((m = v) impl (e_41 = e_43)) and 
+((m = w) impl (e_41 = e_44)) and 
+d_17 = e_41 and 
+d_24 = d_2 - d_10 and 
+d_36 = d_20 - d_13 and 
+d_12 = d_11 * d_11 and 
+d_19 = d_18 * d_18 and 
+d_11 = d_1 - d_10 and 
+d_8 = d_7 * d_7 and 
+d_6 = e_47 and 
+d_16 = d_12 + d_15 and 
+d_37 = d_36 * d_36 and 
+d_28 = d_25 + d_27 and 
+d_35 = d_34 * d_34 and 
+d_34 = d_17 - d_10 and 
+d_27 = d_26 * d_26 and 
+d_2 = e_43 and 
+d_22 = d_21 * d_21 and 
+d_7 = d_5 - d_6 and 
+d_4 = d_3 * d_3 and 
+d_9 = d_4 + d_8 and 
+d_20 = e_45 and 
+d_5 = e_46 and 
+d_33 = d_30 + d_32 and 
+d_14 = d_5 - d_13 and 
+d_26 = d_6 - d_13 and 
+d_30 = d_29 * d_29 and 
+d_10 = e_44 and 
+d_38 = d_35 + d_37 and 
+d_18 = d_1 - d_17 and 
+d_32 = d_31 * d_31 and 
+d_25 = d_24 * d_24 and 
+d_31 = d_6 - d_20 and 
+d_1 = e_42 and 
+d_23 = d_19 + d_22 and 
+d_3 = d_1 - d_2 and 
+d_13 = e_48 and 
+d_29 = d_2 - d_17 and 
+d_15 = d_14 * d_14 and 
+d_21 = d_5 - d_20 and 
+2 * e_41 = e_42 + e_43 and 
+2 * e_45 = e_46 + e_47 and 
+not( u = v) and 
+not( u = w) and 
+not( u = m) and 
+not( v = w) and 
+not( w = m) and 
+not( v = m) and 
+(e_39 = 0 or e_40 = 0 or uw >= uv or vw >= uv) and 
+e_39 = 1 and 
+e_40 = 1 and 
+mw <= um and 
+e_51 = 1 and 
+e_52 = 1 and 
+e_50 = 1 and 
+e_54 = 1 and 
+e_53 = 1 and 
+e_49 = 1
+ ); 
+
+query :=  (rlqe ex(vars, formula)); 
+
+end; 

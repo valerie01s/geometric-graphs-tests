@@ -1,0 +1,24 @@
+Reduced problem written to G-r_incl_R-r_eucl_nosqrt.smt.
+sat
+>Unknown. Prover says 'sat' but this can only be trusted for local extensions and this problem is not known to be local.
+However, you can try out this suggested model.
+
+model:
+v = (- 4)
+m = (- 8)
+w = (- 3)
+u = (- 6)
+V(_(- 3)) = 1
+E(_(- 6), _(- 4)) = 1
+X(_(- 6)) = (- 8)
+X(_(- 4)) = 6
+Y(_(- 6)) = (- 4)
+Y(_(- 4)) = 2
+X(_(- 3)) = (- 3)
+Y(_(- 3)) = 7
+X(_(- 8)) = (- 1)
+Y(_(- 8)) = (- 1)
+
+H-PILoT spent                0.060522s on the problem.
+The prover needed            0.082583s for the problem.
+Total running time:          0.143105s.

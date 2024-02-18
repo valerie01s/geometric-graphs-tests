@@ -1,0 +1,72 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (d, 2, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt G-> in P? Metrik: arbiträr
+% Test aus short paper, ohne Kanten
+% liefert unsat
+
+Clauses :=
+
+% V ist entweder 0 oder 1
+(FORALL x). --> V(x)=_0, V(x)=_1;
+
+% Axiome für d (d ist eine Metrik)
+(FORALL x,y). d(x,y) >= _0;
+(FORALL x,y). d(x,y) = _0 --> x = y;
+(FORALL x,y). x = y --> d(x,y) = _0;
+(FORALL x,y). d(x,y) = d(y,x);
+(FORALL x,y,z). d(x,y) <= d(x,z) + d(z,y);
+
+% Pi_G(u,v)
+(FORALL x). --> x=u, x=v, V(x)=_0, d(m1,x) > d(m1,u);
+
+% Pi_G(w,z)
+(FORALL x). --> x=w, x=z, V(x)=_0, d(m2,x) > d(m2,w);	
+		
+Query :=
+
+% u,v,w,z sind Knoten
+V(u)=_1;
+V(v)=_1;
+V(w)=_1;
+V(z)=_1;
+
+% Knoten sind verschieden
+NOT(u=v);
+NOT(u=w);
+NOT(u=z);
+NOT(v=w);
+NOT(v=z);
+NOT(w=z);
+
+% Pi_P(u,v,w,z), p ist der Schnittpunkt von u,v und w,z
+d(u,p)+d(p,v)=d(u,v);
+d(w,p)+d(p,z)=d(w,z);
+
+% m1 ist Mittelpunkt des Segments u,v
+_2*d(u,m1)=d(u,v);
+_2*d(v,m1)=d(u,v);
+
+% m2 ist Mittelpunkt des Segments w,z
+_2*d(w,m2)=d(w,z);
+_2*d(z,m2)=d(w,z);
+
+% Annahmen
+OR(d(u,m1)=d(u,p)+d(p,m1), d(v,m1)=d(v,p)+d(p,m1));
+OR(d(w,m2)=d(w,p)+d(p,m2), d(z,m2)=d(z,p)+d(p,m2)); 
+
+% notwendig für vollst Instanzierung
+d(m1,m1)=_0;
+d(m1,u)=d(u,m1);
+d(m1,v)=d(v,m1);
+d(m1,w)=d(w,m1);
+d(m1,z)=d(z,m1);
+d(m1,p)=d(p,m1);
+d(m2,m2)=_0;
+d(m2,u)=d(u,m2);
+d(m2,v)=d(v,m2);
+d(m2,w)=d(w,m2);
+d(m2,z)=d(z,m2);
+d(m2,p)=d(p,m2);
+d(m1,m2)=d(m2,m1);

@@ -1,0 +1,78 @@
+Base_functions:={(+,2), (-,2), (*,2)}
+Extension_functions:={(V, 1, 1), (E, 2, 1), (sqrt, 2, 1), (max, 2, 1), (X, 1, 1), (Y, 1, 1)}
+Relations:={(<,2), (>,2), (<=,2), (>=,2)}
+
+% Problem: Liegt G-> in R->? Metrik: maximum, Instanzierung Pi_R
+% E(u,v) -> Pi_G(u,v) und NOT(E(u,v) -> Pi_R(u,v)) ist unerf¸llbar
+% liefert true mit REDLOG
+
+Clauses :=
+
+% Knoten sowie Kanten sind entweder 0 oder 1
+(FORALL x).	--> V(x)=_1, V(x)=_0;
+(FORALL x,y).	--> E(x,y)=_1, E(x,y)=_0;
+
+% Kante existiert zwischen zwei Knoten und ist symmetrisch
+(FORALL x,y).	E(x,y)=_1 --> E(y,x)=_1;
+(FORALL x,y).	E(x,y)=_1 --> V(x)=_1;
+
+% Axiome f¸r Wurzel (x*x = y)
+(FORALL x,y).	sqrt(x,y)=_1 --> x*x=y;
+(FORALL x,y).	x*x=y, x>=_0 -->  sqrt(x,y)=_1;
+(FORALL x,y).	sqrt(x,y)=_1 --> x>=_0;
+(FORALL x,y).	x<_0 --> sqrt(x,y)=_0;
+(FORALL x,y).	--> sqrt(x,y)=_0, sqrt(x,y)=_1;
+
+% Axiome f¸r das Maximum zweier Zahlen 
+(FORALL x,y).	x>=y --> max(x,y)=x;
+(FORALL x,y).	x<y --> max(x,y)=y;
+(FORALL x,y).	max(x,y)=x --> x>=y;
+(FORALL x,y).	max(x,y)=y --> x<y;
+(FORALL x,y).	--> max(x,y)=x, max(x,y)=y;
+
+% Punkte sind gleich wenn ihre Koordinaten gleich sind
+(FORALL x,y). 	x=y --> X(x)=X(y);
+(FORALL x,y). 	x=y --> Y(x)=Y(y);
+(FORALL x,y).	X(x)=X(y), Y(x)=Y(y) --> x=y;
+
+Query :=
+
+% m ist Mittelpunkt des Segments uv
+_2*X(m) = X(u)+X(v);
+_2*Y(m) = Y(u)+Y(v);
+
+% Punkte sind verschieden
+NOT(u=v);
+NOT(u=w);
+NOT(u=m);
+NOT(v=w);
+NOT(w=m);
+NOT(v=m);
+
+% Instanzierung E(u,v) -> Pi_G(u,v)
+OR(E(u,v)=_0, V(w)=_0, mw > mu);
+
+% NOT(Pi_R(u,v) <-> E(u,v))
+% heiﬂt E(u,v)=1 und NOT(Pi_R(u,v))
+E(u,v)=_1;
+V(w)=_1;
+uw < uv;
+vw < uv;
+
+% Distanzen maximum
+sqrt(xuv, (X(u)-X(v))*(X(u)-X(v)))=_1;
+sqrt(yuv, (Y(u)-Y(v))*(Y(u)-Y(v)))=_1;
+sqrt(xuw, (X(u)-X(w))*(X(u)-X(w)))=_1;
+sqrt(yuw, (Y(u)-Y(w))*(Y(u)-Y(w)))=_1;
+sqrt(xvw, (X(v)-X(w))*(X(v)-X(w)))=_1;
+sqrt(yvw, (Y(v)-Y(w))*(Y(v)-Y(w)))=_1;
+sqrt(xmw, (X(m)-X(w))*(X(m)-X(w))) = _1;
+sqrt(ymw, (Y(m)-Y(w))*(Y(m)-Y(w))) = _1;
+sqrt(xmu, (X(m)-X(u))*(X(m)-X(u))) = _1;
+sqrt(ymu, (Y(m)-Y(u))*(Y(m)-Y(u))) = _1;
+
+uv = max(xuv,yuv);
+vw = max(xvw,yvw);
+uw = max(xuw,yuw);
+mw = max(xmw,ymw);
+mu = max(xmu,ymu);
